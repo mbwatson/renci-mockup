@@ -6,5 +6,5 @@ export const Main = styled.main`
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2rem 2rem;
 `

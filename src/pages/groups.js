@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from 'gatsby'
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import { SEO } from "../components/seo"
+import { Layout } from "../components/layout"
 
 const PeoplePage = ({ data }) => {
     const groups = data.allGroupsYaml.edges

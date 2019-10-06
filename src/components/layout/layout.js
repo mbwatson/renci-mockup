@@ -1,16 +1,22 @@
 import React from "react"
+import styled from 'styled-components'
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { Page } from './page'
 import { Header }from "./header"
+import { Brand } from '../brand'
 import { Main }from "./main"
 import { Footer } from "./footer"
 import { Link } from "gatsby"
-import { Menu, MenuItem } from './menu'
+import { Menu, MenuItem } from '../menu'
+import "../../styles/base.css"
 
-import "../styles/base.css"
+export const Page = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+`
 
-const Layout = ({ children }) => {
+export const Layout = ({ children }) => {
     const data = useStaticQuery(graphql`
         query SiteTitleQuery {
             site {
@@ -24,7 +30,7 @@ const Layout = ({ children }) => {
     return (
         <Page>
             <Header>
-                <h1 style={{ margin: 0 }}>
+                <Brand>
                     <Link to="/"
                         style={{
                             color: `white`,
@@ -33,7 +39,7 @@ const Layout = ({ children }) => {
                     >
                         { data.site.siteMetadata.title }
                     </Link>
-                </h1>
+                </Brand>
                 <Menu>
                     <MenuItem to="#">Home</MenuItem>
                     <MenuItem to="/people">People</MenuItem>
@@ -53,5 +59,3 @@ const Layout = ({ children }) => {
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
 }
-
-export default Layout
