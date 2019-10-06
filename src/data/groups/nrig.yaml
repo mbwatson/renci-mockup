@@ -1,0 +1,13 @@
+id: nrig
+name: NRIG
+description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+lead: ibaldin
+members:
+  - ibaldin
+projects:
+  - chameleon
+  - fabric
+online_presence:
+  url: https://nrig.renci.org
+  github: 
+  twitter: 

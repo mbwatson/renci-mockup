@@ -1,0 +1,11 @@
+id: irods
+name: iRODS
+description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+lead: jcoposky
+members:
+  - tgr
+  - jcoposky
+online_presence:
+  url: https://www.irods.org
+  github: irods
+  twitter: iRODS
