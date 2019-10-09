@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
 import { Layout } from "../components/layout"
+import { Profile } from '../components/user'
 
 const PeoplePage = ({ data }) => {
     const staff = data.allPeopleYaml.edges
@@ -14,30 +15,7 @@ const PeoplePage = ({ data }) => {
 
             {
                 staff.map(({ node: person }) => (
-                    <div key={ person.id }>
-                        <h2>{ person.name }</h2>
-
-                        <h4>- Teams ({ (person.teams && person.teams.length) || '0' })</h4>
-                        {
-                            person.teams && person.teams.map(team => (
-                                <div key={ `${ person.id }-${ team.id }` }>
-                                    <Link to={ `/teams/${ team.id }` }>{ team.name }</Link>
-                                </div>
-                            ))
-                        }
-                        <br/>
-
-                        <h4>- Groups ({ (person.groups && person.groups.length) || '0' })</h4>
-                        {
-                            person.groups && person.groups.map(group => (
-                                <div key={ `${ person.id }-${ group.id }` }>
-                                    <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
-                                </div>
-                            ))
-                        }
-                        <br/>
-                        
-                    </div>
+                    <Profile person={ person } />
                 ))
             }
 

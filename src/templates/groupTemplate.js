@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { Layout } from "../components/layout"
+import { MiniProfile } from '../components/user'
 
 export default ({ data, pageContext }) => {
     const { groupsYaml: {
@@ -14,11 +15,7 @@ export default ({ data, pageContext }) => {
 
             <h3>Members</h3>
             <div>
-                {
-                    members.map(person => (
-                        <div><Link to={ `/people/${ person.id }` }>{ person.name }</Link></div>
-                    ))
-                }
+                { members.map(person => <MiniProfile key={ person.id } person={ person } />) }
             </div>
 
             <br/>

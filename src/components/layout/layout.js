@@ -23,6 +23,7 @@ const menuItems = [
     { path: '/groups', text: 'Groups' },
     { path: '/projects', text: 'Projects' },
     { path: '/teams', text: 'Teams' },
+    { path: '/news', text: 'News' },
 ]
 
 export const Layout = ({ children }) => {

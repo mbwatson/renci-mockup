@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
 import { Layout } from "../components/layout"
+import { MiniProfile } from '../components/user'
 
 const PeoplePage = ({ data }) => {
     const groups = data.allGroupsYaml.edges
@@ -19,13 +20,7 @@ const PeoplePage = ({ data }) => {
                         
                         <h4>Members</h4>
                         <div>
-                            {
-                                group.members && group.members.map(person => (
-                                    <div key={ `${ group.id }-${ person.id }` }>
-                                        <Link to={ `/people/${ person.id }` }>{ person.name }</Link>
-                                    </div>
-                                ))
-                            }
+                            { group.members && group.members.map(person => <MiniProfile key={ person.id } person={ person } />) }
                         </div>
 
                         <br/>
