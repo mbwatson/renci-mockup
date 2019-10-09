@@ -2,16 +2,24 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { Layout } from "../components/layout"
 import { MiniProfile } from '../components/user'
+import { TwitterIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {
     const { groupsYaml: {
         name,
         members,
         projects,
+        online_presence,
     }} = data
     return (
         <Layout>
             <h1>{ name }</h1>
+
+            <ul style={{ listStyleType: 'none' }}>
+                <li>Website: <a href={ online_presence.url }>{ online_presence.url }</a></li>
+                <li>Twitter: <a href={ `https://twitter.com/${ online_presence.twitter }` }>{ online_presence.twitter }</a></li>
+                <li>GitHub: <a href={ `https://github.com/${ online_presence.github }` }>{ online_presence.github }</a></li>
+            </ul>
 
             <h3>Members</h3>
             <div>
@@ -47,6 +55,11 @@ export const groupQuery = graphql`
             projects {
                 id
                 name
+            }
+            online_presence {
+                url
+                twitter
+                github
             }
         }
     }

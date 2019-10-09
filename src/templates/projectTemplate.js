@@ -7,12 +7,19 @@ export default ({ data, pageContext }) => {
         name,
         description,
         group,
+        online_presence
     }} = data
     
     return (
         <Layout>
             <h1>{ name }</h1>
             
+            <ul style={{ listStyleType: 'none' }}>
+                <li>Website: <a href={ online_presence.url }>{ online_presence.url }</a></li>
+                <li>Twitter: <a href={ `https://twitter.com/${ online_presence.twitter }` }>{ online_presence.twitter }</a></li>
+                <li>GitHub: <a href={ `https://github.com/${ online_presence.github }` }>{ online_presence.github }</a></li>
+            </ul>
+
             <p>{ description }</p>
 
             <p>This project is owned by <Link to={ `/groups/${ group.id }` }>{ group.name }</Link> </p>
@@ -28,6 +35,11 @@ export const projectQuery = graphql`
             group {
                 id
                 name
+            }
+            online_presence {
+                url
+                twitter
+                github
             }
         }
     }

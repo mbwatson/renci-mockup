@@ -63,10 +63,6 @@ export const Profile = ({ person }) => {
                 </Container>
             </ProfileBody>
             
-            <ProfileFooter>
-                ...
-            </ProfileFooter>
-
         </ProfileWrapper>   
     )
 }

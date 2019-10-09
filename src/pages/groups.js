@@ -16,7 +16,7 @@ const PeoplePage = ({ data }) => {
             {
                 groups.map(({ node: group }) => (
                     <div key={ group.id }>
-                        <h2>{ group.name }</h2>
+                        <h2><Link to={ `/groups/${ group.id }` }>{ group.name }</Link></h2>
                         
                         <h4>Members</h4>
                         <div>
