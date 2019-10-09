@@ -2,15 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from "gatsby"
 
-export const Navigation = styled.nav`
+export const MobileNavigation = styled.nav`
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
+    padding-bottom: 1rem;
 `
 
-export const MenuItem = styled(Link)`
+export const MobileMenuItem = styled(Link)`
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,10 +29,10 @@ export const MenuItem = styled(Link)`
     }
 `
 
-export const Menu = ({ items }) => {
+export const MobileMenu = ({ items }) => {
     return (
-        <Navigation>
-            { items.map(item => <MenuItem key={ item.text } to={ item.path }>{ item.text }</MenuItem>) }
-        </Navigation>
+        <MobileNavigation>
+            { items.map(item => <MobileMenuItem key={ item.text } to={ item.path }>{ item.text }</MobileMenuItem>) }
+        </MobileNavigation>
     )
 }

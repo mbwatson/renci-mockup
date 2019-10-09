@@ -26,9 +26,11 @@ export default ({ data, pageContext }) => {
             <h3>Projects</h3>
             <div>
                 {
-                    projects.map(project => (
+                    projects
+                    ? projects.map(project => (
                         <div><Link to={ `/projects/${ project.id }` }>{ project.name }</Link></div>
                     ))
+                    : <div>&empty;</div>
                 }
             </div>
 

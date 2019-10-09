@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 export const Header = styled.header`
     background: rebeccapurple;
     display: flex;
+    flex-direction: ${ ({ compact}) => compact ? 'column' : 'row' };
     justify-content: space-between;
 `
 

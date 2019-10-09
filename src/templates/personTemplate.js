@@ -22,11 +22,13 @@ export default ({ data, pageContext }) => {
             <h3>Groups</h3>
             <div>
                 {
-                    groups && groups.map(group => (
-                        <div>
-                            <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
-                        </div>
-                    ))
+                    groups
+                        ? groups.map(group => (
+                            <div>
+                                <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
+                            </div>
+                        ))
+                        : <div>&empty;</div>
                 }
             </div>
 
@@ -35,11 +37,13 @@ export default ({ data, pageContext }) => {
             <h3>Teams</h3>
             <div>
                 {
-                    teams && teams.map(team => (
+                    teams
+                    ? teams.map(team => (
                         <div>
                             <Link to={ `/teams/${ team.id }` }>{ team.name }</Link>
                         </div>
                     ))
+                    :  <div>&empty;</div>
                 }
             </div>
         </Layout>

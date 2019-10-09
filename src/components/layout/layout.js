@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from 'styled-components'
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -7,8 +7,9 @@ import { Brand } from '../brand'
 import { Main }from "./main"
 import { Footer } from "./footer"
 import { Link } from "gatsby"
-import { Menu, MenuItem } from '../menu'
+import { Menu, MobileMenu } from '../menu'
 import "../../styles/base.css"
+import { useWindowWidth } from '@mwatson/usewindowwidth'
 
 export const Page = styled.div`
     display: flex;
@@ -16,7 +17,23 @@ export const Page = styled.div`
     min-height: 100vh;
 `
 
+const menuItems = [
+    { path: '#', text: 'Home' },
+    { path: '/people', text: 'People' },
+    { path: '/groups', text: 'Groups' },
+    { path: '/projects', text: 'Projects' },
+    { path: '/teams', text: 'Teams' },
+]
+
 export const Layout = ({ children }) => {
+    const { windowWidth, SM } = useWindowWidth()
+    const isCompact = windowWidth < SM
+    const [compact, setCompact] = useState(isCompact)
+
+    useEffect(() => {
+        setCompact(isCompact)
+    }, [windowWidth])
+
     const data = useStaticQuery(graphql`
         query SiteTitleQuery {
             site {
@@ -29,8 +46,8 @@ export const Layout = ({ children }) => {
 
     return (
         <Page>
-            <Header>
-                <Brand>
+            <Header compact={ compact }>
+                <Brand center={ compact }>
                     <Link to="/"
                         style={{
                             color: `white`,
@@ -40,13 +57,7 @@ export const Layout = ({ children }) => {
                         { data.site.siteMetadata.title }
                     </Link>
                 </Brand>
-                <Menu>
-                    <MenuItem to="#">Home</MenuItem>
-                    <MenuItem to="/people">People</MenuItem>
-                    <MenuItem to="/groups">Groups</MenuItem>
-                    <MenuItem to="/projects">Projects</MenuItem>
-                    <MenuItem to="/teams">Teams</MenuItem>
-                </Menu>
+                { compact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
             </Header>
             <Main>{ children }</Main>
             <Footer>
