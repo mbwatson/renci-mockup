@@ -3,6 +3,8 @@ import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
 import { Layout } from "../components/layout"
 import { MiniProfile } from '../components/user'
+import { Card, CardHeader, CardBody, CardFooter } from '../components/card'
+import { Heading, Subheading } from '../components/typography'
 
 const TeamsPage = ({ data }) => {
     const teams = data.allTeamsYaml.edges
@@ -15,11 +17,21 @@ const TeamsPage = ({ data }) => {
 
             {
                 teams.map(({ node: team }) => (
-                    <div key={ team.id }>
-                        <h2><Link to={ `/teams/${ team.id }` }>{ team.name }</Link></h2>
-                        { team.members && team.members.map(person => <MiniProfile key={ person.id } person={ person } />) }
-                        <br/>
-                    </div>
+                    <Card key={ team.id }>
+                        <CardHeader>
+                            <Heading><Link to={ `/teams/${ team.id }` }>{ team.name }</Link></Heading>
+                        </CardHeader>
+
+                        <CardBody>
+                            <Subheading>Members</Subheading>
+                            {
+                                team.members && team.members.map(person => (
+                                    <MiniProfile key={ `${ team.id }-${ person.id }` } person={ person } />
+                                ))
+                            }
+                        </CardBody>
+                        
+                    </Card>
                 ))
             }
 

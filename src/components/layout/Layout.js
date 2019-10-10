@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import { Header }from "./header"
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import { Header }from './Header'
 import { Brand } from '../typography'
-import { Main }from "./main"
-import { Footer } from "./footer"
-import { Link } from "gatsby"
+import { Main } from './Main'
+import { Footer } from './Footer'
+import { Link } from 'gatsby'
 import { Menu, MobileMenu } from '../menu'
 import "../../styles/base.css"
 import { useWindowWidth } from '@mwatson/usewindowwidth'

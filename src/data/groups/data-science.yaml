@@ -1,11 +1,13 @@
-id: acis
-name: Advanced Cyberinfrastructure Support
-description: Advanced Cyberinfrastructure Support
+id: data-science
+name: Data Science
+description: lorem ipsum data sciencum
 lead:
-  - msliwowski
+  - cbizon
 members:
-  - msliwowski
+  - cbizon
+projects:
+  - data-translator
 online_presence:
-  url: https://wiki.renci.org/
+  url: 
   github: 
   twitter: 

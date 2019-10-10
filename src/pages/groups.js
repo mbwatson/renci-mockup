@@ -3,6 +3,9 @@ import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
 import { Layout } from "../components/layout"
 import { MiniProfile } from '../components/user'
+import { Container, Row, Col } from 'react-grid-system'
+import { Card, CardHeader, CardBody, CardFooter } from '../components/card'
+import { Heading, Subheading } from '../components/typography'
 
 const PeoplePage = ({ data }) => {
     const groups = data.allGroupsYaml.edges
@@ -15,30 +18,37 @@ const PeoplePage = ({ data }) => {
 
             {
                 groups.map(({ node: group }) => (
-                    <div key={ group.id }>
-                        <h2><Link to={ `/groups/${ group.id }` }>{ group.name }</Link></h2>
+                    <Card key={ group.id }>
+                        <CardHeader>
+                            <Heading><Link to={ `/groups/${ group.id }` }>{ group.name }</Link></Heading>
+                        </CardHeader>
+
+                        <CardBody>
+                            <Container>
+                                <Row>
+                                    <Col xs={ 12 } sm={ 6 }>
+                                        <Subheading>Members</Subheading>
+                                        {
+                                            group.members && group.members.map(person => (
+                                                <MiniProfile key={ `${ group.id }-${ person.id }` } person={ person } />
+                                            ))
+                                        }
+                                    </Col>
+                                    <Col xs={ 12 } sm={ 6 }>
+                                        <Subheading>Projects</Subheading>
+                                        {
+                                            group.projects && group.projects.map(project => (
+                                                <div key={ `${ group.id }-${ project.id }` }>
+                                                    <Link to={ `/projects/${ project.id }` }>{ project.name }</Link>
+                                                </div>
+                                            ))
+                                        }
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </CardBody>
                         
-                        <h4>Members</h4>
-                        <div>
-                            { group.members && group.members.map(person => <MiniProfile key={ person.id } person={ person } />) }
-                        </div>
-
-                        <br/>
-
-                        <h4>Projects</h4>
-                        <div>
-                            {
-                                group.projects && group.projects.map(project => (
-                                    <div key={ `${ group.id }-${ project.id }` }>
-                                        <Link to={ `/projects/${ project.id }` }>{ project.name }</Link>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                        
-                        <br/>
-
-                    </div>
+                    </Card>
                 ))
             }
 
