@@ -4,10 +4,10 @@ export const Card = styled.div`
     border-radius: 0.25rem;
     margin-bottom: 2rem;
     background-color: #fff;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
-    transition: filter 250ms;
+    filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.1));
+    transition: filter 500ms;
     &:hover {
-        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+        filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.2));
     }
 `
 
