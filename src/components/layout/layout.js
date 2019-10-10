@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Header }from "./header"
-import { Brand } from '../brand'
+import { Brand } from '../typography'
 import { Main }from "./main"
 import { Footer } from "./footer"
 import { Link } from "gatsby"

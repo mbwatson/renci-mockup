@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
 import { AvatarIcon } from '../icons'
 import { Container, Row, Col } from 'react-grid-system'
 
@@ -23,10 +23,10 @@ const ProfileBody = styled.main`
     padding: 1rem;
 `
 
-const ProfileFooter = styled.footer`
-    border-top: 1px solid #eee;
-    padding: 1rem;
-`
+// const ProfileFooter = styled.footer`
+//     border-top: 1px solid #eee;
+//     padding: 1rem;
+// `
 
 export const Profile = ({ person }) => {
     return (
