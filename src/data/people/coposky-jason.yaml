@@ -6,7 +6,7 @@ office:
   location: 500
   phone: 919-445-0000
 online_presence:
-  twitter:
-  github: jcop
+  twitter_username:
+  github_username: jcop
   url: 
 bio: 'Lorem ipsum dolor sit.'

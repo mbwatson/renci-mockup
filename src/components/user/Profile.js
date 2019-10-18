@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { AvatarIcon } from '../icons'
 import { Container, Row, Col } from 'react-grid-system'
-import { Card, CardHeader, CardBody, CardFooter } from '../card'
+import { Card, CardHeader, CardBody } from '../card'
 import { Heading } from '../typography'
 
 const ProfileCard = styled(Card)`
@@ -23,7 +23,7 @@ export const Profile = ({ person }) => {
             <CardBody>
                 <Container>
                     <Row>
-                        <Col xs={ 12 } sm={ 6 }>
+                        <Col xs={ 12 } sm={ 4 }>
                             <span>Teams ({ (person.teams && person.teams.length) || '0' })</span>
                             {
                                 person.teams && person.teams.map(team => (
@@ -33,12 +33,22 @@ export const Profile = ({ person }) => {
                                 ))
                             }
                         </Col>
-                        <Col xs={ 12 } sm={ 6 }>
+                        <Col xs={ 12 } sm={ 4 }>
                             <span>Groups ({ (person.groups && person.groups.length) || '0' })</span>
                             {
                                 person.groups && person.groups.map(group => (
                                     <div key={ `${ person.id }-${ group.id }` }>
                                         <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
+                                    </div>
+                                ))
+                            }
+                        </Col>
+                        <Col xs={ 12 } sm={ 4 }>
+                            <span>Collaborations ({ (person.collaborations && person.collaborations.length) || '0' })</span>
+                            {
+                                person.collaborations && person.collaborations.map(collaboration => (
+                                    <div key={ `${ person.id }-${ collaboration.id }` }>
+                                        <Link to={ `/collaborations/${ collaboration.id }` }>{ collaboration.name }</Link>
                                     </div>
                                 ))
                             }

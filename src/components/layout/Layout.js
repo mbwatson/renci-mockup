@@ -19,8 +19,9 @@ export const Page = styled.div`
 
 const menuItems = [
     { path: '#', text: 'Home' },
-    { path: '/research', text: 'Research' },
     { path: '/people', text: 'People' },
+    { path: '/groups', text: 'Groups' },
+    { path: '/collaborations', text: 'Collaborations' },
     { path: '/news', text: 'News' },
     { path: '/events', text: 'Events' },
 ]

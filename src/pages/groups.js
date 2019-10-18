@@ -4,7 +4,7 @@ import { SEO } from "../components/seo"
 import { Layout } from "../components/layout"
 import { MiniProfile } from '../components/user'
 import { Container, Row, Col } from 'react-grid-system'
-import { Card, CardHeader, CardBody, CardFooter } from '../components/card'
+import { Card, CardHeader, CardBody } from '../components/card'
 import { Heading, Subheading } from '../components/typography'
 
 const ResearchPage = ({ data }) => {
@@ -27,7 +27,7 @@ const ResearchPage = ({ data }) => {
                             <Container>
                                 <Row>
                                     <Col xs={ 12 } sm={ 6 }>
-                                        <Subheading>Members</Subheading>
+                                        <span>Members ({ (group.members && group.members.length) || '0' })</span>
                                         {
                                             group.members && group.members.map(person => (
                                                 <MiniProfile key={ `${ group.id }-${ person.id }` } person={ person } />
@@ -35,7 +35,7 @@ const ResearchPage = ({ data }) => {
                                         }
                                     </Col>
                                     <Col xs={ 12 } sm={ 6 }>
-                                        <Subheading>Projects</Subheading>
+                                        <span>Projects ({ (group.projects && group.projects.length) || '0' })</span>
                                         {
                                             group.projects && group.projects.map(project => (
                                                 <div key={ `${ group.id }-${ project.id }` }>

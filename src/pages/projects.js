@@ -2,8 +2,8 @@ import React from "react"
 import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
 import { Layout } from "../components/layout"
-import { Card, CardHeader, CardBody, CardFooter } from '../components/card'
-import { Heading, Subheading } from '../components/typography'
+import { Card, CardHeader, CardBody } from '../components/card'
+import { Heading } from '../components/typography'
 
 const ProjectsPage = ({ data }) => {
     const projects = data.allProjectsYaml.edges

@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Layout } from "../components/layout"
+import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {
-    const { peopleYaml: { name, title, email, office, groups, teams, }} = data
+    const { peopleYaml: { name, title, email, office, groups, teams, online_presence }} = data
 
     return (
         <Layout>
             <h1>{ name }</h1>
             <h2>{ title }</h2>
+            { online_presence.url && <Fragment><LinkIcon /> <a href={ online_presence.url }>{ online_presence.url }</a></Fragment> }
+            { online_presence.twitter && <Fragment><TwitterIcon /> <a href={ `https://twitter.com/${ online_presence.twitter }` }>{ online_presence.twitter }</a></Fragment> }
+            { online_presence.github && <Fragment><GitHubIcon /> <a href={ `https://github.com/${ online_presence.github }` }>{ online_presence.github }</a></Fragment> }
+
 
             <h3>Contact</h3>
             <div>
@@ -62,8 +67,8 @@ export const personQuery = graphql`
                 phone
             }
             online_presence {
-                twitter
-                github
+                twitter_username
+                github_username
                 url
             }
             bio

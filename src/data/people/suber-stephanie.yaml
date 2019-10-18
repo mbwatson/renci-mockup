@@ -6,7 +6,7 @@ office:
   location: 500
   phone: 919-445-1234
 online_presence:
-  twitter: otterprobably
-  github: subers
+  twitter_username: otterprobably
+  github_username: subers
   url: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos veritatis, ducimus delectus.'

@@ -47,11 +47,16 @@ export const query = graphql`
                 node {
                     id
                     name
+                    title
                     teams {
                         id
                         name
                     }
                     groups {
+                        id
+                        name
+                    }
+                    collaborations {
                         id
                         name
                     }
