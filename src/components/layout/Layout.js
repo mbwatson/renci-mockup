@@ -19,11 +19,10 @@ export const Page = styled.div`
 
 const menuItems = [
     { path: '#', text: 'Home' },
+    { path: '/research', text: 'Research' },
     { path: '/people', text: 'People' },
-    { path: '/groups', text: 'Groups' },
-    { path: '/projects', text: 'Projects' },
-    { path: '/teams', text: 'Teams' },
     { path: '/news', text: 'News' },
+    { path: '/events', text: 'Events' },
 ]
 
 export const Layout = ({ children }) => {

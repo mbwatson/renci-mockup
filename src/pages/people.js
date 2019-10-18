@@ -28,6 +28,8 @@ const PeoplePage = ({ data }) => {
                 <input name="staff-search" type="text" onChange={ handleChangeQuery } value={ query } />
             </div>
 
+            <br/>
+
             {
                 displayedStaff.map(({ node: person }) => (
                     <Profile key={ person.id } person={ person } />

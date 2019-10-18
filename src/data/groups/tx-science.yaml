@@ -6,7 +6,9 @@ members:
   - krobasky
   - hxu
   - mwatson
+  - sraj
 projects:
+  - duketic-dashboard
   - precision-dosing
 online_presence:
   url: https://txscience.renci.org

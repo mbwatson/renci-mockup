@@ -5,9 +5,11 @@ lead: ibaldin
 members:
   - ibaldin
   - pruth
+  - amandal
 projects:
   - chameleon
   - fabric
+  - geni
 online_presence:
   url: https://nrig.renci.org
   github: 

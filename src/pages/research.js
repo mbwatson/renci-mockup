@@ -7,14 +7,14 @@ import { Container, Row, Col } from 'react-grid-system'
 import { Card, CardHeader, CardBody, CardFooter } from '../components/card'
 import { Heading, Subheading } from '../components/typography'
 
-const PeoplePage = ({ data }) => {
+const ResearchPage = ({ data }) => {
     const groups = data.allGroupsYaml.edges
 
     return (
         <Layout>
             <SEO title="RENCI Groups" />
             
-            <h1>Groups</h1>
+            <h1>Research Groups</h1>
 
             {
                 groups.map(({ node: group }) => (
@@ -77,4 +77,4 @@ export const query = graphql`
     }
 `
 
-export default PeoplePage
+export default ResearchPage

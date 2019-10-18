@@ -1,11 +1,6 @@
 id: earth-data-science
 name: Earth Data Science
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-lead: bblanton
-members:
-  - bblanton
-  - clenhardt
-  - lstillwell
 online_presence:
   url: https://eds.renci.org/
   github: 
