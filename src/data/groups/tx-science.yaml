@@ -10,6 +10,7 @@ members:
 projects:
   - duketic-dashboard
   - precision-dosing
+  - cellfie
 online_presence:
   url: https://txscience.renci.org
   github: 
