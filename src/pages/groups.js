@@ -58,7 +58,7 @@ const ResearchPage = ({ data }) => {
 
 export const query = graphql`
     query {
-        allGroupsYaml {
+        allGroupsYaml(sort: {fields: id, order: ASC}) {
             edges {
                 node {
                     id
