@@ -4,7 +4,7 @@ import { Layout } from "../components/layout"
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {
-    const { peopleYaml: { name, title, email, office, groups, teams, online_presence }} = data
+    const { peopleYaml: { name, title, email, office, groups, teams, collaborations, online_presence }} = data
 
     return (
         <Layout>
@@ -28,12 +28,27 @@ export default ({ data, pageContext }) => {
             <div>
                 {
                     groups
-                        ? groups.map(group => (
-                            <div>
-                                <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
-                            </div>
-                        ))
-                        : <div>&empty;</div>
+                    ? groups.map(group => (
+                        <div>
+                            <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
+                        </div>
+                    ))
+                    : <div>&empty;</div>
+                }
+            </div>
+
+            <br/>
+
+            <h3>Collaborations</h3>
+            <div>
+                {
+                    collaborations
+                    ? collaborations.map(collaboration => (
+                        <div>
+                            <Link to={ `/collaborations/${ collaboration.id }` }>{ collaboration.name }</Link>
+                        </div>
+                    ))
+                    :  <div>&empty;</div>
                 }
             </div>
 
@@ -51,6 +66,7 @@ export default ({ data, pageContext }) => {
                     :  <div>&empty;</div>
                 }
             </div>
+
         </Layout>
     )
 }
@@ -77,6 +93,10 @@ export const personQuery = graphql`
                 name
             }
             groups {
+                id
+                name
+            }
+            collaborations {
                 id
                 name
             }
