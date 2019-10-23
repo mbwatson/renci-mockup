@@ -2,9 +2,14 @@ id: health-informatics
 name: Health Informatics
 description: healthy information
 lead:
-  - msliwowski
+  - kwilhelmsen
 members:
-  - msliwowski
+  - kwilhelmsen
+  - jtilson
+  - jreilly
+  - xyin
+  - powen
+  - ylin
 online_presence:
   url: 
   github: 
