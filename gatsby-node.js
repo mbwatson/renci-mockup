@@ -27,6 +27,7 @@ exports.createPages = ({ actions, graphql }) => {
     const groupTemplate = path.resolve(`src/templates/groupTemplate.js`)
     const teamTemplate = path.resolve(`src/templates/teamTemplate.js`)
     const projectTemplate = path.resolve(`src/templates/projectTemplate.js`)
+    const collaborationTemplate = path.resolve(`src/templates/collaborationTemplate.js`)
 
     return graphql(`
         {
@@ -55,6 +56,14 @@ exports.createPages = ({ actions, graphql }) => {
                 }
             }
             allProjectsYaml(sort: {fields: name, order: ASC}) {
+                edges {
+                    node {
+                        id
+                        name
+                    }
+                }
+            }
+            allCollaborationsYaml(sort: {fields: name, order: ASC}) {
                 edges {
                     node {
                         id
@@ -120,6 +129,19 @@ exports.createPages = ({ actions, graphql }) => {
             })
         })
 
-        return [...people, ...groups, ...projects, ...teams]
+        // Create collaboration pages
+        const collaborations = result.data.allCollaborationsYaml.edges
+        collaborations.forEach(({ node }) => {
+            createPage({
+                id: node.id,
+                path: `/collaborations/${ node.id }`,
+                component: collaborationTemplate,
+                context: { // additional data passed via context
+                    id: node.id,
+                },
+            })
+        })
+
+        return [...people, ...groups, ...projects, ...teams, ...collaborations]
     })
 }
