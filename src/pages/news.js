@@ -1,8 +1,9 @@
 import React from "react"
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
 import { Layout } from "../components/layout"
-import { ArticlePreview } from '../components/news'
+import { Card, CardHeader, CardBody } from '../components/card'
+import { Heading } from '../components/typography'
 
 const NewsPage = ({ data }) => {
     const articles = data.allMarkdownRemark.edges
@@ -14,13 +15,21 @@ const NewsPage = ({ data }) => {
             <h1>News</h1>
 
             {
-                articles.map(({ node: article }) => (
-                    <ArticlePreview>
-                        <pre>
-                            { JSON.stringify(article, null, 2) }
-                        </pre>
-                    </ArticlePreview>
-                ))
+                articles.map(({ node: article }) => {
+                    const author = article.frontmatter.author
+                    return (
+                        <Card key={ article.id }>
+                            <CardHeader>
+                                <Heading><Link to={ `/news/${ article.id }` }>{ article.frontmatter.title }</Link></Heading>
+                            </CardHeader>
+
+                            <CardBody>
+                                By <Link to={ `/people/${ author.id }`} >{ author.name }</Link> <br/><br/>
+                                <div dangerouslySetInnerHTML={{ __html: article.html }} />
+                            </CardBody>
+                        </Card>
+                    )
+                })
             }
 
         </Layout>
@@ -36,8 +45,12 @@ export const query = graphql`
                     frontmatter {
                         title
                         publish_date
-                        author
+                        author {
+                            id
+                            name
+                        }
                     }
+                    html
                 }
             }
         }
