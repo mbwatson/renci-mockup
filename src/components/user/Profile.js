@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { AvatarIcon } from '../icons'
 import { Container, Row, Col } from 'react-grid-system'
 import { Card, CardHeader, CardBody } from '../card'
-import { Heading } from '../typography'
+import { Heading, TextLink } from '../typography'
 
 const ProfileCard = styled(Card)`
+    transition: transform 250ms;
+    &:hover {
+        transform: translateY(-0.1rem);
+    }
     & svg {
         margin-right: 0.5rem;
     }
@@ -17,7 +20,7 @@ export const Profile = ({ person }) => {
         <ProfileCard>
             <CardHeader>
                 <AvatarIcon />
-                <Heading><Link to={ `/people/${ person.id }` }>{ person.name }</Link></Heading>
+                <Heading><TextLink to={ `/people/${ person.id }` }>{ person.name }</TextLink></Heading>
             </CardHeader>
 
             <CardBody>
@@ -28,7 +31,7 @@ export const Profile = ({ person }) => {
                             {
                                 person.teams && person.teams.map(team => (
                                     <div key={ `${ person.id }-${ team.id }` }>
-                                        <Link to={ `/teams/${ team.id }` }>{ team.name }</Link>
+                                        <TextLink to={ `/teams/${ team.id }` }>{ team.name }</TextLink>
                                     </div>
                                 ))
                             }
@@ -38,7 +41,7 @@ export const Profile = ({ person }) => {
                             {
                                 person.groups && person.groups.map(group => (
                                     <div key={ `${ person.id }-${ group.id }` }>
-                                        <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
+                                        <TextLink to={ `/groups/${ group.id }` }>{ group.name }</TextLink>
                                     </div>
                                 ))
                             }
@@ -48,7 +51,7 @@ export const Profile = ({ person }) => {
                             {
                                 person.collaborations && person.collaborations.map(collaboration => (
                                     <div key={ `${ person.id }-${ collaboration.id }` }>
-                                        <Link to={ `/collaborations/${ collaboration.id }` }>{ collaboration.name }</Link>
+                                        <TextLink to={ `/collaborations/${ collaboration.id }` }>{ collaboration.name }</TextLink>
                                     </div>
                                 ))
                             }
