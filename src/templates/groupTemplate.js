@@ -7,6 +7,7 @@ import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 export default ({ data, pageContext }) => {
     const { groupsYaml: {
         name,
+        lead,
         members,
         projects,
         online_presence,
@@ -24,6 +25,7 @@ export default ({ data, pageContext }) => {
             <h3>Members</h3>
 
             <ul style={{ listStyleType: 'none' }}>
+                { <li key={ lead.id } ><MiniProfile person={ lead } /> LEAD</li> }
                 { members.map(person => <li key={ person.id } ><MiniProfile person={ person } /></li>) }
             </ul>
 
@@ -49,6 +51,10 @@ export const groupQuery = graphql`
     query($id: String!) {
         groupsYaml( id: { eq: $id }) {
             name
+            lead {
+                id
+                name
+            }
             members {
                 id
                 name

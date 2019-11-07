@@ -1,8 +1,7 @@
 id: health-informatics
 name: Health Informatics
 description: healthy information
-lead:
-  - kwilhelmsen
+lead: kwilhelmsen
 members:
   - kwilhelmsen
   - jtilson

@@ -1,8 +1,7 @@
 id: systems
 name: Systems
 description: systems systems systems systems systems 
-lead:
-  - scox
+lead: scox
 members:
   - scox
   - hxu

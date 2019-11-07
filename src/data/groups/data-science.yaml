@@ -1,8 +1,7 @@
 id: data-science
 name: Data Science
 description: lorem ipsum data sciencum
-lead:
-  - cbizon
+lead: cbizon
 members:
   - cbizon
   - clenhardt

@@ -50,13 +50,16 @@ module.exports = {
     ],
     mapping: {
         // Show members as people objects in full for team, group, and collaboration queries--not just the corresponding id
-        "TeamsYaml.members": `PeopleYaml`, // defaults to PeopleYaml.id unless specified otherwise
-        "GroupsYaml.members": `PeopleYaml`, //
-        "CollaborationsYaml.members": `PeopleYaml`, //
-        // "GroupsYaml.lead": `PeopleYaml`, //
-        // Show projects in full for group queries
-        "GroupsYaml.projects": `ProjectsYaml`, //
-        // reverse?
+        "TeamsYaml.members": `PeopleYaml`, // Link team members to people // defaults to PeopleYaml.id unless specified otherwise
+        "TeamsYaml.lead": `PeopleYaml`, // Link team leads to person
+        
+        "GroupsYaml.members": `PeopleYaml`, // Link group members to people
+        "GroupsYaml.lead": `PeopleYaml`, // Link group leads to person
+        "GroupsYaml.projects": `ProjectsYaml`, // Show projects in full for group queries
+
+        "CollaborationsYaml.members": `PeopleYaml`, // Link collaborationmembers to people
+        
+        // reverse
         "PeopleYaml.teams": `TeamsYaml`, // This does nothing
         "MarkdownRemark.frontmatter.author": "PeopleYaml",
     },

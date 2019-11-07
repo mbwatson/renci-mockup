@@ -1,6 +1,7 @@
 id: communications
 name: Communications
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsum!
+lead: subers
 members:
   - subers
   - marcussamie86
