@@ -6,6 +6,7 @@ export const Header = styled.header`
     display: flex;
     flex-direction: ${ ({ compact}) => compact ? 'column' : 'row' };
     justify-content: space-between;
+    align-items: stretch;
     filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
 `
 

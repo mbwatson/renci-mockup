@@ -6,7 +6,7 @@ export const Navigation = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center;
+    align-items: stretch;
     height: 100%;
 `
 
@@ -14,7 +14,7 @@ export const MenuItem = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 3.2rem;
     padding: 0 1rem;
     color: #fff;
     background-color: transparent;
