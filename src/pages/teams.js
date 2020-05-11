@@ -1,22 +1,23 @@
-import React from "react"
-import { graphql, Link } from 'gatsby'
-import { SEO } from "../components/seo"
-import { DefaultLayout } from "../components/layout"
+import React, { Fragment } from 'react'
+import { SEO } from '../components/seo'
+import { Link } from 'gatsby'
 import { MiniProfile } from '../components/user'
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Heading, Subheading } from '../components/typography'
+import { useTeams } from '../hooks'
 
-const TeamsPage = ({ data }) => {
-    const teams = data.allTeamsYaml.edges
+const TeamsPage = () => {
+    const teams = useTeams()
+    console.log(teams)
 
     return (
-        <DefaultLayout>
+        <Fragment>
             <SEO title="RENCI Teams" />
             
             <h1>Teams</h1>
 
             {
-                teams.map(({ node: team }) => (
+                teams.map(team => (
                     <Card key={ team.id }>
                         <CardHeader>
                             <Heading><Link to={ `/teams/${ team.id }` }>{ team.name }</Link></Heading>
@@ -35,25 +36,8 @@ const TeamsPage = ({ data }) => {
                 ))
             }
 
-        </DefaultLayout>
+        </Fragment>
     )
 }
-
-export const query = graphql`
-    query {
-        allTeamsYaml {
-            edges {
-                node {
-                    id
-                    name
-                    members {
-                        id
-                        name
-                    }
-                }
-            }
-        }
-    }
-`
 
 export default TeamsPage

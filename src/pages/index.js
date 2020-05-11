@@ -1,9 +1,8 @@
-import React from "react"
-import { SEO } from "../components/seo"
-import { DefaultLayout } from "../components/layout"
+import React, { Fragment } from "react"
+import { SEO } from '../components/seo'
 
 const IndexPage = () => (
-    <DefaultLayout>
+    <Fragment>
         <SEO title="Home" />
         
         <h1>Home</h1>
@@ -12,7 +11,7 @@ const IndexPage = () => (
         
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, est, blanditiis, suscipit dolorem cumque incidunt officiis sit sunt laborum, iure iusto molestiae reprehenderit nobis! Officiis veniam odio, minus distinctio repellat deleniti facilis provident cupiditate blanditiis molestiae asperiores laudantium perspiciatis possimus quasi harum sequi ab voluptates.</p>
         
-    </DefaultLayout>
+    </Fragment>
 )
 
 export default IndexPage

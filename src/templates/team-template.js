@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import { DefaultLayout } from "../components/layout"
 import { MiniProfile } from '../components/user'
 
 export default ({ data, pageContext }) => {
@@ -11,7 +10,7 @@ export default ({ data, pageContext }) => {
     }} = data
     
     return (
-        <DefaultLayout>
+        <Fragment>
             <h1>{ name }</h1>
 
             <p>
@@ -25,7 +24,7 @@ export default ({ data, pageContext }) => {
             </div>
 
             <br/>
-        </DefaultLayout>
+        </Fragment>
     )
 }
 

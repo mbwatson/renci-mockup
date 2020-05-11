@@ -1,23 +1,23 @@
-import React from "react"
-import { graphql, Link } from 'gatsby'
-import { SEO } from "../components/seo"
-import { DefaultLayout } from "../components/layout"
+import React, { Fragment } from 'react'
+import { Link } from 'gatsby'
+import { SEO } from '../components/seo'
 import { MiniProfile } from '../components/user'
 import { Container, Row, Col } from 'react-grid-system'
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Heading, Subheading } from '../components/typography'
+import { useCollaborations } from '../hooks'
 
-const CollaborationsPage = ({ data }) => {
-    const collaborations = data.allCollaborationsYaml.edges
+const CollaborationsPage = () => {
+    const collaborations = useCollaborations()
 
     return (
-        <DefaultLayout>
+        <Fragment>
             <SEO title="RENCI Collaborations" />
             
             <h1>Collaborations</h1>
 
             {
-                collaborations.map(({ node: collaboration }) => (
+                collaborations.map(collaboration => (
                     <Card key={ collaboration.id }>
                         <CardHeader>
                             <Heading><Link to={ `/collaborations/${ collaboration.id }` }>{ collaboration.name }</Link></Heading>
@@ -42,25 +42,8 @@ const CollaborationsPage = ({ data }) => {
                 ))
             }
 
-        </DefaultLayout>
+        </Fragment>
     )
 }
-
-export const query = graphql`
-    query {
-        allCollaborationsYaml {
-            edges {
-                node {
-                    id
-                    name
-                    members {
-                        id
-                        name
-                    }
-                }
-            }
-        }
-    }
-`
 
 export default CollaborationsPage

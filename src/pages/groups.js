@@ -1,23 +1,24 @@
-import React from "react"
-import { graphql, Link } from 'gatsby'
-import { SEO } from "../components/seo"
-import { DefaultLayout } from "../components/layout"
+import React, { Fragment } from 'react'
+import { Link } from 'gatsby'
+import { SEO } from '../components/seo'
 import { MiniProfile } from '../components/user'
 import { Container, Row, Col } from 'react-grid-system'
 import { Card, CardHeader, CardBody } from '../components/card'
-import { Heading, Subheading } from '../components/typography'
+import { Heading } from '../components/typography'
+import { useGroups } from '../hooks'
 
-const ResearchPage = ({ data }) => {
-    const groups = data.allGroupsYaml.edges
+const ResearchPage = () => {
+    const groups = useGroups()
+    console.log(groups)
 
     return (
-        <DefaultLayout>
+        <Fragment>
             <SEO title="RENCI Groups" />
             
             <h1>Research Groups</h1>
 
             {
-                groups.map(({ node: group }) => (
+                groups.map(group => (
                     <Card key={ group.id }>
                         <CardHeader>
                             <Heading><Link to={ `/groups/${ group.id }` }>{ group.name }</Link></Heading>
@@ -52,29 +53,8 @@ const ResearchPage = ({ data }) => {
                 ))
             }
 
-        </DefaultLayout>
+        </Fragment>
     )
 }
-
-export const query = graphql`
-    query {
-        allGroupsYaml(sort: {fields: id, order: ASC}) {
-            edges {
-                node {
-                    id
-                    name
-                    members {
-                        id
-                        name
-                    }
-                    projects {
-                        id
-                        name
-                    }
-                }
-            }
-        }
-    }
-`
 
 export default ResearchPage

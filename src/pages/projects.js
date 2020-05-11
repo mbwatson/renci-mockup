@@ -1,21 +1,21 @@
-import React from "react"
-import { graphql, Link } from 'gatsby'
-import { SEO } from "../components/seo"
-import { DefaultLayout } from "../components/layout"
+import React, { Fragment } from 'react'
+import { SEO } from '../components/seo'
+import { Link } from 'gatsby'
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Heading } from '../components/typography'
+import { useProjects } from '../hooks'
 
-const ProjectsPage = ({ data }) => {
-    const projects = data.allProjectsYaml.edges
+const ProjectsPage = () => {
+    const projects = useProjects()
 
     return (
-        <DefaultLayout>
+        <Fragment>
             <SEO title="RENCI Projects" />
             
             <h1>Projects</h1>
 
             {
-                projects.map(({ node: project }) => (
+                projects.map(project => (
                     <Card key={ project.id }>
                         <CardHeader>
                             <Heading><Link to={ `/projects/${ project.id }` }>{ project.name }</Link></Heading>
@@ -29,22 +29,8 @@ const ProjectsPage = ({ data }) => {
                 ))
             }
 
-        </DefaultLayout>
+        </Fragment>
     )
 }
-
-export const query = graphql`
-    query {
-        allProjectsYaml {
-            edges {
-                node {
-                    id
-                    name
-                    description
-                }
-            }
-        }
-    }
-`
 
 export default ProjectsPage

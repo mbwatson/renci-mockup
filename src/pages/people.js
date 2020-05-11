@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react"
-import { graphql } from 'gatsby'
-import { SEO } from "../components/seo"
-import { DefaultLayout } from "../components/layout"
+import React, { Fragment, useEffect, useState } from "react"
+import { SEO } from '../components/seo'
 import { Profile } from '../components/user'
+import { usePeople } from '../hooks'
 
-const PeoplePage = ({ data }) => {
-    const staff = data.allPeopleYaml.edges
+const PeoplePage = () => {
+    const staff = usePeople()
     const [displayedStaff, setDisplayedStaff] = useState(staff)
     const [query, setQuery] = useState('')
 
@@ -14,11 +13,11 @@ const PeoplePage = ({ data }) => {
     }
 
     useEffect(() => {
-        setDisplayedStaff(staff.filter(edge => edge.node.name.toLowerCase().includes(query)))
+        setDisplayedStaff(staff.filter(person => person.name.toLowerCase().includes(query)))
     }, [query])
 
     return (
-        <DefaultLayout>
+        <Fragment>
             <SEO title="RENCI Staff" />
             
             <h1>Staff</h1>
@@ -31,39 +30,13 @@ const PeoplePage = ({ data }) => {
             <br/>
 
             {
-                displayedStaff.map(({ node: person }) => (
+                displayedStaff.map(person => (
                     <Profile key={ person.id } person={ person } />
                 ))
             }
 
-        </DefaultLayout>
+        </Fragment>
     )
 }
-
-export const query = graphql`
-    query {
-        allPeopleYaml {
-            edges {
-                node {
-                    id
-                    name
-                    title
-                    teams {
-                        id
-                        name
-                    }
-                    groups {
-                        id
-                        name
-                    }
-                    collaborations {
-                        id
-                        name
-                    }
-                }
-            }
-        }
-    }
-`
 
 export default PeoplePage
