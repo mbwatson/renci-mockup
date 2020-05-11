@@ -26,11 +26,11 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
-    const personTemplate = path.resolve(`src/templates/personTemplate.js`)
-    const groupTemplate = path.resolve(`src/templates/groupTemplate.js`)
-    const teamTemplate = path.resolve(`src/templates/teamTemplate.js`)
-    const projectTemplate = path.resolve(`src/templates/projectTemplate.js`)
-    const collaborationTemplate = path.resolve(`src/templates/collaborationTemplate.js`)
+    const personTemplate = path.resolve(`src/templates/person-template.js`)
+    const groupTemplate = path.resolve(`src/templates/group-template.js`)
+    const teamTemplate = path.resolve(`src/templates/team-template.js`)
+    const projectTemplate = path.resolve(`src/templates/project-template.js`)
+    const collaborationTemplate = path.resolve(`src/templates/collaboration-template.js`)
 
     return graphql(`
         {
