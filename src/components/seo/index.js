@@ -1,1 +1,1 @@
-export * from './Seo'
+export * from './seo'

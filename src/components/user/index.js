@@ -1,2 +1,2 @@
-export * from './MiniProfile'
-export * from './Profile'
+export * from './mini-profile'
+export * from './profile'
