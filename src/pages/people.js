@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { graphql } from 'gatsby'
 import { SEO } from "../components/seo"
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { Profile } from '../components/user'
 
 const PeoplePage = ({ data }) => {
@@ -18,7 +18,7 @@ const PeoplePage = ({ data }) => {
     }, [query])
 
     return (
-        <Layout>
+        <DefaultLayout>
             <SEO title="RENCI Staff" />
             
             <h1>Staff</h1>
@@ -36,7 +36,7 @@ const PeoplePage = ({ data }) => {
                 ))
             }
 
-        </Layout>
+        </DefaultLayout>
     )
 }
 

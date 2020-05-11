@@ -26,7 +26,7 @@ const menuItems = [
     { path: '/events', text: 'Events' },
 ]
 
-export const Layout = ({ children }) => {
+export const DefaultLayout = ({ children }) => {
     const { windowWidth, SM } = useWindowWidth()
     const isCompact = windowWidth < SM
     const [compact, setCompact] = useState(isCompact)
@@ -68,6 +68,6 @@ export const Layout = ({ children }) => {
     )
 }
 
-Layout.propTypes = {
+DefaultLayout.propTypes = {
     children: PropTypes.node.isRequired,
 }

@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {
     const { peopleYaml: { name, title, email, office, groups, teams, collaborations, online_presence }} = data
 
     return (
-        <Layout>
+        <DefaultLayout>
             <h1>{ name }</h1>
             <h2>{ title }</h2>
             { online_presence.url && <Fragment><LinkIcon /> <a href={ online_presence.url }>{ online_presence.url }</a></Fragment> }
@@ -67,7 +67,7 @@ export default ({ data, pageContext }) => {
                 }
             </div>
 
-        </Layout>
+        </DefaultLayout>
     )
 }
 

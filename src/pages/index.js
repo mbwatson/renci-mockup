@@ -1,9 +1,9 @@
 import React from "react"
 import { SEO } from "../components/seo"
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 
 const IndexPage = () => (
-    <Layout>
+    <DefaultLayout>
         <SEO title="Home" />
         
         <h1>Home</h1>
@@ -12,7 +12,7 @@ const IndexPage = () => (
         
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, est, blanditiis, suscipit dolorem cumque incidunt officiis sit sunt laborum, iure iusto molestiae reprehenderit nobis! Officiis veniam odio, minus distinctio repellat deleniti facilis provident cupiditate blanditiis molestiae asperiores laudantium perspiciatis possimus quasi harum sequi ab voluptates.</p>
         
-    </Layout>
+    </DefaultLayout>
 )
 
 export default IndexPage

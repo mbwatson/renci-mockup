@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {
@@ -12,7 +12,7 @@ export default ({ data, pageContext }) => {
     }} = data
     
     return (
-        <Layout>
+        <DefaultLayout>
             <h1>{ name }</h1>
             
             <ul style={{ listStyleType: 'none' }}>
@@ -24,7 +24,7 @@ export default ({ data, pageContext }) => {
             <p>{ description }</p>
 
             <p>This project is owned by <Link to={ `/groups/${ group.id }` }>{ group.name }</Link> </p>
-        </Layout>
+        </DefaultLayout>
     )
 }
 

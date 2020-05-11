@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { MiniProfile } from '../components/user'
 import { Container, Row, Col } from 'react-grid-system'
 import { Card, CardHeader, CardBody } from '../components/card'
@@ -11,7 +11,7 @@ const ResearchPage = ({ data }) => {
     const groups = data.allGroupsYaml.edges
 
     return (
-        <Layout>
+        <DefaultLayout>
             <SEO title="RENCI Groups" />
             
             <h1>Research Groups</h1>
@@ -52,7 +52,7 @@ const ResearchPage = ({ data }) => {
                 ))
             }
 
-        </Layout>
+        </DefaultLayout>
     )
 }
 

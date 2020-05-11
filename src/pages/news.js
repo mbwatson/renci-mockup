@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Heading } from '../components/typography'
 
@@ -9,7 +9,7 @@ const NewsPage = ({ data }) => {
     const articles = data.allMarkdownRemark.edges
 
     return (
-        <Layout>
+        <DefaultLayout>
             <SEO title="RENCI News" />
             
             <h1>News</h1>
@@ -32,7 +32,7 @@ const NewsPage = ({ data }) => {
                 })
             }
 
-        </Layout>
+        </DefaultLayout>
     )
 }
 

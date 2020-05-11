@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { MiniProfile } from '../components/user'
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Heading, Subheading } from '../components/typography'
@@ -10,7 +10,7 @@ const TeamsPage = ({ data }) => {
     const teams = data.allTeamsYaml.edges
 
     return (
-        <Layout>
+        <DefaultLayout>
             <SEO title="RENCI Teams" />
             
             <h1>Teams</h1>
@@ -35,7 +35,7 @@ const TeamsPage = ({ data }) => {
                 ))
             }
 
-        </Layout>
+        </DefaultLayout>
     )
 }
 

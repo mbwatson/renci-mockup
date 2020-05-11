@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { MiniProfile } from '../components/user'
 
 export default ({ data, pageContext }) => {
@@ -11,7 +11,7 @@ export default ({ data, pageContext }) => {
     }} = data
     
     return (
-        <Layout>
+        <DefaultLayout>
             <h1>{ name }</h1>
 
             <p>
@@ -25,7 +25,7 @@ export default ({ data, pageContext }) => {
             </div>
 
             <br/>
-        </Layout>
+        </DefaultLayout>
     )
 }
 

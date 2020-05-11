@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { MiniProfile } from '../components/user'
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 
@@ -12,7 +12,7 @@ export default ({ data, pageContext }) => {
         online_presence,
     }} = data
     return (
-        <Layout>
+        <DefaultLayout>
             <h1>{ name }</h1>
 
             <ul style={{ listStyleType: 'none' }}>
@@ -41,7 +41,7 @@ export default ({ data, pageContext }) => {
             </div>
 
             <br/>
-        </Layout>
+        </DefaultLayout>
     )
 }
 

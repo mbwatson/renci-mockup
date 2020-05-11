@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from 'gatsby'
 import { SEO } from "../components/seo"
-import { Layout } from "../components/layout"
+import { DefaultLayout } from "../components/layout"
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Heading } from '../components/typography'
 
@@ -9,7 +9,7 @@ const ProjectsPage = ({ data }) => {
     const projects = data.allProjectsYaml.edges
 
     return (
-        <Layout>
+        <DefaultLayout>
             <SEO title="RENCI Projects" />
             
             <h1>Projects</h1>
@@ -29,7 +29,7 @@ const ProjectsPage = ({ data }) => {
                 ))
             }
 
-        </Layout>
+        </DefaultLayout>
     )
 }
 
