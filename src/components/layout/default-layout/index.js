@@ -30,29 +30,14 @@ const menuItems = [
 
 export const DefaultLayout = ({ children }) => {
     const { windowWidth } = useWindow()
-    const isCompact = windowWidth < 768
-    const [compact, setCompact] = useState(isCompact)
+    const [compact, setCompact] = useState(windowWidth < 768)
 
-    useEffect(() => {
-        setCompact(isCompact)
-    }, [windowWidth])
-
-    const data = useStaticQuery(graphql`
-        query SiteTitleQuery {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `)
+    useEffect(() => setCompact(windowWidth < 768), [windowWidth])
 
     return (
         <Page>
-            <Header compact={ isCompact }>
-                <Brand center={ isCompact }>
-                        { data.site.siteMetadata.title }
-                </Brand>
+            <Header compact={ compact }>
+                <Brand center={ compact }>RENCI</Brand>
                 { compact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
             </Header>
             <Main>{ children }</Main>

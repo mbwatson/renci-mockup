@@ -14,7 +14,7 @@ export const MenuItem = styled(Link)(({ theme }) => `
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3.2rem;
+    height: 5rem;
     padding: 0 1rem;
     color: ${ theme.color.primary.main };
     background-color: transparent;
