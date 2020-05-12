@@ -7,13 +7,13 @@ export const Card = styled.div(({ theme }) => `
     border: 1px solid ${ theme.color.grey };
 `)
 
-export const CardHeader = styled.header`
+export const CardHeader = styled.header(({ theme }) => `
     padding: 0.5rem 1rem;
     display: flex;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid ${ theme.color.grey };
     display: flex;
     align-items: center;
-`
+`)
 
 export const CardBody = styled.main`
     padding: 1rem;
