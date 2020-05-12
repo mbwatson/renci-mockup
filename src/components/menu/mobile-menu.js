@@ -24,8 +24,7 @@ export const MobileMenuItem = styled(Link)(({ theme }) => `
     text-decoration: none;
     transition: background-color 250ms;
     &:hover {
-        color: ${ theme.color.white };
-        background-color: ${ theme.color.primary.main };
+        color: ${ theme.color.primary.dark };
     }
 `)
 

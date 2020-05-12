@@ -26,9 +26,9 @@ export const theme = {
         radius: '0px',
         width: '1px',
     },
-    padding: {
+    spacing: {
         small: '1rem',
-        normal: '2rem',
+        medium: '2rem',
         large: '3rem',
         extraLarge: '4rem',
     },

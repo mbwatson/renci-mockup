@@ -7,14 +7,13 @@ export const Navigation = styled.nav`
     flex-direction: row;
     justify-content: flex-end;
     align-items: stretch;
-    height: 100%;
 `
 
 export const MenuItem = styled(Link)(({ theme }) => `
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5rem;
+    height: 100%;
     padding: 0 1rem;
     color: ${ theme.color.primary.main };
     background-color: transparent;

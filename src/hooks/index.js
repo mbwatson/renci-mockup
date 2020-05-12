@@ -1,3 +1,4 @@
+export * from './use-brand'
 export * from './use-collaborations'
 export * from './use-groups'
 export * from './use-news'
