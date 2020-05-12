@@ -37,7 +37,7 @@ export const DefaultLayout = ({ children }) => {
     return (
         <Page>
             <Header compact={ compact }>
-                <Brand center={ compact }>RENCI</Brand>
+                <Brand>RENCI</Brand>
                 { compact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
             </Header>
             <Main>{ children }</Main>
