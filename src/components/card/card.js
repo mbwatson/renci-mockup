@@ -1,15 +1,11 @@
 import styled from 'styled-components'
 
-export const Card = styled.div`
-    border-radius: 0.25rem;
+export const Card = styled.div(({ theme }) => `
+    border-radius: ${ theme.border.radius };
     margin-bottom: 2rem;
-    background-color: #fff;
-    filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.1));
-    transition: filter 500ms;
-    &:hover {
-        filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.2));
-    }
-`
+    background-color: ${ theme.color.white };
+    border: 1px solid ${ theme.color.grey };
+`)
 
 export const CardHeader = styled.header`
     padding: 0.5rem 1rem;

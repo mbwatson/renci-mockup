@@ -12,22 +12,22 @@ export const MobileNavigation = styled.nav`
     padding-bottom: 1rem;
 `
 
-export const MobileMenuItem = styled(Link)`
+export const MobileMenuItem = styled(Link)(({ theme }) => `
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     padding: 0 1rem;
-    color: #fff;
-    background-color: transparent;
+    color: ${ theme.color.primary.main };
+    background-color: ${ theme.color.white };
     text-decoration: none;
     transition: background-color 250ms;
     &:hover {
-        color: #ccc;
-        background-color: #333;
+        color: ${ theme.color.white };
+        background-color: ${ theme.color.primary.main };
     }
-`
+`)
 
 export const MobileMenu = ({ items }) => {
     return (

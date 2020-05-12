@@ -1,6 +1,6 @@
 import React from 'react'
 import { DefaultLayout } from './src/components/layout'
-// import { LayoutContextProvider } from './src/contexts'
+import { WindowContextProvider } from './src/contexts'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './src/theme'
 
@@ -10,7 +10,9 @@ export const wrapRootElement = ({ element }) => {
     // including location, data, etc - you don't need to pass it
     return (
         <ThemeProvider theme={ theme }>
-            { element }
+            <WindowContextProvider>
+                { element }
+            </WindowContextProvider>
         </ThemeProvider>
     )
 }

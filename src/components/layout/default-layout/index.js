@@ -2,20 +2,22 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Brand } from '../typography'
+import { Brand } from '../../typography'
 import { Header }from './header'
 import { Main } from './main'
 import { Footer } from './footer'
 import { Link } from 'gatsby'
-import { Menu, MobileMenu } from '../menu'
-import "../../styles/base.css"
-import { useWindowWidth } from '@mwatson/usewindowwidth'
+import { Menu, MobileMenu } from '../../menu'
+import { useWindow } from '../../../hooks'
 
-export const Page = styled.div`
+import "../../../styles/base.css"
+
+export const Page = styled.div(({ theme }) => `
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-`
+    color: ${ theme.color.primary.main };
+`)
 
 const menuItems = [
     { path: '#', text: 'Home' },
@@ -27,8 +29,8 @@ const menuItems = [
 ]
 
 export const DefaultLayout = ({ children }) => {
-    const { windowWidth, SM } = useWindowWidth()
-    const isCompact = windowWidth < SM
+    const { windowWidth } = useWindow()
+    const isCompact = windowWidth < 768
     const [compact, setCompact] = useState(isCompact)
 
     useEffect(() => {
@@ -47,16 +49,9 @@ export const DefaultLayout = ({ children }) => {
 
     return (
         <Page>
-            <Header compact={ compact }>
-                <Brand center={ compact }>
-                    <Link to="/"
-                        style={{
-                            color: `white`,
-                            textDecoration: `none`,
-                        }}
-                    >
+            <Header compact={ isCompact }>
+                <Brand center={ isCompact }>
                         { data.site.siteMetadata.title }
-                    </Link>
                 </Brand>
                 { compact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
             </Header>

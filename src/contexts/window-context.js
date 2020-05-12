@@ -1,16 +1,15 @@
 import React, { createContext, useContext } from 'react'
 import { useWindow } from '../hooks'
 
-export const LayoutContext = createContext()
+export const WindowContext = createContext()
 
-export const LayoutContextProvider = ({ children }) => {
-    const { width, height } = useWindow()
+export const WindowContextProvider = ({ children }) => {
+    const { windowWidth, windowHeight } = useWindow()
 
     return (
-        <LayoutContext.Provider value={{ width, height }}>
+        <WindowContext.Provider value={{ windowWidth, windowHeight }}>
             { children }
-        </LayoutContext.Provider>
+        </WindowContext.Provider>
     )
 }
 
-export const useLayoutContext = () => useContext(LayoutContext)

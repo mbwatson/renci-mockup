@@ -10,21 +10,21 @@ export const Navigation = styled.nav`
     height: 100%;
 `
 
-export const MenuItem = styled(Link)`
+export const MenuItem = styled(Link)(({ theme }) => `
     display: flex;
     justify-content: center;
     align-items: center;
     height: 3.2rem;
     padding: 0 1rem;
-    color: #fff;
+    color: ${ theme.color.primary.main };
     background-color: transparent;
     text-decoration: none;
     transition: background-color 250ms;
     &:hover {
-        color: #ccc;
-        background-color: #333;
+        color: ${ theme.color.white };
+        background-color: ${ theme.color.primary.main };
     }
-`
+`)
 
 export const Menu = ({ items }) => {
     return (
