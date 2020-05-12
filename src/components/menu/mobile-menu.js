@@ -17,7 +17,7 @@ export const MobileMenuItem = styled(Link)(({ theme }) => `
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 3rem;
     padding: 0 1rem;
     color: ${ theme.color.primary.main };
     background-color: ${ theme.color.white };
