@@ -1,7 +1,28 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+import React from 'react'
+import { DefaultLayout } from './src/components/layout'
+import { WindowContextProvider } from './src/contexts'
+import { ThemeProvider } from 'styled-components'
+import { theme } from './src/theme'
 
-// You can delete this file if you're not using it
+
+export const wrapRootElement = ({ element }) => {
+    // props provide same data to Layout as Page element will get
+    // including location, data, etc - you don't need to pass it
+    return (
+        <ThemeProvider theme={ theme }>
+            <WindowContextProvider>
+                { element }
+            </WindowContextProvider>
+        </ThemeProvider>
+    )
+}
+
+export const wrapPageElement = ({ element }) => {
+    // props provide same data to Layout as Page element will get
+    // including location, data, etc - you don't need to pass it
+    return (
+        <DefaultLayout>
+            { element }
+        </DefaultLayout>
+    )
+}
