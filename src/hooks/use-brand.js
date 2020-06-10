@@ -1,24 +1,25 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 const logoQuery = graphql`{
-    allImageSharp(filter: {fluid: {originalImg: {regex: "/renci.png/"}}}) {
-        edges {
-            node {
-                id
-                fluid(maxWidth: 180) {
-                    ...GatsbyImageSharpFluid
-                }
-                fixed(width: 180) {
-                    ...GatsbyImageSharpFixed
-                }
+    renciLogo: file(relativePath: {regex: "/renci.png/"}) {
+        childImageSharp {
+            fixed(width: 180) {
+                ...GatsbyImageSharpFixed
+            }
+        }
+    }
+    renciLogoDark: file(relativePath: {regex: "/renci-dark.png/"}) {
+        childImageSharp {
+            fixed(width: 180) {
+                ...GatsbyImageSharpFixed
             }
         }
     }
 }`
 
 export const useBrand = () => {
-    const data = useStaticQuery(logoQuery)
-    const fluid = data.allImageSharp.edges[0].node.fluid
-    const fixed = data.allImageSharp.edges[0].node.fixed
-    return { fluid, fixed }
+    const { renciLogo, renciLogoDark } = useStaticQuery(logoQuery)
+    const light = renciLogo.childImageSharp.fixed
+    const dark = renciLogoDark.childImageSharp.fixed
+    return { light, dark }
 }
