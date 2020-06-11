@@ -14,7 +14,7 @@ const PeoplePage = () => {
 
     useEffect(() => {
         setDisplayedStaff(staff.filter(person => person.name.toLowerCase().includes(query)))
-    }, [query])
+    }, [query, staff])
 
     return (
         <Fragment>
@@ -24,7 +24,7 @@ const PeoplePage = () => {
             
             <div>
                 <label htmlFor="staff-search">Filter by name:</label>
-                <input name="staff-search" type="text" onChange={ handleChangeQuery } value={ query } />
+                <input id="staff-search" type="text" onChange={ handleChangeQuery } value={ query } />
             </div>
 
             <br/>
