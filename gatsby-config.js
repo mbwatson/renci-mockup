@@ -62,6 +62,5 @@ module.exports = {
         // reverse
         "PeopleYaml.teams": `TeamsYaml`, // This does nothing
         "MarkdownRemark.frontmatter.author": "PeopleYaml",
-        "ProjectsYaml": `GroupsYaml`,
     },
 }
