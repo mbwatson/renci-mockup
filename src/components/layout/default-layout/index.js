@@ -77,17 +77,17 @@ const Brand = styled(Link).attrs({
 
 export const DefaultLayout = ({ children }) => {
     const { windowWidth } = useWindow()
-    const [compact, setCompact] = useState(windowWidth < 768)
+    const [compact, setCompact] = useState(windowWidth < 1000)
     const logos = useBrand()
 
 
-    useEffect(() => setCompact(windowWidth < 768), [windowWidth])
+    useEffect(() => setCompact(windowWidth < 1000), [windowWidth])
 
     return (
         <Page>
-            <Header compact={ compact }>
+            <Header>
                 <Brand>
-                    <Img fixed={ logos.dark } style={{ width: '180px', margin: '0 2rem' }} imgStyle={{ width: 'auto', height: '100%' }} alt="Navigate to RENCI Home" />
+                    <Img fixed={ logos.light } style={{ width: '180px', margin: '0 1rem' }} imgStyle={{ width: 'auto', height: '100%' }} alt="Navigate to RENCI Home" />
                 </Brand>
                 { compact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
             </Header>

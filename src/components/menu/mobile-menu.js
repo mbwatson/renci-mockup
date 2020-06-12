@@ -1,37 +1,26 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, { useTheme } from 'styled-components'
 import { Link } from "gatsby"
+import { CloseIcon, HamburgerIcon } from '../icons'
 
-export const MobileNavigation = styled.nav`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    padding-bottom: 1rem;
+const Toggler = styled.button`
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    z-index: 3;
+    margin-right: 1rem;
 `
 
-export const MobileMenuItem = styled(Link)(({ theme }) => `
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3rem;
-    padding: 0 1rem;
-    color: ${ theme.color.primary.main };
-    background-color: ${ theme.color.white };
-    text-decoration: none;
-    transition: background-color 250ms;
-    &:hover {
-        color: ${ theme.color.primary.dark };
-    }
-`)
-
 export const MobileMenu = ({ items }) => {
+    const theme = useTheme()
+    const [visible, setVisible] = useState(false)
+
+    const handleToggleMenu = () => setVisible(!visible)
+    const handleCloseMenu = () => setVisible(false)
+
     return (
-        <MobileNavigation>
-            { items.map(item => <MobileMenuItem key={ item.text } to={ item.path }>{ item.text }</MobileMenuItem>) }
-        </MobileNavigation>
+        <Toggler onClick={ handleToggleMenu }>
+            { visible ? <CloseIcon size="36" fill={ theme.color.danger } /> : <HamburgerIcon size="36" fill={ theme.color.renciBlue } /> }
+        </Toggler>
     )
 }

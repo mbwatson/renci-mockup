@@ -58,7 +58,7 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
-            allProjectsYaml(sort: {fields: name, order: ASC}) {
+            allProjectsYaml(sort: {fields: name, order: DESC}) {
                 edges {
                     node {
                         id
@@ -109,6 +109,8 @@ exports.createPages = ({ actions, graphql }) => {
         // Create project pages
         const projects = result.data.allProjectsYaml.edges
         projects.forEach(({ node }) => {
+            console.log('creating project page for')
+            console.log(node.id, node.name)
             createPage({
                 id: node.id,
                 path: `/projects/${ node.id }`,
