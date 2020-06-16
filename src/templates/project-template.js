@@ -33,7 +33,7 @@ export const projectQuery = graphql`
         projectsYaml( id: { eq: $id }) {
             name
             description
-            group {
+            groups {
                 id
                 name
             }

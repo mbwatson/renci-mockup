@@ -2,25 +2,22 @@ const path = require(`path`)
 
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions
-    const typeDefs = [
-        `type ProjectsYaml implements Node {
-            group: GroupsYaml @link(by: "projects.id", from: "id")
-        }`,
-        `type PeopleYaml implements Node {
+    const typeDefs = `
+        type GroupsYaml implements Node {
+            projects: [ProjectsYaml] @link
+        }
+        type PeopleYaml implements Node {
             teams: [TeamsYaml] @link(by: "members.id", from: "id")
             groups: [GroupsYaml] @link(by: "members.id", from: "id")
             collaborations: [CollaborationsYaml] @link(by: "members.id", from: "id")
-        }`,
-        `type GroupsYaml implements Node {
+        }
+        type TeamsYaml implements Node {
             lead: PeopleYaml @link(by: "id")
-        }`,
-        `type TeamsYaml implements Node {
-            lead: PeopleYaml @link(by: "id")
-        }`,
-        `type CollaborationsYaml implements Node {
+        }
+        type CollaborationsYaml implements Node {
             lead: PeopleYaml @link(by: "collaborations.id", from: "id")
-        }`,
-     ]
+        }
+    `
     createTypes(typeDefs)
 }
 

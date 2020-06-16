@@ -10,7 +10,7 @@ module.exports = {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `images`,
-                path: `${__dirname}/src/images`,
+                path: `${ __dirname }/src/images`,
             },
         },
         `gatsby-transformer-yaml`,
@@ -49,18 +49,20 @@ module.exports = {
         // `gatsby-plugin-offline`,
     ],
     mapping: {
+        // TEAMS
+        "PeopleYaml.groups": `GroupsYaml`,
         // Show members as people objects in full for team, group, and collaboration queries--not just the corresponding id
         "TeamsYaml.members": `PeopleYaml`, // Link team members to people // defaults to PeopleYaml.id unless specified otherwise
         "TeamsYaml.lead": `PeopleYaml`, // Link team leads to person
-        
+        // GROUPS
         "GroupsYaml.members": `PeopleYaml`, // Link group members to people
         "GroupsYaml.lead": `PeopleYaml`, // Link group leads to person
         "GroupsYaml.projects": `ProjectsYaml`, // Show projects in full for group queries
-
+        // COLLABORATIONS
         "CollaborationsYaml.members": `PeopleYaml`, // Link collaborationmembers to people
-        
-        // reverse
-        "PeopleYaml.teams": `TeamsYaml`, // This does nothing
+        // PROJECTS
+        "ProjectsYaml.groups": `GroupsYaml`,
+        // NEWS
         "MarkdownRemark.frontmatter.author": "PeopleYaml",
     },
 }

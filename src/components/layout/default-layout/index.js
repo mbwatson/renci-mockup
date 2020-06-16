@@ -62,7 +62,7 @@ const FooterContents = () => {
 }
 
 const menuItems = [
-    { path: '#', text: 'Home' },
+    { path: '/', text: 'Home' },
     { path: '/people', text: 'People' },
     { path: '/groups', text: 'Groups' },
     { path: '/collaborations', text: 'Collaborations' },

@@ -22,16 +22,9 @@ const PeoplePage = () => {
             
             <h1>Staff</h1>
             
-            <div>
-                <label htmlFor="staff-search">Filter by name:</label>
-                <input id="staff-search" type="text" onChange={ handleChangeQuery } value={ query } />
-            </div>
-
-            <br/>
-
             {
                 displayedStaff.map(person => (
-                    <Profile key={ person.id } person={ person } />
+                    <pre>{ JSON.stringify(person, null, 2) }</pre>
                 ))
             }
 
