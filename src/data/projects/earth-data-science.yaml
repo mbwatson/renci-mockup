@@ -1,7 +1,6 @@
 id: earth-data-science
 name: Earth Data Science
-groups:
-  data-science
+group: data-science
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 online_presence:
   url: https://eds.renci.org/

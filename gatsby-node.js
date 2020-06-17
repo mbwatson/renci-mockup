@@ -8,7 +8,7 @@ exports.createSchemaCustomization = ({ actions }) => {
         }
         type PeopleYaml implements Node {
             teams: [TeamsYaml] @link(by: "members.id", from: "id")
-            groups: [GroupsYaml] @link(by: "members.id", from: "id")
+            groups: GroupsYaml @link(by: "members.id", from: "id")
             collaborations: [CollaborationsYaml] @link(by: "members.id", from: "id")
         }
         type TeamsYaml implements Node {
@@ -107,7 +107,9 @@ exports.createPages = ({ actions, graphql }) => {
         const projects = result.data.allProjectsYaml.edges
         projects.forEach(({ node }) => {
             console.log('creating project page for')
-            console.log(node.id, node.name)
+            console.log(node.id)
+            console.log(JSON.stringify(node, null, 2))
+            console.log('- - - - - - - -')
             createPage({
                 id: node.id,
                 path: `/projects/${ node.id }`,

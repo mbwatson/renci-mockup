@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { DefaultLayout } from '../components/layout'
-import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
+import { SocialLinks } from '../components/social-links'
 
 export default ({ data, pageContext }) => {
+    console.log(pageContext)
     const { projectsYaml: {
+        id,
         name,
         description,
         group,
@@ -12,28 +14,27 @@ export default ({ data, pageContext }) => {
     }} = data
     
     return (
-        <DefaultLayout>
+        <Fragment>
             <h1>{ name }</h1>
             
-            <ul style={{ listStyleType: 'none' }}>
-                <li><LinkIcon /> <a href={ online_presence.url }>{ online_presence.url }</a></li>
-                <li><TwitterIcon /> <a href={ `https://twitter.com/${ online_presence.twitter }` }>{ online_presence.twitter }</a></li>
-                <li><GitHubIcon /> <a href={ `https://github.com/${ online_presence.github }` }>{ online_presence.github }</a></li>
-            </ul>
+            <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
 
             <p>{ description }</p>
 
-            <p>This project is owned by <Link to={ `/groups/${ group.id }` }>{ group.name }</Link> </p>
-        </DefaultLayout>
+            <p>
+                This project is owned by <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
+            </p>
+        </Fragment>
     )
 }
 
 export const projectQuery = graphql`
     query($id: String!) {
         projectsYaml( id: { eq: $id }) {
+            id
             name
             description
-            groups {
+            group {
                 id
                 name
             }

@@ -3,14 +3,14 @@ import { graphql, useStaticQuery } from 'gatsby'
 const logoQuery = graphql`{
     renciLogo: file(relativePath: {regex: "/renci.png/"}) {
         childImageSharp {
-            fixed(width: 180) {
+            fixed(width: 110) {
                 ...GatsbyImageSharpFixed
             }
         }
     }
     renciLogoDark: file(relativePath: {regex: "/renci-dark.png/"}) {
         childImageSharp {
-            fixed(width: 180) {
+            fixed(width: 110) {
                 ...GatsbyImageSharpFixed
             }
         }

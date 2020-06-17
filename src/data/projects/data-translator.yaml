@@ -1,7 +1,6 @@
 id: data-translator
 name: Data Translator
-groups:
-  nrig
+group: data-science
 description: datum ipsum dolor blah blah
 online_presence:
   url: https://researchsoftwareinstitute.github.io/data-translator/

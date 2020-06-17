@@ -1,6 +1,7 @@
 id: health-informatics
 name: Health Informatics
 description: healthy information
+featuredImage: null
 lead: kwilhelmsen
 members:
   - kwilhelmsen
@@ -11,6 +12,6 @@ members:
   - ylin
 projects:
 online_presence:
-  url: 
-  github: 
-  twitter: 
+  url: null
+  github: null
+  twitter: null

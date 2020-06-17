@@ -1,7 +1,6 @@
 id: cellfie
 name: Cellfie
-groups:
-  tx-science
+group: tx-science
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque reiciendis, quibusdam optio beatae est nostrum, aperiam dolore, sint commodi molestias ex non, minus odit quia quo sunt officiis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque reiciendis, quibusdam optio beatae est nostrum, aperiam dolore, sint commodi molestias ex non, minus odit quia quo sunt officiis! 
 online_presence:
   url: https://cellfie.renci.org
