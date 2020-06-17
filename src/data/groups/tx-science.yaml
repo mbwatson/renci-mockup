@@ -9,7 +9,7 @@ members:
   - mwatson
   - sraj
 projects:
-  - duketic-dashboard
+  - ctmd
   - precision-dosing
   - cellfie
 online_presence:

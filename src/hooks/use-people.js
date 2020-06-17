@@ -8,18 +8,6 @@ const peopleQuery = graphql`{
                 name
                 email
                 title
-                teams {
-                    id
-                    name
-                }
-                groups {
-                    id
-                    name
-                }
-                collaborations {
-                    id
-                    name
-                }
             }
         }
     }

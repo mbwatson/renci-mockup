@@ -8,6 +8,7 @@ members:
   - cdickens
   - lleathers
   - crutledge
+projects:
 online_presence:
   url: https://wiki.renci.org/
   github: null

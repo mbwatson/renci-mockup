@@ -13,6 +13,9 @@ members:
   - hlander
   - dborland
   - jbalhoff
+projects:
+  - data-translator
+  - earth-data-science
 online_presence:
   url: 
   github: 

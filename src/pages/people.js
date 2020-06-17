@@ -1,32 +1,34 @@
-import React, { Fragment, useEffect, useState } from "react"
+import React, { Fragment } from "react"
 import { SEO } from '../components/seo'
-import { Profile } from '../components/user'
 import { usePeople } from '../hooks'
+import { Section } from '../components/section'
+import { Profile } from '../components/user'
+import { StaffBrowser } from '../components/staff-browser'
 
 const PeoplePage = () => {
     const staff = usePeople()
-    const [displayedStaff, setDisplayedStaff] = useState(staff)
-    const [query, setQuery] = useState('')
-
-    const handleChangeQuery = event => {
-        setQuery(event.target.value.toLowerCase())
-    }
-
-    useEffect(() => {
-        setDisplayedStaff(staff.filter(person => person.name.toLowerCase().includes(query)))
-    }, [query, staff])
 
     return (
         <Fragment>
             <SEO title="RENCI Staff" />
             
-            <h1>Staff</h1>
+            <h1>Our Team</h1>
             
-            {
-                displayedStaff.map(person => (
-                    <pre>{ JSON.stringify(person, null, 2) }</pre>
-                ))
-            }
+            <Section title="Office of the Director">
+                Lorem ipsum dolor sit.
+            </Section>
+
+            <Section title="Management Team">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, placeat voluptates vitae assumenda atque.
+            </Section>
+
+            <Section title="Chief Scientists">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos accusantium exercitationem placeat architecto quas dolore!
+            </Section>
+
+            <Section title="All Staff">
+                <StaffBrowser staff={ staff } />
+            </Section>
 
         </Fragment>
     )

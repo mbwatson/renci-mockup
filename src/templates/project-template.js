@@ -9,7 +9,6 @@ export default ({ data, pageContext }) => {
         id,
         name,
         description,
-        group,
         online_presence
     }} = data
     
@@ -22,7 +21,7 @@ export default ({ data, pageContext }) => {
             <p>{ description }</p>
 
             <p>
-                This project is owned by <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
+                This project is owned by some group
             </p>
         </Fragment>
     )
@@ -34,10 +33,6 @@ export const projectQuery = graphql`
             id
             name
             description
-            group {
-                id
-                name
-            }
             online_presence {
                 url
                 twitter

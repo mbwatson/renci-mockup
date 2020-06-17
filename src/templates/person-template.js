@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {
-    const { peopleYaml: { name, title, email, office, groups, teams, collaborations, online_presence }} = data
+    const { peopleYaml: { name, title, email, office, online_presence }} = data
 
     return (
         <Fragment>
@@ -24,47 +24,14 @@ export default ({ data, pageContext }) => {
             <br/>
 
             <h3>Groups</h3>
-            <div>
-                {
-                    groups
-                    ? groups.map(group => (
-                        <div>
-                            <Link to={ `/groups/${ group.id }` }>{ group.name }</Link>
-                        </div>
-                    ))
-                    : <div>&empty;</div>
-                }
-            </div>
 
             <br/>
 
             <h3>Collaborations</h3>
-            <div>
-                {
-                    collaborations
-                    ? collaborations.map(collaboration => (
-                        <div>
-                            <Link to={ `/collaborations/${ collaboration.id }` }>{ collaboration.name }</Link>
-                        </div>
-                    ))
-                    :  <div>&empty;</div>
-                }
-            </div>
 
             <br/>
 
             <h3>Teams</h3>
-            <div>
-                {
-                    teams
-                    ? teams.map(team => (
-                        <div>
-                            <Link to={ `/teams/${ team.id }` }>{ team.name }</Link>
-                        </div>
-                    ))
-                    :  <div>&empty;</div>
-                }
-            </div>
 
         </Fragment>
     )
@@ -87,18 +54,6 @@ export const personQuery = graphql`
                 url
             }
             bio
-            teams {
-                id
-                name
-            }
-            groups {
-                id
-                name
-            }
-            collaborations {
-                id
-                name
-            }
         }
     }
 `

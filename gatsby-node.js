@@ -3,22 +3,13 @@ const path = require(`path`)
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions
     const typeDefs = `
-        type GroupsYaml implements Node {
-            projects: [ProjectsYaml] @link
-        }
         type PeopleYaml implements Node {
             teams: [TeamsYaml] @link(by: "members.id", from: "id")
-            groups: GroupsYaml @link(by: "members.id", from: "id")
+            groups: [GroupsYaml] @link(by: "members.id", from: "id")
             collaborations: [CollaborationsYaml] @link(by: "members.id", from: "id")
         }
-        type TeamsYaml implements Node {
-            lead: PeopleYaml @link(by: "id")
-        }
-        type CollaborationsYaml implements Node {
-            lead: PeopleYaml @link(by: "collaborations.id", from: "id")
-        }
     `
-    createTypes(typeDefs)
+    // createTypes(typeDefs)
 }
 
 exports.createPages = ({ actions, graphql }) => {
@@ -79,7 +70,9 @@ exports.createPages = ({ actions, graphql }) => {
         
         // Create person pages
         const people = result.data.allPeopleYaml.edges
+        console.log(`Creating staff pages...`)
         people.forEach(({ node }) => {
+            console.log(` - Creating staff page for ${ node.name } (id: ${ node.id })`)
             createPage({
                 id: node.id,
                 path: `/people/${ node.id }`,
@@ -92,7 +85,9 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create group pages
         const groups = result.data.allGroupsYaml.edges
+        console.log(`Creating group pages...`)
         groups.forEach(({ node }) => {
+            console.log(` - Creating group page for ${ node.name } (id: ${ node.id })`)
             createPage({
                 id: node.id,
                 path: `/groups/${ node.id }`,
@@ -105,11 +100,9 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create project pages
         const projects = result.data.allProjectsYaml.edges
+        console.log(`Creating project pages...`)
         projects.forEach(({ node }) => {
-            console.log('creating project page for')
-            console.log(node.id)
-            console.log(JSON.stringify(node, null, 2))
-            console.log('- - - - - - - -')
+            console.log(` - Creating project page for ${ node.name } (id: ${ node.id })`)
             createPage({
                 id: node.id,
                 path: `/projects/${ node.id }`,
@@ -122,7 +115,9 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create team pages
         const teams = result.data.allTeamsYaml.edges
+        console.log(`Creating team pages...`)
         teams.forEach(({ node }) => {
+            console.log(` - Creating team page for ${ node.name } (id: ${ node.id })`)
             createPage({
                 id: node.id,
                 path: `/teams/${ node.id }`,
@@ -135,7 +130,9 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create collaboration pages
         const collaborations = result.data.allCollaborationsYaml.edges
+        console.log(`Creating collaboration pages...`)
         collaborations.forEach(({ node }) => {
+            console.log(` - Creating collaboration page for ${ node.name } (id: ${ node.id })`)
             createPage({
                 id: node.id,
                 path: `/collaborations/${ node.id }`,

@@ -2,6 +2,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 export const Header = styled.header(({ theme, compact, dark }) => `
+    position: sticky;
+    top: 0;
+    z-index: 1;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -9,7 +12,8 @@ export const Header = styled.header(({ theme, compact, dark }) => `
     align-items: stretch;
     background-color: ${ theme.color.white };
     padding: 0 1rem;
-    ${ dark ? `background-color: ${ theme.color.black };` : undefined }
+    ${ dark ? `background-color: ${ theme.color.black };` : undefined };
+    border-bottom: 1px solid ${ theme.color.lightgrey };
 `)
 
 Header.propTypes = {
