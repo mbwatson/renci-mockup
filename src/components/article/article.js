@@ -27,5 +27,5 @@ export const Article = ({ title, children }) => {
 
 Article.propTypes = {
     title: PropTypes.string,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
 }
