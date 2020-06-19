@@ -7,6 +7,7 @@ const Header = styled.h2(({ theme }) => `
     @media (min-width: 992px) { text-align: right; }
     font-weight: bold;
     padding: ${ theme.spacing.small };
+    margin: 0.33rem 0 0 0;
 `)
 
 const Wrapper = styled.section(({ theme, fullWidth }) => `

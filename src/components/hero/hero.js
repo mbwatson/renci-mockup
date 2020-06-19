@@ -17,13 +17,13 @@ const Content = styled.div(({ theme }) => `
 const Wrapper = styled.div(({ theme }) => `
     position: relative;
     background: ${ theme.color.black };
-    min-height: 400px;
+    min-height: 300px;
 `)
 
 export const Hero = ({ backgroundImage, children }) => {
     return (
         <Wrapper>
-            { backgroundImage && <Img fluid={ backgroundImage } /> }
+            { backgroundImage && <Img fluid={ backgroundImage } style={{ height: '300px' }} /> }
             <Content>
                 { children }
             </Content>
