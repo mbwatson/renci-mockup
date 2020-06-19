@@ -7,13 +7,24 @@ const newsQuery = graphql`{
                 id
                 frontmatter {
                     title
-                    publish_date
+                    featuredImage {
+                        childImageSharp {
+                            fullSize: fluid {
+                                ...GatsbyImageSharpFluid
+                            }
+                            previewSize: fixed(width: 300, height: 300) {
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
+                    }
+                    publish_date(formatString: "dddd, MMMM Do, YYYY")
                     author {
                         id
                         name
                     }
                 }
                 html
+                excerpt(pruneLength: 250)
             }
         }
     }

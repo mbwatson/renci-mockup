@@ -1,9 +1,13 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 import { SEO } from '../components/seo'
 import { Card, CardHeader, CardBody } from '../components/card'
-import { Heading } from '../components/typography'
+import { Title } from '../components/typography'
 import { useNews } from '../hooks'
+import { Section } from '../components/section'
+import { ArticlePreview } from '../components/news'
+import { HorizontalRule } from '../components/horizontal-rule'
 
 const NewsPage = () => {
     const articles = useNews()
@@ -12,25 +16,20 @@ const NewsPage = () => {
         <Fragment>
             <SEO title="RENCI News" />
             
-            <h1>News</h1>
-
-            {
-                articles.map(article => {
-                    const author = article.frontmatter.author
-                    return (
-                        <Card key={ article.id }>
-                            <CardHeader>
-                                <Heading><Link to={ `/news/${ article.id }` }>{ article.frontmatter.title }</Link></Heading>
-                            </CardHeader>
-
-                            <CardBody>
-                                By <Link to={ `/people/${ author.id }`} >{ author.name }</Link> <br/><br/>
-                                <div dangerouslySetInnerHTML={{ __html: article.html }} />
-                            </CardBody>
-                        </Card>
-                    )
-                })
-            }
+            <Title>News at RENCI</Title>
+            
+            <Section fullWidth>
+                {
+                    articles.map(article => {
+                        return (
+                            <Fragment>
+                                <ArticlePreview key={ article.id } article={ article } />
+                                <HorizontalRule />
+                            </Fragment>
+                        )
+                    })
+                }
+            </Section>
 
         </Fragment>
     )

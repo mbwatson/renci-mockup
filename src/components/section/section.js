@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const Header = styled.h2(({ theme }) => `
     flex: 3;
-    @media (min-width: 768px) { text-align: right; }
+    @media (min-width: 992px) { text-align: right; }
     font-weight: bold;
     padding: ${ theme.spacing.small };
 `)
@@ -21,7 +21,7 @@ const Wrapper = styled.section(({ theme, fullWidth }) => `
                 text-align: left;
             }
         ` : `
-            @media (min-width: 768px) { flex-direction: row; }
+            @media (min-width: 992px) { flex-direction: row; }
         `
     }
 `)
