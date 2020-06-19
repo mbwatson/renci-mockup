@@ -17,9 +17,7 @@ const Wrapper = styled.section(({ theme, fullWidth }) => `
     flex-direction: column;
     ${
         fullWidth ? `
-            & ${ Header } {
-                text-align: left;
-            }
+            & ${ Header } { text-align: left; }
         ` : `
             @media (min-width: 992px) { flex-direction: row; }
         `

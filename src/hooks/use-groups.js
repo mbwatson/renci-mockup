@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 const groupsQuery = graphql`{
-    groups: allGroupsYaml {
+    groups: allGroupsYaml(sort: {fields: name, order: ASC}) {
         edges {
             node {
                 id
@@ -30,5 +30,5 @@ const groupsQuery = graphql`{
 
 export const useGroups = () => {
     const { groups } = useStaticQuery(groupsQuery)
-    return groups.edges.map(({ node }) => node)
+    return groups.edges.map(({ node }) => node).sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase())
 }

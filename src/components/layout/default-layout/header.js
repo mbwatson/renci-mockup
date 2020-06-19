@@ -10,7 +10,7 @@ export const Header = styled.header(({ theme, compact, dark }) => `
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    background-color: ${ theme.color.white };
+    background-color: ${ theme.color.whitish };
     padding: 0 1rem;
     ${ dark ? `background-color: ${ theme.color.black };` : undefined };
     transition: background-color 250ms;

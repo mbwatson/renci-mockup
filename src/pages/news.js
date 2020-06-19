@@ -20,11 +20,11 @@ const NewsPage = () => {
             
             <Section fullWidth>
                 {
-                    articles.map(article => {
+                    articles.map((article, i) => {
                         return (
                             <Fragment>
                                 <ArticlePreview key={ article.id } article={ article } />
-                                <HorizontalRule />
+                                { i < articles.length - 1 && <HorizontalRule /> }
                             </Fragment>
                         )
                     })
