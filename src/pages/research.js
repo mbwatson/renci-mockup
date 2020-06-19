@@ -21,7 +21,7 @@ const ResearchPage = () => {
                 {
                     groups.map((group, i) => (
                         <Fragment>
-                            <Article key={ group.id } title={ group.name }>
+                            <Article key={ group.id } title={ group.name } titleLink={ `/groups/${ group.id }` }>
                                 <div dangerouslySetInnerHTML={{ __html: group.description }} />
                             </Article>
                             { i < groups.length - 1 && <HorizontalRule /> }
@@ -31,7 +31,7 @@ const ResearchPage = () => {
             </Section>
             
             <HorizontalRule />
-            
+
             <Section title="Collaborations & Team Science">
                 {
                     collaborations.map((group, i) => (
