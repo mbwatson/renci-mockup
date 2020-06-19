@@ -13,6 +13,7 @@ export const Header = styled.header(({ theme, compact, dark }) => `
     background-color: ${ theme.color.white };
     padding: 0 1rem;
     ${ dark ? `background-color: ${ theme.color.black };` : undefined };
+    transition: background-color 250ms;
     border-bottom: 1px solid ${ theme.color.lightgrey };
 `)
 
