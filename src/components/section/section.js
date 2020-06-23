@@ -1,43 +1,50 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Heading } from '../typography'
 
-const Header = styled.h2(({ theme }) => `
+const Header = styled(Heading)(({ theme }) => `
     flex: 3;
     @media (min-width: 992px) { text-align: right; }
-    font-weight: bold;
-    padding: ${ theme.spacing.small };
-    margin: 0.33rem 0 0 0;
+    margin: 0;
+    padding: 1rem 0;
+    @media (min-width: 992px) {
+        padding: .33rem 1rem;
+    }
 `)
 
 const Wrapper = styled.section(({ theme, fullWidth }) => `
     width: 100%;
-    max-width: 1200px;
     margin: 1rem auto;
     display: flex;
     flex-direction: column;
     ${
         fullWidth ? `
-            & ${ Header } { text-align: left; }
+            & ${ Header } { text-align: left; padding: 1rem 0; }
+            & ${ Content } { padding: 1rem 0; }
         ` : `
-            @media (min-width: 992px) { flex-direction: row; }
+            @media (min-width: 992px) {
+                flex-direction: row;
+            }
         `
     }
 `)
 
 const Content = styled.div(({ theme }) => `
     flex: 7;
-    padding: ${ theme.spacing.small };
+    margin: 0;
+    padding: 1rem 0;
+    @media (min-width: 992px) {
+        padding: 0 1rem;
+    }
 `)
 
 export const Section = ({ title, children, fullWidth }) => {
     return (
-        <Fragment>
-            <Wrapper fullWidth={ fullWidth }>
-                <Header>{ title }</Header>
-                <Content>{ children }</Content>
-            </Wrapper>
-        </Fragment>
+        <Wrapper fullWidth={ fullWidth }>
+            { title && <Header>{ title }</Header> }
+            <Content>{ children }</Content>
+        </Wrapper>
     )
 }
 

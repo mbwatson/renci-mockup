@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { SEO } from '../components/seo'
+import { Container} from '../components/layout'
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Title } from '../components/typography'
 import { useNews } from '../hooks'
@@ -13,7 +14,7 @@ const NewsPage = () => {
     const articles = useNews()
 
     return (
-        <Fragment>
+        <Container className="container">
             <SEO title="RENCI News" />
             
             <Title>News at RENCI</Title>
@@ -31,7 +32,7 @@ const NewsPage = () => {
                 }
             </Section>
 
-        </Fragment>
+        </Container>
     )
 }
 

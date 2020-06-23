@@ -1,5 +1,6 @@
 ---
 title: Another Title
+slug: another-title
 publish_date: 2019-09-13
 author: subers
 featuredImage: null

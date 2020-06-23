@@ -11,18 +11,32 @@ export const Navigation = styled.nav`
     align-items: stretch;
 `
 
-export const MenuItem = styled(Link)(({ theme }) => `
+export const MenuItem = styled(Link)(({ theme, dark }) => `
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     padding: 0 1rem;
-    color: ${ theme.color.primary.main };
-    background-color: transparent;
     text-decoration: none;
-    transition: color 250ms;
-    &:hover {
-        color: ${ theme.color.black };
+    transition: color 250ms, background-color 250ms;
+    ${
+        dark ? `
+            color: ${ theme.color.white };
+            background-color: transparent;
+            &:hover {
+                background-color: ${ theme.color.darkgrey };
+            }
+        ` : `
+            color: ${ theme.color.black };
+            background-color: transparent;
+            &:hover {
+                background-color: ${ theme.color.lightgrey };
+            }
+        `
+    }
+    &.active {
+        color: ${ dark ? theme.color.white : theme.color.renciBlue };
+        background-color: ${ dark ? theme.color.darkgrey : theme.color.lightgrey };
     }
 `)
 
@@ -33,17 +47,17 @@ const ToolsMenu = styled.div`
     align-items: stretch;
 `
 
-export const Menu = ({ items }) => {
+export const Menu = ({ items, dark }) => {
     const theme = useTheme()
 
     return (
         <Navigation>
-            { items.map(item => <MenuItem key={ item.text } to={ item.path }>{ item.text }</MenuItem>) }
+            { items.map(item => <MenuItem key={ item.text } to={ item.path } dark={ dark } activeClassName="active">{ item.text }</MenuItem>) }
             <ToolsMenu>
                 <IconButton>
                     <MagnifyingGlassIcon size={ 24 } fill={ theme.color.grey } />
                 </IconButton>
-                <MenuItem to="#">Sign In</MenuItem>
+                <MenuItem to="#" dark={ dark }>Sign In</MenuItem>
             </ToolsMenu>
         </Navigation>
     )

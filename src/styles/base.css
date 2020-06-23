@@ -1,3 +1,5 @@
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -192,15 +194,6 @@ html {
     box-sizing: border-box;
     overflow-y: scroll;
 }
-* {
-    box-sizing: inherit;
-}
-*:before {
-    box-sizing: inherit;
-}
-*:after {
-    box-sizing: inherit;
-}
 body {
     color: hsla(0, 0%, 0%, 0.8);
     font-family: sans-serif;
@@ -228,40 +221,43 @@ h1 {
     margin: 0;
     color: inherit;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
     text-rendering: optimizeLegibility;
-    /*font-size: 2.25rem;*/
+    font-size: 3.25rem;
     line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
 }
 h2 {
     padding: 0;
     margin: 0;
     color: inherit;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
     text-rendering: optimizeLegibility;
-    /*font-size: 1.5rem;*/
+    font-size: 2.0rem;
     line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
 }
 h3 {
     padding: 0;
     margin: 0;
     color: inherit;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
     text-rendering: optimizeLegibility;
-    /*font-size: 1.2rem;*/
+    font-size: 1.5rem;
+    font-weight: 300;
     line-height: 1.1;
+    letter-spacing: 0.1rem;
 }
 h4 {
     padding: 0;
     margin: 0;
     color: inherit;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
+    font-weight: normal;
     text-rendering: optimizeLegibility;
-    /*font-size: 1.1rem;*/
     line-height: 1.1;
+    letter-spacing: 0.1rem;
 }
 h5 {
     padding: 0;

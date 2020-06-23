@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
 import { SEO } from '../components/seo'
 import { Link } from 'gatsby'
+import { Container} from '../components/layout'
 import { Card, CardHeader, CardBody } from '../components/card'
-import { Heading } from '../components/typography'
+import { Title, Heading } from '../components/typography'
 import { useProjects } from '../hooks'
 
 const ProjectsPage = () => {
@@ -12,7 +13,7 @@ const ProjectsPage = () => {
         <Fragment>
             <SEO title="RENCI Projects" />
             
-            <h1>Projects</h1>
+            <Title>Projects</Title>
 
             {
                 projects.map(project => (

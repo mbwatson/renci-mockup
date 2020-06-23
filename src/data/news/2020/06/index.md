@@ -1,5 +1,7 @@
 ---
 title: Fake Article
+slug: fake-article
+spotlight: true
 publish_date: 2020-06-18
 author: mwatson
 featuredImage: ./feet.jpg

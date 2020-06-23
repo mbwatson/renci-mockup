@@ -1,5 +1,6 @@
 ---
 title: Some Title
+slug: some-title
 publish_date: 2019-08-23
 author: mwatson
 featuredImage: ./pic.jpg

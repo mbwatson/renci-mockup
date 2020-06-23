@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
-const Wrapper = styled.article``
+const Wrapper = styled.article`
+    margin: 0;
+`
 
 const Header = styled.h3`
     font-weight: bold;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     margin: 0;
     line-height: 2.35;
 `

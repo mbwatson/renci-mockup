@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import { SEO } from '../components/seo'
+import { Container } from '../components/layout'
+import { Title, Paragraph } from '../components/typography'
 import { MiniProfile } from '../components/user'
 import { Section } from '../components/section'
 import { Article } from '../components/article'
@@ -12,11 +14,17 @@ const ResearchPage = () => {
     const collaborations = useCollaborations()
 
     return (
-        <Fragment>
+        <Container>
             <SEO title="RENCI Groups" />
-
-
             
+            <Title>Research at RENCI</Title>
+
+            <Paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas rerum quos, ab dolore eius culpa id excepturi magni fuga saepe sunt non, ea dolores nisi tempore eos. Explicabo, eligendi, ut.
+            </Paragraph>
+            
+            <HorizontalRule />
+
             <Section title="Research Groups">
                 {
                     groups.map((group, i) => (
@@ -45,7 +53,7 @@ const ResearchPage = () => {
                 }
             </Section>
 
-        </Fragment>
+        </Container>
     )
 }
 

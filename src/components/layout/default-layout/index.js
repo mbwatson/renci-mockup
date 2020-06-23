@@ -93,7 +93,7 @@ export const DefaultLayout = ({ children }) => {
                         : <Img fixed={ logos.light } style={{ width: '180px', margin: '6px 1rem' }} imgStyle={{ width: 'auto', height: '100%' }} alt="Navigate to RENCI Home" />
                     }
                 </Brand>
-                { compact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
+                { compact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } dark={ darkHeader } /> }
             </Header>
             <Main>{ children }</Main>
             <Footer>

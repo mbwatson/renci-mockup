@@ -1,15 +1,14 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { Subheading } from '../typography'
+import { Heading } from '../typography'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
 
 const Wrapper = styled.article`
-    margin: 1rem;
+    margin: 1rem 0;
 `
 
-const ImageContainer = styled.div`
-`
+const ImageContainer = styled.div``
 
 const ArticleDate = styled.h2`
     font-size: 95%;
@@ -19,13 +18,30 @@ const ArticleDate = styled.h2`
     line-height: 2.35;
 `
 
-const ArticleTitle = styled(Subheading)`
-    font-weight: bold;
-`
+const ArticleTitle = styled(Heading)(({ theme }) => `
+    color: ${ theme.color.darkgrey };
+`)
 
 const BodyContainer = styled.div`
+    // border: 1px solid #f99;
     max-height: 200px;
     overflow-y: hidden;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        background-image: linear-gradient(#ffffff00, #ffffff);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3rem;
+        max-height: 3rem;
+    }
+`
+
+const Actions = styled.div`
+    text-align: right;
+    padding: 1rem 0 0 0;
 `
 
 export const ArticlePreview = ({ article }) => {
@@ -37,11 +53,11 @@ export const ArticlePreview = ({ article }) => {
                     {
                         hasFeaturedImage && (
                             <Fragment>
-                                <Visible xs sm>
+                                <Visible sm>
                                     <Col xs={ 12 }>
                                         <Img
                                             fluid={ article.frontmatter.featuredImage.childImageSharp.fullSize }
-                                                imgStyle={{ width: 'auto', height: '100%' }}
+                                            imgStyle={{ width: 'auto', height: '100%' }}
                                             alt="Featured image"
                                         />
                                     </Col>
@@ -50,7 +66,7 @@ export const ArticlePreview = ({ article }) => {
                                     <Col md={ 4 } lg={ 3 }>
                                         <Img
                                             fixed={ article.frontmatter.featuredImage.childImageSharp.previewSize }
-                                            style={{ width: '100%', height: '200px' }}
+                                            style={{ width: '100%', height: '250px' }}
                                             alt="Featured image"
                                         />
                                     </Col>
@@ -64,6 +80,9 @@ export const ArticlePreview = ({ article }) => {
                             <ArticleTitle>{ article.frontmatter.title }</ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
+                        <Actions>
+                            <button>read more</button>
+                        </Actions>
                     </Col>
                 </Row>
             </Grid>
