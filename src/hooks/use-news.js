@@ -5,8 +5,10 @@ const newsQuery = graphql`{
         edges {
             node {
                 id
+                fileAbsolutePath
                 frontmatter {
                     title
+                    slug
                     spotlight
                     featuredImage {
                         childImageSharp {
@@ -33,5 +35,12 @@ const newsQuery = graphql`{
 
 export const useNews = () => {
     const { news } = useStaticQuery(newsQuery)
+    news.edges.forEach(({ node }) => {
+        const matches = node.fileAbsolutePath.match(/data\/news\/(\d{4})\/(\d{2})\/.+\/index.md$/)
+        if (matches) {
+            const [, yyyy, dd] = matches
+            node.path = `/news/${ yyyy }/${ dd }/${ node.frontmatter.slug }`
+        }
+    })
     return news.edges.map(({ node }) => node)
 }

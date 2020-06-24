@@ -19,6 +19,7 @@ exports.createPages = ({ actions, graphql }) => {
     const teamTemplate = path.resolve(`src/templates/team-template.js`)
     const projectTemplate = path.resolve(`src/templates/project-template.js`)
     const collaborationTemplate = path.resolve(`src/templates/collaboration-template.js`)
+    const newsArticleTemplate = path.resolve(`src/templates/news-article-template.js`)
 
     return graphql(`
         {
@@ -62,6 +63,18 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
+            allMarkdownRemark(sort: {fields: frontmatter___publish_date, order: ASC}) {
+                edges {
+                    node {
+                        fileAbsolutePath
+                        frontmatter {
+                            slug
+                            title
+                            publish_date(formatString: "MMMM DD, YYYY")
+                        }
+                    }
+                }
+            }
         }
     `).then(result => {
         if (result.errors) {
@@ -70,7 +83,7 @@ exports.createPages = ({ actions, graphql }) => {
         
         // Create person pages
         const people = result.data.allPeopleYaml.edges
-        console.log(`Creating staff pages...`)
+        console.log(`\nCreating staff pages...`)
         people.forEach(({ node }) => {
             console.log(` - Creating staff page for ${ node.name } (id: ${ node.id })`)
             createPage({
@@ -85,7 +98,7 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create group pages
         const groups = result.data.allGroupsYaml.edges
-        console.log(`Creating group pages...`)
+        console.log(`\nCreating group pages...`)
         groups.forEach(({ node }) => {
             console.log(` - Creating group page for ${ node.name } (id: ${ node.id })`)
             createPage({
@@ -100,7 +113,7 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create project pages
         const projects = result.data.allProjectsYaml.edges
-        console.log(`Creating project pages...`)
+        console.log(`\nCreating project pages...`)
         projects.forEach(({ node }) => {
             console.log(` - Creating project page for ${ node.name } (id: ${ node.id })`)
             createPage({
@@ -115,7 +128,7 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create team pages
         const teams = result.data.allTeamsYaml.edges
-        console.log(`Creating team pages...`)
+        console.log(`\nCreating team pages...`)
         teams.forEach(({ node }) => {
             console.log(` - Creating team page for ${ node.name } (id: ${ node.id })`)
             createPage({
@@ -130,7 +143,7 @@ exports.createPages = ({ actions, graphql }) => {
 
         // Create collaboration pages
         const collaborations = result.data.allCollaborationsYaml.edges
-        console.log(`Creating collaboration pages...`)
+        console.log(`\nCreating collaboration pages...`)
         collaborations.forEach(({ node }) => {
             console.log(` - Creating collaboration page for ${ node.name } (id: ${ node.id })`)
             createPage({
@@ -143,6 +156,30 @@ exports.createPages = ({ actions, graphql }) => {
             })
         })
 
-        return [...people, ...groups, ...projects, ...teams, ...collaborations]
+        // Create news article pages
+        const articles = result.data.allMarkdownRemark.edges.filter(({ node }) => node.fileAbsolutePath.includes('/news/'))
+        console.log(`\nCreating news pages...`)
+        articles.forEach(({ node }, index) => {
+            const matches = node.fileAbsolutePath.match(/data\/news\/(\d{4}\/\d{2})\/.+\/index.md$/)
+            console.log(` - Creating news page for ${ node.frontmatter.title }`)
+            console.log(node.fileAbsolutePath)
+            console.log(matches)
+            if (matches) {
+                const [, yyyydd] = matches
+                const path = `news/${ yyyydd }/${ node.frontmatter.slug }`
+                console.log(` - Creating news page for ${ node.frontmatter.title } (${ path })`)
+                createPage({
+                    path: path,
+                    component: newsArticleTemplate,
+                    context: { // additional data passed via context
+                        slug: node.frontmatter.slug,
+                        prev: index === 0 ? null : articles[index - 1].node,
+                        next: index === articles.length - 1 ? null : articles[index + 1].node,
+                    },
+                })
+            }
+        })
+
+        return [...people, ...groups, ...projects, ...teams, ...collaborations, ...articles]
     })
 }

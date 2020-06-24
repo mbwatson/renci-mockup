@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Heading } from '../typography'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
@@ -77,11 +78,11 @@ export const ArticlePreview = ({ article }) => {
                     <Col xs={ 12 } md={ hasFeaturedImage ? 8 : 12 } lg={ hasFeaturedImage ? 9 : 12 }>
                         <BodyContainer>
                             <ArticleDate>{ article.frontmatter.publish_date }</ArticleDate>
-                            <ArticleTitle>{ article.frontmatter.title }</ArticleTitle>
+                            <ArticleTitle><Link to={ article.path }>{ article.frontmatter.title }</Link></ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
                         <Actions>
-                            <button>read more</button>
+                            <Link to={ article.path }>Read</Link>
                         </Actions>
                     </Col>
                 </Row>
