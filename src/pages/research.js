@@ -28,8 +28,8 @@ const ResearchPage = () => {
             <Section title="Research Groups">
                 {
                     groups.map((group, i) => (
-                        <Fragment>
-                            <Article key={ group.id } title={ group.name } titleLink={ `/groups/${ group.id }` }>
+                        <Fragment key={ group.id }>
+                            <Article title={ group.name } titleLink={ `/groups/${ group.id }` }>
                                 <div dangerouslySetInnerHTML={{ __html: group.description }} />
                             </Article>
                             { i < groups.length - 1 && <HorizontalRule /> }
@@ -43,8 +43,8 @@ const ResearchPage = () => {
             <Section title="Collaborations & Team Science">
                 {
                     collaborations.map((group, i) => (
-                        <Fragment>
-                            <Article key={ group.id } title={ group.name }>
+                        <Fragment key={ group.id }>
+                            <Article title={ group.name }>
                                 <div dangerouslySetInnerHTML={{ __html: group.description }} />
                             </Article>
                             { i < collaborations.length - 1 && <HorizontalRule /> }
