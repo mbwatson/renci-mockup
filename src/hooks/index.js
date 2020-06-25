@@ -1,5 +1,6 @@
 export * from './use-brand'
 export * from './use-collaborations'
+export * from './use-events'
 export * from './use-groups'
 export * from './use-news'
 export * from './use-news-spotlight'
