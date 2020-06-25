@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Hero } from '../components/hero'
+import { Title } from '../components/typography'
 import { Container } from '../components/layout'
 import { SocialLinks } from '../components/social-links'
 import { Article } from '../components/article'
@@ -20,7 +21,7 @@ export default ({ data, pageContext }) => {
     return (
         <Fragment>
             <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fluid }>
-                <h1>{ name }</h1>
+                <Title>{ name }</Title>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid incidunt quaerat distinctio est, inventore. Asperiores ex repudiandae quam saepe, blanditiis sed temporibus est dolore aperiam nobis? Aliquam eveniet, sit assumenda.
                 </p>
