@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled, { useTheme } from 'styled-components'
-import { Link } from "gatsby"
 import { CloseIcon, HamburgerIcon } from '../icons'
 
 const Toggler = styled.button`
@@ -16,7 +15,6 @@ export const MobileMenu = ({ items }) => {
     const [visible, setVisible] = useState(false)
 
     const handleToggleMenu = () => setVisible(!visible)
-    const handleCloseMenu = () => setVisible(false)
 
     return (
         <Toggler onClick={ handleToggleMenu }>

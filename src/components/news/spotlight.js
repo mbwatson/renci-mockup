@@ -11,8 +11,6 @@ const Wrapper = styled.article`
     padding: 0 !important;
 `
 
-const ImageContainer = styled.div``
-
 const ArticleDate = styled.h2`
     font-size: 95%;
     font-weight: bold;
@@ -42,11 +40,6 @@ const BodyContainer = styled.div`
         height: 3rem;
         max-height: 3rem;
     }
-`
-
-const Actions = styled.div`
-    text-align: right;
-    padding: 1rem 0 0 0;
 `
 
 export const Spotlight = ({ article }) => {

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import styled, { useTheme } from 'styled-components'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Heading } from '../typography'
@@ -9,8 +9,6 @@ import { ReadMoreLink } from './read-more-link'
 const Wrapper = styled.article`
     margin: 1rem 0;
 `
-
-const ImageContainer = styled.div``
 
 const ArticleDate = styled.h2`
     font-size: 95%;

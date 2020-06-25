@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {
