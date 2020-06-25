@@ -152,10 +152,11 @@ exports.createPages = ({ actions, graphql }) => {
         const people = result.data.allPeopleYaml.edges
         console.log(`\nCreating staff pages...`)
         people.forEach(({ node }) => {
-            console.log(` - Creating staff page for ${ node.name } (id: ${ node.id })`)
+            const path = `/people/${ node.id }`
+            console.log(` - ${ node.name } (${ path })`)
             createPage({
                 id: node.id,
-                path: `/people/${ node.id }`,
+                path: path,
                 component: personTemplate,
                 context: { // additional data passed via context
                     id: node.id,
@@ -167,10 +168,11 @@ exports.createPages = ({ actions, graphql }) => {
         const groups = result.data.allGroupsYaml.edges
         console.log(`\nCreating group pages...`)
         groups.forEach(({ node }) => {
-            console.log(` - Creating group page for ${ node.name } (id: ${ node.id })`)
+            const path = `/groups/${ node.id }`
+            console.log(` - ${ node.name } (${ path })`)
             createPage({
                 id: node.id,
-                path: `/groups/${ node.id }`,
+                path: path,
                 component: groupTemplate,
                 context: { // additional data passed via context
                     id: node.id,
@@ -182,10 +184,11 @@ exports.createPages = ({ actions, graphql }) => {
         const projects = result.data.allProjectsYaml.edges
         console.log(`\nCreating project pages...`)
         projects.forEach(({ node }) => {
-            console.log(` - Creating project page for ${ node.name } (id: ${ node.id })`)
+            const path = `/projects/${ node.id }`
+            console.log(` - ${ node.name } (${ path })`)
             createPage({
                 id: node.id,
-                path: `/projects/${ node.id }`,
+                path: path,
                 component: projectTemplate,
                 context: { // additional data passed via context
                     id: node.id,
@@ -197,10 +200,11 @@ exports.createPages = ({ actions, graphql }) => {
         const teams = result.data.allTeamsYaml.edges
         console.log(`\nCreating team pages...`)
         teams.forEach(({ node }) => {
-            console.log(` - Creating team page for ${ node.name } (id: ${ node.id })`)
+            const path = `/teams/${ node.id }`
+            console.log(` - ${ node.name } (${ path })`)
             createPage({
                 id: node.id,
-                path: `/teams/${ node.id }`,
+                path: path,
                 component: teamTemplate,
                 context: { // additional data passed via context
                     id: node.id,
@@ -212,10 +216,11 @@ exports.createPages = ({ actions, graphql }) => {
         const collaborations = result.data.allCollaborationsYaml.edges
         console.log(`\nCreating collaboration pages...`)
         collaborations.forEach(({ node }) => {
-            console.log(` - Creating collaboration page for ${ node.name } (id: ${ node.id })`)
+            const path = `/collaborations/${ node.id }`
+            console.log(` - ${ node.name } (${ path })`)
             createPage({
                 id: node.id,
-                path: `/collaborations/${ node.id }`,
+                path: path,
                 component: collaborationTemplate,
                 context: { // additional data passed via context
                     id: node.id,
@@ -231,7 +236,7 @@ exports.createPages = ({ actions, graphql }) => {
             if (matches) {
                 const [, yyyydd] = matches
                 const path = `news/${ yyyydd }/${ node.frontmatter.slug }`
-                console.log(` - Creating news page for ${ node.frontmatter.title } (${ path })`)
+                console.log(` - ${ node.frontmatter.title } (${ path })`)
                 createPage({
                     path: path,
                     component: newsArticleTemplate,
