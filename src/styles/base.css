@@ -50,11 +50,15 @@ a {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
     text-decoration: underline;
-    color: inherit;
+    color: #333;
+    text-underline-offset: 0.25rem;
+    text-decoration-color: #ccc;
+    transition: text-decoration-color 250ms;
 }
 a:active,
 a:hover {
     outline-width: 0;
+    text-decoration-color: #333;
 }
 abbr[title] {
     border-bottom: none;

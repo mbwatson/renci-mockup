@@ -82,8 +82,8 @@ export const ArticlePreview = ({ article }) => {
                             <ArticleTitle><Link to={ article.path }>{ article.frontmatter.title }</Link></ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
-                        <Link to={ article.path } style={{ display: 'flex', alignItems: 'center' }}>
-                            <span>Continue Reading</span>&nbsp;<ArrowRightIcon fill="#333" size={ 14 } />.
+                        <Link to={ article.path } style={{ display: 'inline-flex', alignItems: 'center' }}>
+                            Continue Reading <ArrowRightIcon fill="#333" size={ 14 } style={{ marginLeft: '0.25rem' }} />
                         </Link>
                     </Col>
                 </Row>
