@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Container } from '../components/layout'
-import { Title } from '../components/typography'
+import { Meta, Title } from '../components/typography'
 import { Hero } from '../components/hero'
 
 export default ({ data, pageContext }) => {
@@ -16,11 +16,14 @@ export default ({ data, pageContext }) => {
     }} = data
     return (
         <Fragment>
-            <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fullSize }>
-            </Hero>
+            <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fullSize }></Hero>
 
             <Container>
                 <Title>{ title }</Title>
+
+                <Meta>
+                    Published on { publish_date } by <Link to={ `/people/${ author.id }` }>{ author.name }</Link>
+                </Meta>
 
                 <div dangerouslySetInnerHTML={{ __html: articleHTML }} />
             </Container>
