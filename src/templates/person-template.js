@@ -1,39 +1,48 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
+import { Container } from '../components/layout'
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
+import { Title, Heading } from '../components/typography'
+import { SocialLinks } from '../components/social-links'
+import { Section } from '../components/section'
+import { Article } from '../components/article'
 
 export default ({ data, pageContext }) => {
     const { peopleYaml: { name, title, email, office, online_presence }} = data
 
     return (
-        <Fragment>
-            <h1>{ name }</h1>
-            <h2>{ title }</h2>
-            { online_presence.url && <Fragment><LinkIcon /> <a href={ online_presence.url }>{ online_presence.url }</a></Fragment> }
-            { online_presence.twitter && <Fragment><TwitterIcon /> <a href={ `https://twitter.com/${ online_presence.twitter }` }>{ online_presence.twitter }</a></Fragment> }
-            { online_presence.github && <Fragment><GitHubIcon /> <a href={ `https://github.com/${ online_presence.github }` }>{ online_presence.github }</a></Fragment> }
+        <Container>
+            <Title>{ name }</Title>
+            <Heading>{ title }</Heading>
+            <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
 
-
-            <h3>Contact</h3>
-            <div>
-                email: { email } <br/>
-                office: { office.location } <br/>
-                phone: { office.phone } <br/>
-            </div>
+            <Section title="Contact">
+                <Article title="Lorem ipsum">
+                    email: { email } <br/>
+                    office: { office.location } <br/>
+                    phone: { office.phone } <br/>
+                </Article>
+            </Section>
 
             <br/>
 
-            <h3>Groups</h3>
+            <Section title="Groups">
+                Lorem ipsum
+            </Section>
 
             <br/>
 
-            <h3>Collaborations</h3>
+            <Section title="Collaborations">
+                Lorem ipsum
+            </Section>
 
             <br/>
 
-            <h3>Teams</h3>
+            <Section title="Teams">
+                Lorem ipsum
+            </Section>
 
-        </Fragment>
+        </Container>
     )
 }
 

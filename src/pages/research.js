@@ -40,10 +40,10 @@ const ResearchPage = () => {
 
             <Section title="Collaborations & Team Science">
                 {
-                    collaborations.map((group, i) => (
-                        <Fragment key={ group.id }>
-                            <Article title={ group.name }>
-                                <div dangerouslySetInnerHTML={{ __html: group.description }} />
+                    collaborations.map((collaboration, i) => (
+                        <Fragment key={ collaboration.id }>
+                            <Article title={ collaboration.name } titleLink={ `/groups/${ collaboration.id }` }>
+                                <div dangerouslySetInnerHTML={{ __html: collaboration.description }} />
                             </Article>
                             { i < collaborations.length - 1 && <HorizontalRule /> }
                         </Fragment>

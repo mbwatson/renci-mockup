@@ -6,7 +6,7 @@ import { SocialLinks } from '../components/social-links'
 import { Article } from '../components/article'
 import { Section } from '../components/section'
 import { HorizontalRule } from '../components/horizontal-rule'
-import { MiniProfile } from '../components/user'
+import { MiniProfile } from '../components/people'
 
 export default ({ data, pageContext }) => {
     const { groupsYaml: {

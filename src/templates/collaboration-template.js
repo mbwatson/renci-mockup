@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
-import { MiniProfile } from '../components/user'
+import { MiniProfile } from '../components/people'
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {

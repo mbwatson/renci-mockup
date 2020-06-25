@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import { MiniProfile } from '../components/user'
+import { MiniProfile } from '../components/people'
 
 export default ({ data, pageContext }) => {
     const { teamsYaml: {

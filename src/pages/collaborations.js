@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import { SEO } from '../components/seo'
-import { MiniProfile } from '../components/user'
+import { MiniProfile } from '../components/people'
 import { Container, Row, Col } from 'react-grid-system'
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Heading, Subheading } from '../components/typography'
