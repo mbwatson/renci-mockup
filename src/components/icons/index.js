@@ -1,3 +1,4 @@
+export * from './arrow-icons'
 export * from './avatar-icon'
 export * from './backspace-icon'
 export * from './cancel-icon'
