@@ -161,9 +161,6 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(`\nCreating news pages...`)
         articles.forEach(({ node }, index) => {
             const matches = node.fileAbsolutePath.match(/data\/news\/(\d{4}\/\d{2})\/.+\/index.md$/)
-            console.log(` - Creating news page for ${ node.frontmatter.title }`)
-            console.log(node.fileAbsolutePath)
-            console.log(matches)
             if (matches) {
                 const [, yyyydd] = matches
                 const path = `news/${ yyyydd }/${ node.frontmatter.slug }`

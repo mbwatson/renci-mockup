@@ -4,7 +4,6 @@ import { DefaultLayout } from '../components/layout'
 import { SocialLinks } from '../components/social-links'
 
 export default ({ data, pageContext }) => {
-    console.log(pageContext)
     const { projectsYaml: {
         id,
         name,

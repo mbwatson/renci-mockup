@@ -8,7 +8,6 @@ import { useTeams } from '../hooks'
 
 const TeamsPage = () => {
     const teams = useTeams()
-    console.log(teams)
 
     return (
         <Fragment>
