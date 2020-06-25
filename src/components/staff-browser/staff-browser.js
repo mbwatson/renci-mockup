@@ -35,7 +35,7 @@ export const StaffBrowser = ({ staff }) => {
     return (
         <Wrapper>
             <LettersMenu>
-                { Object.keys(buckets).map(letter => <LetterLink href="#">{ letter }</LetterLink>) }
+                { Object.keys(buckets).map(letter => <LetterLink key={ letter } href="#">{ letter }</LetterLink>) }
             </LettersMenu>
             <StaffList>
                 {
