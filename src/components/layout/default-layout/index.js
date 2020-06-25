@@ -76,13 +76,13 @@ const Brand = styled(Link).attrs({
 
 export const DefaultLayout = ({ children, currentPath }) => {
     const { windowWidth } = useWindow()
-    const [darkHeader, setDarkHeader] = useState(true)
+    const [darkHeader, setDarkHeader] = useState(1)
     const [compact, setCompact] = useState(windowWidth < 1000)
     const logos = useBrand()
 
     useEffect(() => setCompact(windowWidth < 1000), [windowWidth])
     useLayoutEffect(() => {
-        setDarkHeader(currentPath === '/')
+        setDarkHeader(currentPath === '/' ? 1 : 0)
     }, [currentPath])
 
     return (
