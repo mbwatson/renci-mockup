@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Heading } from '../typography'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
+import { ArrowRightIcon } from '../icons'
 
 const Wrapper = styled.article`
     margin: 1rem 0;
@@ -81,7 +82,9 @@ export const ArticlePreview = ({ article }) => {
                             <ArticleTitle><Link to={ article.path }>{ article.frontmatter.title }</Link></ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
-                        <Link to={ article.path }>Continue Reading -></Link>
+                        <Link to={ article.path } style={{ display: 'flex', alignItems: 'center' }}>
+                            <span>Continue Reading</span>&nbsp;<ArrowRightIcon fill="#333" size={ 14 } />.
+                        </Link>
                     </Col>
                 </Row>
             </Grid>
