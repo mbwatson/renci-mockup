@@ -16,11 +16,11 @@ export const wrapRootElement = ({ element }) => {
     )
 }
 
-export const wrapPageElement = ({ element }) => {
+export const wrapPageElement = ({ element, props }) => {
     // props provide same data to Layout as Page element will get
     // including location, data, etc - you don't need to pass it
     return (
-        <DefaultLayout>
+        <DefaultLayout currentPath={ props.path }>
             { element }
         </DefaultLayout>
     )

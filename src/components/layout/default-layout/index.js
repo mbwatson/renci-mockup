@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
@@ -74,14 +74,16 @@ const Brand = styled(Link).attrs({
     alt: 'Navigate to RENCI Home'
 })``
 
-export const DefaultLayout = ({ children }) => {
+export const DefaultLayout = ({ children, currentPath }) => {
     const { windowWidth } = useWindow()
-    let darkHeader = false
-    if (typeof window !== 'undefined') { darkHeader = window.location.pathname === '/' }
+    const [darkHeader, setDarkHeader] = useState(true)
     const [compact, setCompact] = useState(windowWidth < 1000)
     const logos = useBrand()
 
     useEffect(() => setCompact(windowWidth < 1000), [windowWidth])
+    useLayoutEffect(() => {
+        setDarkHeader(currentPath === '/')
+    }, [currentPath])
 
     return (
         <Page>
