@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Heading } from '../typography'
@@ -41,13 +41,15 @@ const BodyContainer = styled.div`
     }
 `
 
-const Actions = styled.div`
-    text-align: right;
-    padding: 1rem 0 0 0;
+const ReadMoreLink = styled(Link)`
+    display: inline-flex;
+    align-items: center;
+    float: right;
 `
 
 export const ArticlePreview = ({ article }) => {
     const hasFeaturedImage = article.frontmatter.featuredImage !== null
+    const theme = useTheme()
     return (
         <Wrapper>
             <Grid fluid>
@@ -82,9 +84,9 @@ export const ArticlePreview = ({ article }) => {
                             <ArticleTitle><Link to={ article.path }>{ article.frontmatter.title }</Link></ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
-                        <Link to={ article.path } style={{ display: 'inline-flex', alignItems: 'center' }}>
-                            Continue Reading <ArrowRightIcon fill="#333" size={ 14 } style={{ marginLeft: '0.25rem' }} />
-                        </Link>
+                        <ReadMoreLink to={ article.path }>
+                            Continue Reading <ArrowRightIcon fill={ theme.color.darkgrey } size={ 14 } style={{ marginLeft: '0.25rem' }} />
+                        </ReadMoreLink>
                     </Col>
                 </Row>
             </Grid>
