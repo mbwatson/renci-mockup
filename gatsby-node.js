@@ -9,9 +9,76 @@ exports.createSchemaCustomization = ({ actions }) => {
             collaborations: [CollaborationsYaml] @link(by: "members.id", from: "id")
         }
     `
-    // createTypes(typeDefs)
+    createTypes(typeDefs)
 }
 
+exports.createResolvers = ({ createResolvers }) => {
+    const resolvers = {
+        PeopleYaml: {
+            teams: {
+                type: ["TeamsYaml"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: {
+                            filter: {
+                                members: {
+                                    elemMatch: {
+                                        id: {
+                                            eq: source.id,
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        type: "TeamsYaml",
+                        firstOnly: false,
+                    })
+                }
+            },
+            groups: {
+                type: ["GroupsYaml"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: {
+                            filter: {
+                                members: {
+                                    elemMatch: {
+                                        id: {
+                                            eq: source.id,
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        type: "GroupsYaml",
+                        firstOnly: false,
+                    })
+                }
+            },
+            collaborations: {
+                type: ["CollaborationsYaml"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: {
+                            filter: {
+                                members: {
+                                    elemMatch: {
+                                        id: {
+                                            eq: source.id,
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        type: "CollaborationsYaml",
+                        firstOnly: false,
+                    })
+                }
+            },
+        }
+    }
+    createResolvers(resolvers)
+}
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
     const personTemplate = path.resolve(`src/templates/person-template.js`)
