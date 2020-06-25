@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Heading } from '../typography'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
-import { ArrowRightIcon } from '../icons'
+import { ReadMoreLink } from './read-more-link'
 
 const Wrapper = styled.article`
     margin: 1rem 0;
@@ -41,15 +41,8 @@ const BodyContainer = styled.div`
     }
 `
 
-const ReadMoreLink = styled(Link)`
-    display: inline-flex;
-    align-items: center;
-    float: right;
-`
-
 export const ArticlePreview = ({ article }) => {
     const hasFeaturedImage = article.frontmatter.featuredImage !== null
-    const theme = useTheme()
     return (
         <Wrapper>
             <Grid fluid>
@@ -84,9 +77,7 @@ export const ArticlePreview = ({ article }) => {
                             <ArticleTitle><Link to={ article.path }>{ article.frontmatter.title }</Link></ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
-                        <ReadMoreLink to={ article.path }>
-                            Continue Reading <ArrowRightIcon fill={ theme.color.darkgrey } size={ 14 } style={{ marginLeft: '0.25rem' }} />
-                        </ReadMoreLink>
+                        <ReadMoreLink to={ article.path } />
                     </Col>
                 </Row>
             </Grid>
