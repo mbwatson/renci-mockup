@@ -5,10 +5,9 @@ import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 import { Title, Heading } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { Section } from '../components/section'
-import { Article } from '../components/article'
 
 export default ({ data, pageContext }) => {
-    const { peopleYaml: { name, title, email, office, online_presence }} = data
+    const { peopleYaml: { name, title, email, office, online_presence, bio, groups, collaborations, teams }} = data
 
     return (
         <Container>
@@ -17,31 +16,34 @@ export default ({ data, pageContext }) => {
             <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
 
             <Section title="Contact">
-                <Article title="Lorem ipsum">
-                    email: { email } <br/>
-                    office: { office.location } <br/>
-                    phone: { office.phone } <br/>
-                </Article>
+                email: { email } <br/>
+                office: { office.location } <br/>
+                phone: { office.phone } <br/>
             </Section>
 
-            <br/>
+            {
+                groups && (
+                    <Section title="Groups">
+                        { groups.map(group => <div>{ group.name }</div>) }
+                    </Section>
+                )
+            }
 
-            <Section title="Groups">
-                Lorem ipsum
-            </Section>
+            {
+                collaborations && (
+                    <Section title="Collaborations">
+                        { collaborations.map(collaboration => <div>{ collaboration.name }</div>) }
+                    </Section>
+                )
+            }
 
-            <br/>
-
-            <Section title="Collaborations">
-                Lorem ipsum
-            </Section>
-
-            <br/>
-
-            <Section title="Teams">
-                Lorem ipsum
-            </Section>
-
+            {
+                teams && (
+                    <Section title="Teams">
+                        { teams.map(team => <div>{ team.name }</div>) }
+                    </Section>
+                )
+            }
         </Container>
     )
 }
@@ -63,6 +65,18 @@ export const personQuery = graphql`
                 url
             }
             bio
+            teams {
+                id
+                name
+            }
+            groups {
+                id
+                name
+            }
+            collaborations {
+                id
+                name
+            }
         }
     }
 `
