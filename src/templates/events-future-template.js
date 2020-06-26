@@ -4,7 +4,7 @@ import { Container } from '../components/layout'
 import { Title } from '../components/typography'
 
 export default ({ data, pageContext }) => {
-    const events = data.events.edges
+    // const events = data.events.edges
 
     return (
         <Container>

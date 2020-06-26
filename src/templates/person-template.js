@@ -5,6 +5,7 @@ import { Title, Heading } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { Section } from '../components/section'
 import { Article } from '../components/article'
+import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const { peopleYaml: { name, title, email, office, online_presence, bio, groups, collaborations, teams }} = data
@@ -26,12 +27,10 @@ export default ({ data, pageContext }) => {
                 </Article>
             </Section>
 
-            <Section></Section>
-
             {
                 groups && (
                     <Section title="Groups">
-                        { groups.map(group => <div>{ group.name }</div>) }
+                        { groups.map(group => <div><ArrowLink to={ `/groups/${ group.id }` } text={ group.name } /></div>) }
                     </Section>
                 )
             }
@@ -39,7 +38,7 @@ export default ({ data, pageContext }) => {
             {
                 collaborations && (
                     <Section title="Collaborations">
-                        { collaborations.map(collaboration => <div>{ collaboration.name }</div>) }
+                        { collaborations.map(collaboration => <div><ArrowLink to={ `/collaborations/${ collaboration.id }` } text={ collaboration.name } /></div>) }
                     </Section>
                 )
             }
@@ -47,7 +46,7 @@ export default ({ data, pageContext }) => {
             {
                 teams && (
                     <Section title="Teams">
-                        { teams.map(team => <div>{ team.name }</div>) }
+                        { teams.map(team => <div><ArrowLink to={ `/teams/${ team.id }` } text={ team.name } /></div>) }
                     </Section>
                 )
             }

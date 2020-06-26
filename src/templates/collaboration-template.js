@@ -1,7 +1,12 @@
 import React, { Fragment } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import { Hero } from '../components/hero'
+import { Container } from '../components/layout'
+import { Title } from '../components/typography'
+import { SocialLinks } from '../components/social-links'
+import { Section } from '../components/section'
 import { MiniProfile } from '../components/people'
-import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
+import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const { collaborationsYaml: {
@@ -9,37 +14,37 @@ export default ({ data, pageContext }) => {
         members,
         projects,
         online_presence,
+        featuredImage
     }} = data
     return (
         <Fragment>
-            <h1>{ name }</h1>
+            <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fluid }>
+                <Title>{ name }</Title>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid incidunt quaerat distinctio est, inventore. Asperiores ex repudiandae quam saepe, blanditiis sed temporibus est dolore aperiam nobis? Aliquam eveniet, sit assumenda.
+                </p>
+            </Hero>
 
-            <ul style={{ listStyleType: 'none' }}>
-                <li><LinkIcon /> <a href={ online_presence.url }>{ online_presence.url }</a></li>
-                <li><TwitterIcon /> <a href={ `https://twitter.com/${ online_presence.twitter }` }>{ online_presence.twitter }</a></li>
-                <li><GitHubIcon /> <a href={ `https://github.com/${ online_presence.github }` }>{ online_presence.github }</a></li>
-            </ul>
+            <Container>
+                <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
+                
+                <Section title="Contributors">
+                    <ul style={{ listStyleType: 'none' }}>
+                        { members.map(person => <li key={ person.id } ><MiniProfile person={ person } /></li>) }
+                    </ul>
+                </Section>
 
-            <h3>Members</h3>
+                <br/>
 
-            <ul style={{ listStyleType: 'none' }}>
-                { members.map(person => <li key={ person.id } ><MiniProfile person={ person } /></li>) }
-            </ul>
-
-            <br/>
-
-            <h3>Projects</h3>
-            <div>
                 {
-                    projects
-                    ? projects.map(project => (
-                        <div><Link to={ `/projects/${ project.id }` }>{ project.name }</Link></div>
+                    projects && projects.map(project => (
+                        <Section title="Projects">
+                            <div><ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /></div>
+                        </Section>
                     ))
-                    : <div>&empty;</div>
                 }
-            </div>
 
-            <br/>
+            </Container>
         </Fragment>
     )
 }

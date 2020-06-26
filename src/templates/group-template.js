@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Hero } from '../components/hero'
-import { Title } from '../components/typography'
 import { Container } from '../components/layout'
+import { Title } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
-import { Article } from '../components/article'
 import { Section } from '../components/section'
+import { Article } from '../components/article'
 import { HorizontalRule } from '../components/horizontal-rule'
 import { MiniProfile } from '../components/people'
+import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const { groupsYaml: {
@@ -51,7 +52,7 @@ export default ({ data, pageContext }) => {
                 <Section title="Current Projects">
                     {
                         projects ? projects.map(project => (
-                            <div><Link to={ `/projects/${ project.id }` }>{ project.name }</Link></div>
+                            <div><ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /></div>
                         )) : <div>&empty;</div>
                     }
                 </Section>
