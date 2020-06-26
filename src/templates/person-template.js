@@ -13,7 +13,7 @@ export default ({ data, pageContext }) => {
         <Container>
             <Title>{ name }</Title>
             <Heading>{ title }</Heading>
-            <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
+            <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter_username } github={ online_presence.github_username } />
 
             <Section title="Details">
                 <Article title="Contact">

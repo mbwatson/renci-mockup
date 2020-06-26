@@ -10,6 +10,7 @@ const SocialLinksWrapper = styled.div(({ theme }) => `
         fill: ${ theme.color.primary.main };
     }
     a {
+        margin: 0 ${ theme.spacing.small };
         transition: filter 250ms;
     }
     a:hover {
@@ -18,6 +19,7 @@ const SocialLinksWrapper = styled.div(({ theme }) => `
 `)
 
 export const SocialLinks = ({ url, twitter, github }) => {
+    console.log(url, twitter, github)
     return (
         <SocialLinksWrapper>
             { url && <a href={ url } aria-label="View Website" target="_blank" rel="noopener noreferrer"><LinkIcon size={ 24 } /></a> }
