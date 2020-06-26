@@ -62,6 +62,7 @@ const FooterContents = () => {
 }
 
 const menuItems = [
+    { path: '/about', text: 'About' },
     { path: '/research', text: 'Research' },
     { path: '/people', text: 'People' },
     { path: '/news', text: 'News' },
