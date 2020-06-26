@@ -33,13 +33,13 @@ const ResearchPage = () => {
             <SEO title="RENCI Groups" />
             <Grid fluid component="nav" style={{ width: '100%' }}>
                 <Row>
-                    <Col xs={ 12 } lg={ 6 } component={ NavColumn }>
+                    <Col xs={ 12 } md={ 6 } component={ NavColumn }>
                         <NavHeading>Research Groups</NavHeading>
                         <NavList style={{ listStyleType: 'none' }}>
                             { groups.map((group, i) => <NavListItem><ArrowLink key={ group.id } to={ `/groups/${ group.id }` } text={ group.name } /></NavListItem>) }
                         </NavList>
                     </Col>
-                    <Col xs={ 12 } lg={ 6 }>
+                    <Col xs={ 12 } md={ 6 }>
                         <NavHeading>Collaborations & Team Science</NavHeading>
                         <NavList style={{ listStyleType: 'none' }}>
                             { collaborations.map((collaboration, i) => <NavListItem><ArrowLink key={ collaboration.id } to={ `/collaborations/${ collaboration.id }` } text={ collaboration.name } /></NavListItem>) }
