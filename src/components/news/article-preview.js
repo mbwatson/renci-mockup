@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Heading } from '../typography'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
-import { ReadMoreLink } from './read-more-link'
+import { ArrowLink } from '../link'
 
 const Wrapper = styled.article`
     margin: 1rem 0;
@@ -75,7 +75,7 @@ export const ArticlePreview = ({ article }) => {
                             <ArticleTitle><Link to={ article.path }>{ article.frontmatter.title }</Link></ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
-                        <ReadMoreLink to={ article.path } />
+                        <ArrowLink to={ article.path } text="Continue Reading" />
                     </Col>
                 </Row>
             </Grid>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { Heading } from '../typography'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
-import { ReadMoreLink } from './read-more-link'
+import { ArrowLink } from '../link'
 
 const Wrapper = styled.article`
     // border: 1px solid #f99; * { border: 1px solid #99f; }
@@ -77,7 +77,7 @@ export const Spotlight = ({ article }) => {
                         <ArticleTitle>{ article.frontmatter.title }</ArticleTitle>
                         <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                     </BodyContainer>
-                    <ReadMoreLink to={ article.path } />
+                    <ArrowLink to={ article.path } text="Continue Reading" />
                 </Col>
             </Row>
         </Grid>

@@ -12,11 +12,11 @@ const Wrapper = styled(Link)`
     }
 `
 
-export const ReadMoreLink = props => {
+export const ArrowLink = ({ text, ...props }) => {
     const theme = useTheme()
     return (
         <Wrapper { ...props }>
-            Continue Reading <ArrowRightIcon fill={ theme.color.darkgrey } size={ 14 } />
+            { text } <ArrowRightIcon fill={ theme.color.darkgrey } size={ 14 } />
         </Wrapper>
     )
 }

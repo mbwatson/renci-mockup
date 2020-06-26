@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from '../components/layout'
-import { LinkIcon, TwitterIcon, GitHubIcon } from '../components/icons'
 import { Title, Heading } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { Section } from '../components/section'
+import { Article } from '../components/article'
 
 export default ({ data, pageContext }) => {
     const { peopleYaml: { name, title, email, office, online_presence, bio, groups, collaborations, teams }} = data
@@ -15,11 +15,18 @@ export default ({ data, pageContext }) => {
             <Heading>{ title }</Heading>
             <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
 
-            <Section title="Contact">
-                email: { email } <br/>
-                office: { office.location } <br/>
-                phone: { office.phone } <br/>
+            <Section title="Details">
+                <Article title="Contact">
+                    email: { email } <br/>
+                    office: { office.location } <br/>
+                    phone: { office.phone } <br/>
+                </Article>
+                <Article title="Biography">
+                    { bio }
+                </Article>
             </Section>
+
+            <Section></Section>
 
             {
                 groups && (

@@ -1,7 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 const newsQuery = graphql`{
-    news: allMarkdownRemark(sort: {fields: frontmatter___publish_date, order: DESC}) {
+    news: allMarkdownRemark(
+        filter: {fileAbsolutePath: {regex: "/data\/news/"}},
+        sort: {fields: frontmatter___publish_date, order: DESC}
+    ) {
         edges {
             node {
                 id

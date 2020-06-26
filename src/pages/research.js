@@ -6,6 +6,7 @@ import { Section } from '../components/section'
 import { Article } from '../components/article'
 import { HorizontalRule } from '../components/horizontal-rule'
 import { useCollaborations, useGroups } from '../hooks'
+import { ArrowLink } from '../components/link'
 
 const ResearchPage = () => {
     const groups = useGroups()
@@ -23,18 +24,13 @@ const ResearchPage = () => {
             
             <HorizontalRule />
 
-            <Section title="Research Groups">
-                {
-                    groups.map((group, i) => (
-                        <Fragment key={ group.id }>
-                            <Article title={ group.name } titleLink={ `/groups/${ group.id }` }>
-                                <div dangerouslySetInnerHTML={{ __html: group.description }} />
-                            </Article>
-                            { i < groups.length - 1 && <HorizontalRule /> }
-                        </Fragment>
-                    ))
-                }
-            </Section>
+            {
+                groups.map((group, i) => (
+                    <Fragment key={ group.id }>
+                        <ArrowLink to={ `/groups/${ group.id }` } text={ group.name } />
+                    </Fragment>
+                ))
+            }
             
             <HorizontalRule />
 
