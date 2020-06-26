@@ -87,10 +87,13 @@ exports.createPages = ({ actions, graphql }) => {
     const projectTemplate = path.resolve(`src/templates/project-template.js`)
     const collaborationTemplate = path.resolve(`src/templates/collaboration-template.js`)
     const newsArticleTemplate = path.resolve(`src/templates/news-article-template.js`)
+    const eventTemplate = path.resolve(`src/templates/event-template.js`)
+    const eventsFutureTemplate = path.resolve(`src/templates/events-future-template.js`)
+    const eventsPastTemplate = path.resolve(`src/templates/events-past-template.js`)
 
     return graphql(`
         {
-            allPeopleYaml(sort: {fields: id, order: ASC}) {
+            people: allPeopleYaml(sort: {fields: id, order: ASC}) {
                 edges {
                     node {
                         id
@@ -98,7 +101,7 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
-            allGroupsYaml(sort: {fields: name, order: ASC}) {
+            groups: allGroupsYaml(sort: {fields: name, order: ASC}) {
                 edges {
                     node {
                         id
@@ -106,7 +109,7 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
-            allTeamsYaml(sort: {fields: name, order: ASC}) {
+            teams: allTeamsYaml(sort: {fields: name, order: ASC}) {
                 edges {
                     node {
                         id
@@ -114,7 +117,7 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
-            allProjectsYaml(sort: {fields: name, order: DESC}) {
+            projects: allProjectsYaml(sort: {fields: name, order: DESC}) {
                 edges {
                     node {
                         id
@@ -122,7 +125,7 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
-            allCollaborationsYaml(sort: {fields: name, order: ASC}) {
+            collaborations: allCollaborationsYaml(sort: {fields: name, order: ASC}) {
                 edges {
                     node {
                         id
@@ -130,7 +133,10 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
-            allMarkdownRemark(sort: {fields: frontmatter___publish_date, order: ASC}) {
+            news: allMarkdownRemark(
+                filter: {fileAbsolutePath: {regex: "/news/"}},
+                sort: {fields: frontmatter___publish_date, order: DESC}
+            ) {
                 edges {
                     node {
                         fileAbsolutePath
@@ -142,14 +148,31 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
+            events: allMarkdownRemark(
+                filter: {fileAbsolutePath: {regex: "/events/"}},
+                sort: {fields: frontmatter___dates___start, order: ASC}
+            ) {
+                edges {
+                    node {
+                        fileAbsolutePath
+                        frontmatter {
+                            slug
+                            title
+                        }
+                    }
+                }
+            }
         }
     `).then(result => {
         if (result.errors) {
             return Promise.reject(result.errors)
         }
         
-        // Create person pages
-        const people = result.data.allPeopleYaml.edges
+        /**
+         * Create person pages
+         */
+
+        const people = result.data.people.edges
         console.log(`\nCreating staff pages...`)
         people.forEach(({ node }) => {
             const path = `/people/${ node.id }`
@@ -164,8 +187,11 @@ exports.createPages = ({ actions, graphql }) => {
             })
         })
 
-        // Create group pages
-        const groups = result.data.allGroupsYaml.edges
+        /**
+         * Create group pages
+         */
+
+        const groups = result.data.groups.edges
         console.log(`\nCreating group pages...`)
         groups.forEach(({ node }) => {
             const path = `/groups/${ node.id }`
@@ -180,8 +206,11 @@ exports.createPages = ({ actions, graphql }) => {
             })
         })
 
-        // Create project pages
-        const projects = result.data.allProjectsYaml.edges
+        /**
+         * Create project pages
+         */
+
+        const projects = result.data.projects.edges
         console.log(`\nCreating project pages...`)
         projects.forEach(({ node }) => {
             const path = `/projects/${ node.id }`
@@ -196,8 +225,11 @@ exports.createPages = ({ actions, graphql }) => {
             })
         })
 
-        // Create team pages
-        const teams = result.data.allTeamsYaml.edges
+        /**
+         * Create team pages
+         */
+
+        const teams = result.data.teams.edges
         console.log(`\nCreating team pages...`)
         teams.forEach(({ node }) => {
             const path = `/teams/${ node.id }`
@@ -212,8 +244,11 @@ exports.createPages = ({ actions, graphql }) => {
             })
         })
 
-        // Create collaboration pages
-        const collaborations = result.data.allCollaborationsYaml.edges
+        /**
+         * Create collaboration pages
+         */
+
+        const collaborations = result.data.collaborations.edges
         console.log(`\nCreating collaboration pages...`)
         collaborations.forEach(({ node }) => {
             const path = `/collaborations/${ node.id }`
@@ -228,14 +263,17 @@ exports.createPages = ({ actions, graphql }) => {
             })
         })
 
-        // Create news article pages
-        const articles = result.data.allMarkdownRemark.edges.filter(({ node }) => node.fileAbsolutePath.includes('/news/'))
+        /**
+         * Create news article pages
+         */
+
+        const articles = result.data.news.edges
         console.log(`\nCreating news pages...`)
         articles.forEach(({ node }, index) => {
             const matches = node.fileAbsolutePath.match(/data\/news\/(\d{4}\/\d{2})\/.+\/index.md$/)
             if (matches) {
                 const [, yyyydd] = matches
-                const path = `news/${ yyyydd }/${ node.frontmatter.slug }`
+                const path = `/news/${ yyyydd }/${ node.frontmatter.slug }`
                 console.log(` - ${ node.frontmatter.title } (${ path })`)
                 createPage({
                     path: path,
@@ -249,6 +287,65 @@ exports.createPages = ({ actions, graphql }) => {
             }
         })
 
-        return [...people, ...groups, ...projects, ...teams, ...collaborations, ...articles]
+        /**
+         * Create event pages
+         */
+
+        const events = result.data.events.edges
+        console.log(`\nCreating event pages...`)
+        events.forEach(({ node }, index) => {
+            const matches = node.fileAbsolutePath.match(/data\/events\/(\d{4}\/\d{2})\/.+.md$/)
+            if (matches) {
+                const [, yyyydd] = matches
+                const path = `/events/${ yyyydd }/${ node.frontmatter.slug }`
+                console.log(` - ${ node.frontmatter.title } (${ path })`)
+                createPage({
+                    path: path,
+                    component: eventTemplate,
+                    context: { // additional data passed via context
+                        slug: node.frontmatter.slug,
+                        prev: index === 0 ? null : events[index - 1].node,
+                        next: index === events.length - 1 ? null : events[index + 1].node,
+                    },
+                })
+            }
+        })
+
+        /**
+         * Create events pages
+         */
+
+        console.log(`\nCreating events list pages...`)
+
+        const todaysDate = new Date()
+        const dateString = `${ todaysDate.getFullYear() }-${ todaysDate.getMonth() + 1 < 10 ? '0' : '' }${ todaysDate.getMonth() + 1 }-${ todaysDate.getDate()  < 10 ? '0' : '' }${ todaysDate.getDate() }`
+
+        console.log(` - Future events (/events)`)
+        createPage({
+            path: '/events',
+            component: eventsFutureTemplate,
+            context: {
+                todaysDate: dateString,
+            },
+        })
+        
+        console.log(` - Past events (/events/archive)`)
+        createPage({
+            path: '/events/archive',
+            component: eventsPastTemplate,
+            context: {
+                todaysDate: dateString,
+            },
+        })
+
+        return [
+            ...people,
+            ...groups,
+            ...projects,
+            ...teams,
+            ...collaborations,
+            ...articles,
+            ...events,
+        ]
     })
 }
