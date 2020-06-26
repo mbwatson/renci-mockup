@@ -1,6 +1,11 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
+import { Container } from '../components/layout'
+import { Title, Paragraph } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
+import { Section } from '../components/section'
+import { Article } from '../components/article'
+import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const { projectsYaml: {
@@ -10,17 +15,22 @@ export default ({ data, pageContext }) => {
     }} = data
     
     return (
-        <Fragment>
-            <h1>{ name }</h1>
+        <Container>
+            <Title>{ name }</Title>
             
             <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
+            
+            <Section title="Project Details">
+                <Article title="Description">
+                    <Paragraph>{ description }</Paragraph>
+                </Article>
 
-            <p>{ description }</p>
+                <Article title="Some More Stuff">
+                    <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum provident ipsa incidunt, minus laborum itaque sequi quia hic commodi quod perspiciatis aperiam, iste facere fugit eligendi deserunt corporis iusto doloribus.</Paragraph>
+                </Article>
+            </Section>
 
-            <p>
-                This project is owned by some group
-            </p>
-        </Fragment>
+        </Container>
     )
 }
 

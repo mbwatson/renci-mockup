@@ -62,11 +62,11 @@ const FooterContents = () => {
 }
 
 const menuItems = [
-    { path: '/', text: 'Home' },
     { path: '/research', text: 'Research' },
     { path: '/people', text: 'People' },
     { path: '/news', text: 'News' },
     { path: '/events', text: 'Events' },
+    { path: '/publications', text: 'Publications' },
 ]
 
 const Brand = styled(Link).attrs({

@@ -7,7 +7,6 @@ import { SocialLinks } from '../components/social-links'
 import { Section } from '../components/section'
 import { Article } from '../components/article'
 import { HorizontalRule } from '../components/horizontal-rule'
-import { MiniProfile } from '../components/people'
 import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
@@ -31,7 +30,7 @@ export default ({ data, pageContext }) => {
             <Container>
                 <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
 
-                <Section title="Nwes & Events">
+                <Section title="News & Events">
                     <Article title="Lorem ipsum">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo alias, velit cumque numquam, blanditiis consequuntur provident debitis illo eaque repellendus excepturi maxime! Quas vel totam delectus quisquam eligendi, perferendis nisi.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, est, blanditiis, suscipit dolorem cumque incidunt officiis sit sunt laborum, iure iusto molestiae reprehenderit nobis! Officiis veniam odio, minus distinctio repellat deleniti facilis provident cupiditate blanditiis molestiae asperiores laudantium perspiciatis possimus quasi harum sequi ab voluptates.</p>
@@ -49,24 +48,24 @@ export default ({ data, pageContext }) => {
 
                 <HorizontalRule />
                 
-                <Section title="Current Projects">
-                    {
-                        projects ? projects.map(project => (
-                            <div><ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /></div>
-                        )) : <div>&empty;</div>
-                    }
+                <Section title="Projects">
+                    <Article title="Current">
+                        {
+                            projects ? projects.map(project => (
+                                <div><ArrowLink key={ project.id } to={ `/projects/${ project.id }` } text={ project.name } /></div>
+                            )) : <div>&empty;</div>
+                        }
+                    </Article>
+                    <Article title="Past">
+                        <div><ArrowLink to="#" text="Lorem ipsum" /></div>
+                        <div><ArrowLink to="#" text="Optio tempora" /></div>
+                    </Article>
                 </Section>
                 
                 <HorizontalRule />
                 
                 <Section title="Contributors">
-                    {
-                        members.map(person => (
-                            <Fragment>
-                                <MiniProfile key={ person.id } person={ person } lead={ person.id === lead.id } />
-                            </Fragment>
-                        ))
-                    }
+                    { members.map(person => <div><ArrowLink key={ person.id } to={ `/people/${ person.id }` } text={ `${ person.name } ${ person.id === lead.id ? '(lead)' : '' }` } /></div>) }
                 </Section>
                 
                 <HorizontalRule />
@@ -76,18 +75,6 @@ export default ({ data, pageContext }) => {
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ducimus labore, dolorem sunt mollitia voluptate illo quas minima porro voluptatum voluptates eos molestiae error cupiditate recusandae velit quisquam molestias est praesentium, quod necessitatibus consequuntur veritatis? Laborum cupiditate, repudiandae libero nobis dignissimos unde, modi qui totam rem impedit nam illum cumque.</p>
                 </Section>
                 
-                <HorizontalRule />
-                
-                <Section title="Past Projects">
-                    <ul>
-                        <li>Lorem ipsum dolor sit.</li>
-                        <li>Provident ea, veritatis eligendi.</li>
-                        <li>Maxime modi, iusto corporis.</li>
-                        <li>Optio tempora deleniti obcaecati.</li>
-                        <li>Saepe, a id ab.</li>
-                        <li>Culpa dolore odio quos!</li>
-                    </ul>
-                </Section>
             </Container>
             
         </Fragment>

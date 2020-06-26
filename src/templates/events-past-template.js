@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from '../components/layout'
 import { Title } from '../components/typography'
+import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const events = data.events.edges
@@ -10,6 +11,9 @@ export default ({ data, pageContext }) => {
         <Container>
             <Title>Events Archive</Title>
             <pre>{ JSON.stringify(events, null, 2) }</pre>
+            <div>
+                <ArrowLink to="/events" text="View Upcoming Events" float="right" />
+            </div>
         </Container>
     )
 }

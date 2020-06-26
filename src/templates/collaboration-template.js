@@ -5,7 +5,6 @@ import { Container } from '../components/layout'
 import { Title } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { Section } from '../components/section'
-import { MiniProfile } from '../components/people'
 import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
@@ -29,9 +28,7 @@ export default ({ data, pageContext }) => {
                 <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
                 
                 <Section title="Contributors">
-                    <ul style={{ listStyleType: 'none' }}>
-                        { members.map(person => <li key={ person.id } ><MiniProfile person={ person } /></li>) }
-                    </ul>
+                    { members.map(person => <div><ArrowLink key={ person.id } to={ `/people/${ person.id }` } text={ person.name } /></div>) }
                 </Section>
 
                 <br/>
