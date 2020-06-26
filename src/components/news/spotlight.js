@@ -77,7 +77,7 @@ export const Spotlight = ({ article }) => {
                         <ArticleTitle>{ article.frontmatter.title }</ArticleTitle>
                         <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                     </BodyContainer>
-                    <ArrowLink to={ article.path } text="Continue Reading" />
+                    <ArrowLink to={ article.path } text="Continue Reading" float="right" />
                 </Col>
             </Row>
         </Grid>

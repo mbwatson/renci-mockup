@@ -75,7 +75,7 @@ export const ArticlePreview = ({ article }) => {
                             <ArticleTitle><Link to={ article.path }>{ article.frontmatter.title }</Link></ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
-                        <ArrowLink to={ article.path } text="Continue Reading" />
+                        <ArrowLink to={ article.path } text="Continue Reading" float="right" />
                     </Col>
                 </Row>
             </Grid>

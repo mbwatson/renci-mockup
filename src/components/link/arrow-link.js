@@ -3,14 +3,14 @@ import styled, { useTheme } from 'styled-components'
 import { Link } from 'gatsby'
 import { ArrowRightIcon } from '../icons'
 
-const Wrapper = styled(Link)`
+const Wrapper = styled(Link)(({ float }) => `
     display: inline-flex;
     align-items: center;
-    float: right;
+    float: ${ float ? float : 'none' };
     & svg {
         margin-left: 0.25rem;
     }
-`
+`)
 
 export const ArrowLink = ({ text, ...props }) => {
     const theme = useTheme()

@@ -1,12 +1,28 @@
 import React, { Fragment } from 'react'
+import styled from 'styled-components'
 import { SEO } from '../components/seo'
 import { Container } from '../components/layout'
-import { Title, Paragraph } from '../components/typography'
-import { Section } from '../components/section'
-import { Article } from '../components/article'
-import { HorizontalRule } from '../components/horizontal-rule'
+import { Container as Grid, Row, Col } from 'react-grid-system'
+import { Heading } from '../components/typography'
 import { useCollaborations, useGroups } from '../hooks'
 import { ArrowLink } from '../components/link'
+
+const NavColumn = styled.div`
+    padding: 1rem;
+`
+
+const NavHeading = styled(Heading)`
+    font-size: 150%;
+`
+
+const NavList = styled.ul`
+    list-style-type: none;
+    margin: 0;
+`
+
+const NavListItem = styled.li`
+    margin: 5px 0;
+`
 
 const ResearchPage = () => {
     const groups = useGroups()
@@ -15,37 +31,22 @@ const ResearchPage = () => {
     return (
         <Container>
             <SEO title="RENCI Groups" />
-            
-            <Title>Research at RENCI</Title>
-
-            <Paragraph>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas rerum quos, ab dolore eius culpa id excepturi magni fuga saepe sunt non, ea dolores nisi tempore eos. Explicabo, eligendi, ut.
-            </Paragraph>
-            
-            <HorizontalRule />
-
-            {
-                groups.map((group, i) => (
-                    <Fragment key={ group.id }>
-                        <ArrowLink to={ `/groups/${ group.id }` } text={ group.name } />
-                    </Fragment>
-                ))
-            }
-            
-            <HorizontalRule />
-
-            <Section title="Collaborations & Team Science">
-                {
-                    collaborations.map((collaboration, i) => (
-                        <Fragment key={ collaboration.id }>
-                            <Article title={ collaboration.name } titleLink={ `/groups/${ collaboration.id }` }>
-                                <div dangerouslySetInnerHTML={{ __html: collaboration.description }} />
-                            </Article>
-                            { i < collaborations.length - 1 && <HorizontalRule /> }
-                        </Fragment>
-                    ))
-                }
-            </Section>
+            <Grid fluid component="nav" style={{ width: '100%' }}>
+                <Row>
+                    <Col xs={ 12 } lg={ 6 } component={ NavColumn }>
+                        <NavHeading>Research Groups</NavHeading>
+                        <NavList style={{ listStyleType: 'none' }}>
+                            { groups.map((group, i) => <NavListItem><ArrowLink key={ group.id } to={ `/groups/${ group.id }` } text={ group.name } /></NavListItem>) }
+                        </NavList>
+                    </Col>
+                    <Col xs={ 12 } lg={ 6 }>
+                        <NavHeading>Collaborations & Team Science</NavHeading>
+                        <NavList style={{ listStyleType: 'none' }}>
+                            { collaborations.map((collaboration, i) => <NavListItem><ArrowLink key={ collaboration.id } to={ `/collaborations/${ collaboration.id }` } text={ collaboration.name } /></NavListItem>) }
+                        </NavList>
+                    </Col>
+                </Row>
+            </Grid>
 
         </Container>
     )
