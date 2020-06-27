@@ -35,7 +35,7 @@ export const MenuItem = styled(Link)(({ theme, dark }) => `
         `
     }
     &.active {
-        color: ${ dark ? theme.color.white : theme.color.renciBlue };
+        color: ${ dark ? theme.color.white : theme.color.black };
         background-color: ${ dark ? theme.color.darkgrey : theme.color.lightgrey };
     }
 `)
