@@ -10,7 +10,7 @@ const Wrapper = styled(Link)(({ theme, float }) => `
     & .arrow-right {
         fill: ${ theme.color.darkgrey };
         margin-left: 0.1rem;
-        transition: transform 250ms, opacity 250ms;
+        transition: transform 100ms, opacity 250ms;
         transform: translateX(0rem);
         opacity: 0.75;
     }
