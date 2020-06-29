@@ -13,7 +13,10 @@ export const Title = styled.h1(({ theme, center }) => `
 `)
 
 export const Subtitle = styled.h2`
-    font-size: 225%;
+    font-size: 6vw;
+    @media (min-width: 992px) {
+        font-size: 2.0rem;
+    }
     padding: 0.25rem 0.5rem;
     margin: 0;
     font-weight: normal;

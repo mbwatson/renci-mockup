@@ -36,5 +36,6 @@ export const useEvents = () => {
             node.path = `/events/${ yyyydd }/${ node.frontmatter.slug }`
         }
     })
+    console.log(events)
     return events.edges.map(({ node }) => node)
 }

@@ -21,15 +21,15 @@ export default ({ data, pageContext }) => {
 export const futureEventsQuery = graphql`
     query($todaysDate: Date!) {
         events: allMarkdownRemark(
-            sort: {fields: frontmatter___dates___start, order: ASC},
             filter: {
-                fileAbsolutePath: {regex: "/data/events/"}
+                fileAbsolutePath: {regex: "/data\/events/"}
                 frontmatter: {dates: {start: {gte: $todaysDate}}}
             }
+            sort: {fields: [frontmatter___dates___start], order: ASC},
         ) {
             edges {
                 node {
-                    fileAbsolutePath
+                    id
                     frontmatter {
                         slug
                         title
@@ -38,6 +38,9 @@ export const futureEventsQuery = graphql`
                             end
                         }
                     }
+                    fileAbsolutePath
+                    excerpt(pruneLength: 500)
+                    html
                 }
             }
         }

@@ -52,7 +52,9 @@ export const Menu = ({ items, dark }) => {
 
     return (
         <Navigation>
-            { items.map(item => <MenuItem key={ item.text } to={ item.path } dark={ dark } activeClassName="active">{ item.text }</MenuItem>) }
+            {
+                items.map(item => (<MenuItem key={ item.text } to={ item.path } dark={ dark } activeClassName="active">{ item.text }</MenuItem>))
+            }
             <ToolsMenu>
                 <IconButton>
                     <MagnifyingGlassIcon size={ 24 } fill={ theme.color.grey } />

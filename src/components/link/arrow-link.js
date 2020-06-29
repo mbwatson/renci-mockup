@@ -26,7 +26,7 @@ export const ArrowLink = ({ text, ...props }) => {
     const theme = useTheme()
     return (
         <Wrapper { ...props }>
-            { text } <ArrowRightIcon class="arrow-right"size={ 14 } />
+            { text } <ArrowRightIcon className="arrow-right" size={ 14 } />
         </Wrapper>
     )
 }
