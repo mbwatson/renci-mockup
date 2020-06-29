@@ -12,6 +12,9 @@ const Content = styled.div(({ theme }) => `
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 `)
 
 const Wrapper = styled.div(({ theme }) => `

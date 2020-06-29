@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import { Header }from './header'
 import { Main } from './main'
 import { Footer } from './footer'
+import { Container } from '../container'
 import { Link } from 'gatsby'
 import { Menu, MobileMenu } from '../../menu'
 import { useBrand, useWindow } from '../../../hooks'
@@ -100,7 +101,9 @@ export const DefaultLayout = ({ children, currentPath }) => {
             </Header>
             <Main>{ children }</Main>
             <Footer>
-                <FooterContents />
+                <Container>
+                    <FooterContents />
+                </Container>
             </Footer>
         </Page>
     )
