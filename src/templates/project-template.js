@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { Section } from '../components/section'
 import { Article } from '../components/article'
-import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const { projectsYaml: {

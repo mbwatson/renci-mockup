@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { useTheme } from 'styled-components'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { ArrowRightIcon } from '../icons'
 
@@ -22,11 +22,8 @@ const Wrapper = styled(Link)(({ theme, float }) => `
     }
 `)
 
-export const ArrowLink = ({ text, ...props }) => {
-    const theme = useTheme()
-    return (
-        <Wrapper { ...props }>
-            { text } <ArrowRightIcon className="arrow-right" size={ 14 } />
-        </Wrapper>
-    )
-}
+export const ArrowLink = ({ text, ...props }) => (
+    <Wrapper { ...props }>
+        { text } <ArrowRightIcon className="arrow-right" size={ 14 } />
+    </Wrapper>
+)
