@@ -274,14 +274,15 @@ exports.createPages = ({ actions, graphql }) => {
             if (matches) {
                 const [, yyyydd] = matches
                 const path = `/news/${ yyyydd }/${ node.frontmatter.slug }`
+                node.path = path
                 console.log(` - ${ node.frontmatter.title } (${ path })`)
                 createPage({
                     path: path,
                     component: newsArticleTemplate,
                     context: { // additional data passed via context
                         slug: node.frontmatter.slug,
-                        prev: index === 0 ? null : articles[index - 1].node,
-                        next: index === articles.length - 1 ? null : articles[index + 1].node,
+                        prevArticle: index === 0 ? null : articles[index - 1].node,
+                        nextArticle: index === articles.length - 1 ? null : articles[index + 1].node,
                     },
                 })
             }
