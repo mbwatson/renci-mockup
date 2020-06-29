@@ -14,7 +14,8 @@ export const Header = styled.header(({ theme, compact, dark }) => `
     padding: 0 1rem;
     ${ dark ? `background-color: ${ theme.color.black };` : undefined };
     transition: background-color 250ms;
-    border-bottom: 1px solid ${ theme.color.lightgrey };
+    // border-bottom: 1px solid ${ theme.color.lightgrey };
+    filter: drop-shadow(0 0 8px ${ theme.color.darkgrey }33);
 `)
 
 Header.propTypes = {

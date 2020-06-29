@@ -16,7 +16,7 @@ export const Page = styled.div(({ theme }) => `
     flex-direction: column;
     min-height: 100vh;
     color: ${ theme.color.primary.main };
-    max-width: 1600px;
+    width: 100%;
     margin: auto;
 `)
 
