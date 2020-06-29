@@ -6,7 +6,7 @@ import { Meta, Title } from '../components/typography'
 import { Hero } from '../components/hero'
 import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../components/horizontal-rule'
-import { ChevronLeftIcon, ChevronRightIcon } from '../components/icons'
+import { ArrowLeftIcon, ArrowRightIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {
     const theme = useTheme()
@@ -32,33 +32,35 @@ export default ({ data, pageContext }) => {
                     Published on { publish_date } by <Link to={ `/people/${ author.id }` }>{ author.name }</Link>
                 </Meta>
 
-                <div dangerouslySetInnerHTML={{ __html: articleHTML }} />
+                <HorizontalRule />
+
+                <div style={{ padding: '1rem 0 0 0' }} dangerouslySetInnerHTML={{ __html: articleHTML }} />
 
                 <HorizontalRule />
 
                 <div style={{ display: 'flex', padding: '1rem 0' }}>
-                    <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
                         {
                             prevArticle && (
                                 <Fragment>
-                                    <ChevronLeftIcon size={ 24 } fill={ theme.color.darkgrey } />
-                                    <Link to={ prevArticle.path }>
+                                    <Link to={ prevArticle.path } style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+                                        <ArrowLeftIcon size={ 16 } fill={ theme.color.darkgrey } />
                                         PREVIOUS <Visible md lg xl>ARTICLE</Visible><br/>
-                                        <Meta>{ prevArticle.frontmatter.title }</Meta>
                                     </Link>
+                                    <Meta style={{ paddingLeft: '1rem' }}>{ prevArticle.frontmatter.title }</Meta>
                                 </Fragment>
                             )
                         }
                     </div>
-                    <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
                         {
                             nextArticle && (
                                 <Fragment>
-                                    <Link to={ nextArticle.path }>
-                                        NEXT <Visible md lg xl>ARTICLE</Visible><br/>
-                                        <Meta>{ nextArticle.frontmatter.title }</Meta>
+                                    <Link to={ nextArticle.path } style={{ display: 'inline-flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                                        NEXT <Visible md lg xl>ARTICLE</Visible>
+                                        <ArrowRightIcon size={ 16 } fill={ theme.color.darkgrey } />
                                     </Link>
-                                    <ChevronRightIcon size={ 24 } fill={ theme.color.darkgrey } />
+                                    <Meta style={{ paddingRight: '1rem' }}>{ nextArticle.frontmatter.title }</Meta>
                                 </Fragment>
                             )
                         }
