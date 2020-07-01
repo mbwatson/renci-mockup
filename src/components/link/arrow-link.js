@@ -12,9 +12,10 @@ const Wrapper = styled(Link)(({ theme, float }) => `
         margin-left: 0.1rem;
         transition: transform 100ms, opacity 250ms;
         transform: translateX(0rem);
-        opacity: 0.75;
+        opacity: 0.5;
     }
     &:hover {
+        transition: transform 250ms, opacity 100ms;
         & .arrow-right {
             transform: translateX(0.1rem);
             opacity: 1.0;
