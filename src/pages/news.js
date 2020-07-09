@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react'
 import { SEO } from '../components/seo'
-import { Container} from '../components/layout'
+import { Container, Section } from '../components/layout'
 import { Title } from '../components/typography'
 import { useNews } from '../hooks'
-import { Section } from '../components/section'
 import { ArticlePreview } from '../components/news'
 import { HorizontalRule } from '../components/horizontal-rule'
 

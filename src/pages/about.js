@@ -1,10 +1,8 @@
 import React, { Fragment } from 'react'
 import { SEO } from '../components/seo'
 import { Hero } from '../components/hero'
-import { Container } from '../components/layout'
+import { Container, Article, Section } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
-import { Section } from '../components/section'
-import { Article } from '../components/article'
 import { ArrowLink } from '../components/link'
 
 const AboutPage = () => {

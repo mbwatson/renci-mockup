@@ -1,9 +1,8 @@
 import React from "react"
 import { SEO } from '../components/seo'
 import { usePeople } from '../hooks'
-import { Container} from '../components/layout'
+import { Container, Section } from '../components/layout'
 import { HorizontalRule } from '../components/horizontal-rule'
-import { Section } from '../components/section'
 import { StaffBrowser } from '../components/staff-browser'
 import { Title } from '../components/typography'
 

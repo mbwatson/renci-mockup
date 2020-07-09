@@ -1,10 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Container } from '../components/layout'
+import { Container, Article, Section } from '../components/layout'
 import { Title, Heading } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
-import { Section } from '../components/section'
-import { Article } from '../components/article'
 import { HorizontalRule } from '../components/horizontal-rule'
 import { ArrowLink } from '../components/link'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Article } from '../article'
+import { Article } from '../layout'
 import { ArrowLink, ExternalLink } from '../link'
 
 export const JobPosting = ({ title, publishDate, positionNumber, description, url }) => {

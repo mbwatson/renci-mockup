@@ -1,11 +1,10 @@
 import React from 'react'
 import { SEO } from '../components/seo'
-import { Container } from '../components/layout'
+import { Container, Section } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { HorizontalRule } from '../components/horizontal-rule'
 import { useCareers } from '../hooks'
 import { JobPosting } from '../components/careers'
-import { Section } from '../components/section'
 
 const PublicationsPage = () => {
     const careers = useCareers()
