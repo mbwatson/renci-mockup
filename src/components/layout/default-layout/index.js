@@ -10,6 +10,7 @@ import { Container } from '../container'
 import { Menu, MobileMenu } from '../../menu'
 import { useBrand, useWindow } from '../../../hooks'
 import { Container as Grid, Row, Col } from 'react-grid-system'
+import { ExternalLink } from '../../link'
 import "../../../styles/base.css"
 
 export const Page = styled.div(({ theme }) => `
@@ -37,9 +38,8 @@ const FooterContents = () => {
                 <Col xs={ 12 } md={ 3 }>
                     <strong>More</strong>
                     <p>
-                        About <br/>
+                        <Link to="/about">About</Link> <br/>
                         <Link to="/careers">Careers</Link> <br/>
-                        Partners <br/>
                         Room Reservations
                     </p>
                 </Col>
@@ -55,6 +55,14 @@ const FooterContents = () => {
                     </p>
                 </Col>
                 <Col xs={ 12 } md={ 3 }>
+                    <strong>Partners</strong>
+                    <p>
+                        <ExternalLink to="https://www.unc.edu/">UNC-Chapel Hill</ExternalLink> <br/>
+                        <ExternalLink to="https://www.ncsu.edu/">NC State University</ExternalLink> <br/>
+                        <ExternalLink to="https://duke.edu/">Duke University</ExternalLink>
+                    </p>
+                </Col>
+                <Col xs={ 12 }>
                     &copy; { new Date().getFullYear() }
                 </Col>
             </Row>
