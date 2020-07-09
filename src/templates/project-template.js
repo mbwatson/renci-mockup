@@ -5,6 +5,7 @@ import { Title, Paragraph } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { Section } from '../components/section'
 import { Article } from '../components/article'
+import { HorizontalRule } from '../components/horizontal-rule'
 
 export default ({ data, pageContext }) => {
     const { projectsYaml: {
@@ -16,7 +17,9 @@ export default ({ data, pageContext }) => {
     return (
         <Container>
             <Title>{ name }</Title>
-            
+
+            <HorizontalRule />
+
             <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
             
             <Section title="Project Details">

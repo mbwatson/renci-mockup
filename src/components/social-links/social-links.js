@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../icons'
+import { Tooltip } from '../tooltip'
 
 const SocialLinksWrapper = styled.div(({ theme }) => `
     display: flex;
@@ -21,9 +22,9 @@ const SocialLinksWrapper = styled.div(({ theme }) => `
 export const SocialLinks = ({ url, twitter, github }) => {
     return (
         <SocialLinksWrapper>
-            { url && <a href={ url } aria-label="View Website" target="_blank" rel="noopener noreferrer"><LinkIcon size={ 24 } /></a> }
-            { twitter && <a href={ `https://twitter.com/${ twitter }` } aria-label="View Twitter Profile" target="_blank" rel="noopener noreferrer"><TwitterIcon size={ 24 } /></a> }
-            { github && <a href={ `https://github.com/${ github }` } aria-label="View GitHub Page" target="_blank" rel="noopener noreferrer"><GitHubIcon size={ 24 } /></a> }
+            { url && <Tooltip tip="View Website"><a href={ url } aria-label="View Website" target="_blank" rel="noopener noreferrer"><LinkIcon size={ 24 } /></a></Tooltip> }
+            { twitter && <Tooltip tip="View Twitter Profile"><a href={ `https://twitter.com/${ twitter }` } aria-label="View Twitter Profile" target="_blank" rel="noopener noreferrer"><TwitterIcon size={ 24 } /></a></Tooltip> }
+            { github && <Tooltip tip="View GitHub Page"><a href={ `https://github.com/${ github }` } aria-label="View GitHub Page" target="_blank" rel="noopener noreferrer"><GitHubIcon size={ 24 } /></a></Tooltip> }
         </SocialLinksWrapper>
     )
 }

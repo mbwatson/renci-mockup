@@ -5,6 +5,7 @@ import { Title, Heading } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { Section } from '../components/section'
 import { Article } from '../components/article'
+import { HorizontalRule } from '../components/horizontal-rule'
 import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
@@ -14,6 +15,9 @@ export default ({ data, pageContext }) => {
         <Container>
             <Title>{ name }</Title>
             <Heading>{ title }</Heading>
+            
+            <HorizontalRule />
+
             <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter_username } github={ online_presence.github_username } />
 
             <Section title="Details">
