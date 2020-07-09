@@ -4,17 +4,15 @@ export const useScrollPosition = () => {
     const [scrollPosition, setScrollPosition] = useState(0)
 
     useEffect(() => {
-        let previous_scroll_position = 0
+        let previousScrollPosition = 0
         let ticking = false
         const handleScroll = e => {
-            previous_scroll_position = window.scrollY
-
+            previousScrollPosition = window.scrollY
             if (!ticking) {
                 window.requestAnimationFrame(function () {
-                    setScrollPosition(previous_scroll_position)
+                    setScrollPosition(previousScrollPosition)
                     ticking = false
                 })
-
                 ticking = true
             }
         }
@@ -24,6 +22,6 @@ export const useScrollPosition = () => {
             window.removeEventListener('scroll', handleScroll)
         }
     })
-
-    return scrollPosition
+    
+    return { scrollPosition }
 }
