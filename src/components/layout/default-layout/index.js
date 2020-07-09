@@ -23,19 +23,24 @@ export const Page = styled.div(({ theme }) => `
 `)
 
 const FooterContents = () => {
+    const { light: logo } = useBrand()
+
     return (
         <Grid fluid>
             <Row>
-                <Col xs={ 12 } md={ 3 }>
+                <Col xs={ 12 }>
+                    <Img fixed={ logo } style={{ width: '82.5px', height: '54px', margin: 0 }} /> <br/>
+                </Col>
+                <Col xs={ 12 } md={ 6 } lg={ 3 }>
                     <p>
-                        RENCI <br/>
+                        RENCI Anchor at Europa Center <br/>
                         100 Europa Drive, Suite 540 <br/>
                         Chapel Hill, NC  27517
                     </p>
                     <p>media@renci.org</p>
                     <p>919-445-9540</p>
                 </Col>
-                <Col xs={ 12 } md={ 3 }>
+                <Col xs={ 12 } md={ 6 } lg={ 3 }>
                     <strong>More</strong>
                     <p>
                         <Link to="/about">About</Link> <br/>
@@ -43,7 +48,15 @@ const FooterContents = () => {
                         Room Reservations
                     </p>
                 </Col>
-                <Col xs={ 12 } md={ 3 }>
+                <Col xs={ 12 } md={ 6 } lg={ 3 }>
+                    <strong>Partners</strong>
+                    <p>
+                        <ExternalLink to="https://www.unc.edu/">UNC-Chapel Hill</ExternalLink> <br/>
+                        <ExternalLink to="https://www.ncsu.edu/">NC State University</ExternalLink> <br/>
+                        <ExternalLink to="https://duke.edu/">Duke University</ExternalLink>
+                    </p>
+                </Col>
+                <Col xs={ 12 } md={ 6 } lg={ 3 }>
                     <strong>Connect</strong>
                     <p>
                         Twitter <br/>
@@ -52,14 +65,6 @@ const FooterContents = () => {
                         Instagram <br/>
                         YouTube <br/>
                         RSS
-                    </p>
-                </Col>
-                <Col xs={ 12 } md={ 3 }>
-                    <strong>Partners</strong>
-                    <p>
-                        <ExternalLink to="https://www.unc.edu/">UNC-Chapel Hill</ExternalLink> <br/>
-                        <ExternalLink to="https://www.ncsu.edu/">NC State University</ExternalLink> <br/>
-                        <ExternalLink to="https://duke.edu/">Duke University</ExternalLink>
                     </p>
                 </Col>
                 <Col xs={ 12 }>
@@ -71,7 +76,6 @@ const FooterContents = () => {
 }
 
 const menuItems = [
-    { path: '/about', text: 'About' },
     { path: '/research', text: 'Research' },
     { path: '/people', text: 'People' },
     { path: '/news', text: 'News' },
