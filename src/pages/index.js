@@ -13,7 +13,7 @@ const IndexPage = () => {
         <Fragment>
             <SEO title="Home" />
 
-            <Hero />
+            <Hero backgroundColor="#000" />
 
             <Container>
                 <Section title="News Spotlight" fullWidth>

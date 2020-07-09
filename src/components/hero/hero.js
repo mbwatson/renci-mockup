@@ -34,17 +34,18 @@ const Overlay = styled.div(({ theme, color }) => `
     opacity: 0.1;
 `)
 
-const Wrapper = styled.div(({ theme }) => `
+const Wrapper = styled.div(({ theme, backgroundColor }) => `
     position: relative;
     min-height: 300px;
     overflow: hidden;
+    background-color: ${ backgroundColor };
 `)
 
-export const Hero = ({ backgroundImage, overlayColor, children }) => {
+export const Hero = ({ backgroundImage, backgroundColor, overlayColor, children }) => {
     const { scrollPosition } = useScrollPosition()
 
     return (
-        <Wrapper>
+        <Wrapper backgroundColor={ backgroundColor }>
             {
                 backgroundImage && (
                     <Img
