@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { LinkIcon, TwitterIcon, GitHubIcon } from '../icons'
 import { Tooltip } from '../tooltip'
+import { useWindow } from '../../hooks'
 
-const SocialLinksWrapper = styled.div(({ theme }) => `
+const SocialLinksWrapper = styled.div(({ theme, center }) => `
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: ${ center ? 'center' : 'flex-end' };
     svg {
         fill: ${ theme.color.primary.main };
     }
@@ -20,8 +21,11 @@ const SocialLinksWrapper = styled.div(({ theme }) => `
 `)
 
 export const SocialLinks = ({ url, twitter, github }) => {
+    const { windowWidth } = useWindow()
+    console.log(windowWidth)
+
     return (
-        <SocialLinksWrapper>
+        <SocialLinksWrapper center={ windowWidth < 600 }>
             { url && <Tooltip tip="View Website"><a href={ url } aria-label="View Website" target="_blank" rel="noopener noreferrer"><LinkIcon size={ 24 } /></a></Tooltip> }
             { twitter && <Tooltip tip="View Twitter Profile"><a href={ `https://twitter.com/${ twitter }` } aria-label="View Twitter Profile" target="_blank" rel="noopener noreferrer"><TwitterIcon size={ 24 } /></a></Tooltip> }
             { github && <Tooltip tip="View GitHub Page"><a href={ `https://github.com/${ github }` } aria-label="View GitHub Page" target="_blank" rel="noopener noreferrer"><GitHubIcon size={ 24 } /></a></Tooltip> }
