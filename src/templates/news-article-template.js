@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react'
 import { useTheme } from 'styled-components'
 import { graphql, Link } from 'gatsby'
-import { Container } from '../components/layout'
+import { Container, Hero, HorizontalRule } from '../components/layout'
 import { Meta, Title } from '../components/typography'
-import { Hero } from '../components/hero'
 import { Visible } from 'react-grid-system'
-import { HorizontalRule } from '../components/horizontal-rule'
 import { ArrowLeftIcon, ArrowRightIcon } from '../components/icons'
 
 export default ({ data, pageContext }) => {

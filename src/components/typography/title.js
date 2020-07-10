@@ -11,8 +11,8 @@ export const Title = styled.h1(({ theme, center }) => `
     }
     color: ${ theme.color.darkgrey };
     padding: 0.25rem 0.5rem;
-    margin: 0;
     padding: 0;
+    margin: ${ theme.spacing.medium } 0;
 `)
 
 export const Subtitle = styled.h2`

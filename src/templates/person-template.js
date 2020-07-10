@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Article, Section } from '../components/layout'
-import { Title, Heading } from '../components/typography'
+import { Title, Heading, HorizontalRule } from '../components/layout'
 import { SocialLinks } from '../components/social-links'
-import { HorizontalRule } from '../components/horizontal-rule'
 import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {

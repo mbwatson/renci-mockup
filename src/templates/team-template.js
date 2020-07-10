@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import { Hero } from '../components/hero'
+import { Container, Article, Section, Hero } from '../components/layout'
 import { Title } from '../components/typography'
-import { Container, Article, Section } from '../components/layout'
 import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {

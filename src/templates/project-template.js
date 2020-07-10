@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Container, Article, Section } from '../components/layout'
+import { Container, Article, Section, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
-import { HorizontalRule } from '../components/horizontal-rule'
 
 export default ({ data, pageContext }) => {
     const { projectsYaml: {

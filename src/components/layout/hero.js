@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useScrollPosition } from '../../hooks'
 
-const Content = styled.div(({ theme }) => `
+const Content = styled.div(({ theme, textColor }) => `
     position: absolute;
     left: 0;
     right: 0;
@@ -18,10 +18,7 @@ const Content = styled.div(({ theme }) => `
     max-width: 1200px;
     margin: 0 auto;
     background-color: transparent;
-    color: ${ theme.color.whitish };
-    h1 {
-        color: ${ theme.color.lightgrey };
-    }
+    color: ${ textColor };
 `)
 
 const Overlay = styled.div(({ theme, color }) => `
@@ -36,12 +33,12 @@ const Overlay = styled.div(({ theme, color }) => `
 
 const Wrapper = styled.div(({ theme, backgroundColor }) => `
     position: relative;
-    min-height: 300px;
+    min-height: 400px;
     overflow: hidden;
     background-color: ${ backgroundColor };
 `)
 
-export const Hero = ({ backgroundImage, backgroundColor, overlayColor, children }) => {
+export const Hero = ({ backgroundImage, backgroundColor, textColor, overlayColor, children }) => {
     const { scrollPosition } = useScrollPosition()
 
     return (
@@ -50,13 +47,13 @@ export const Hero = ({ backgroundImage, backgroundColor, overlayColor, children 
                 backgroundImage && (
                     <Img
                         fluid={ backgroundImage }
-                        style={{ height: '300px' }}
+                        style={{ height: '400px' }}
                         imgStyle={{ transform: `translateY(${ scrollPosition / 2 }px)` }}
                     />
                 )
             }
             <Overlay color={ overlayColor } />
-            <Content>
+            <Content textColor={ textColor }>
                 { children }
             </Content>
         </Wrapper>

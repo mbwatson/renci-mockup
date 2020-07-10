@@ -1,10 +1,8 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import { Hero } from '../components/hero'
-import { Container, Article, Section } from '../components/layout'
+import { Container, Article, Section, Hero, HorizontalRule } from '../components/layout'
 import { Title } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
-import { HorizontalRule } from '../components/horizontal-rule'
 import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {

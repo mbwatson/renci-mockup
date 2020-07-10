@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react'
 import { SEO } from '../components/seo'
-import { Container, Section } from '../components/layout'
-import { Title } from '../components/typography'
+import { Container, Section, HorizontalRule } from '../components/layout'
+import { Title, Paragraph } from '../components/typography'
 import { useNews } from '../hooks'
 import { ArticlePreview } from '../components/news'
-import { HorizontalRule } from '../components/horizontal-rule'
 
 const NewsPage = () => {
     const articles = useNews()
@@ -15,6 +14,15 @@ const NewsPage = () => {
             
             <Title>News at RENCI</Title>
             
+            <Paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Officia odio, reiciendis adipisci aliquid officiis libero quos alias,
+                distinctio laboriosam aliquam hic, nisi minus obcaecati recusandae esse dolor sequi dolore dolores!
+                Libero aperiam, adipisci cum natus eaque officiis consequatur, laboriosam?
+                Alias fugiat similique officiis eaque minima, vitae atque! Iure nemo,
+                nesciunt cum possimus nulla aut tenetur!
+            </Paragraph>
+
             <Section fullWidth>
                 {
                     articles.map((article, i) => {
