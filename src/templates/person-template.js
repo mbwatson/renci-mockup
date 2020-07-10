@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Container, Article, Section } from '../components/layout'
-import { Title, Heading, HorizontalRule } from '../components/layout'
+import { Container, Article, Section, HorizontalRule } from '../components/layout'
+import { Title, Heading } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { ArrowLink } from '../components/link'
 
