@@ -5,11 +5,12 @@ import { Title, Paragraph } from '../components/typography'
 import { useCareers } from '../hooks'
 import { JobPosting } from '../components/careers'
 
-const PublicationsPage = () => {
+const CareersPage = () => {
     const careers = useCareers()
     
     return (
         <Container>
+            <SEO title="RENCI Careers" />
             
             <Title>Careers</Title>
 
@@ -40,4 +41,4 @@ const PublicationsPage = () => {
     )
 }
 
-export default PublicationsPage
+export default CareersPage

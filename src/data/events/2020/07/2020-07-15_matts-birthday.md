@@ -5,6 +5,7 @@ dates:
   start: 2020-07-15
   end: 2020-07-15
 location: Everywhere
+cost: $100
 url: 
 tags: ["birthday"]
 hosted_by_renci: false

@@ -5,6 +5,7 @@ dates:
   start: 2020-06-23
   end: 2020-06-25
 location: TBD
+cost: 
 url: 
 tags: ["conference", "fake"]
 hosted_by_renci: false

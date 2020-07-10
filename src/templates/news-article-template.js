@@ -21,7 +21,7 @@ export default ({ data, pageContext }) => {
 
     return (
         <Fragment>
-            <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fullSize }></Hero>
+            { featuredImage && <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fullSize }></Hero> }
 
             <Container>
                 <Title>{ title }</Title>

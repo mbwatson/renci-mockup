@@ -44,6 +44,7 @@ const FooterContents = () => {
                     <strong>More</strong>
                     <p>
                         <Link to="/about">About</Link> <br/>
+                        <Link to="/branding">Branding</Link> <br/>
                         <Link to="/careers">Careers</Link> <br/>
                         Room Reservations
                     </p>
@@ -76,6 +77,7 @@ const FooterContents = () => {
 }
 
 const menuItems = [
+    { path: '/about', text: 'About' },
     { path: '/research', text: 'Research' },
     { path: '/people', text: 'People' },
     { path: '/news', text: 'News' },
