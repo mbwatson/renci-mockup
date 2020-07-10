@@ -1,6 +1,6 @@
 import React from 'react'
 import { SEO } from '../components/seo'
-import { Container, Article, Section, Hero, HorizontalRule } from '../components/layout'
+import { Container, Article, Section, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { ArrowLink } from '../components/link'
 

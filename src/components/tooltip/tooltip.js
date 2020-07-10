@@ -2,48 +2,59 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useWindow } from '../../hooks'
+import { animated, useSpring } from 'react-spring'
 
-const Tip = styled.div(({ theme, width, offsetX, offsetY }) => `
+const Tip = styled(animated.div)(({ theme, width, offsetX, offsetY }) => `
     position: absolute;
-    left: calc(50% + ${ offsetX });
+    left: calc(50%);
     top: 100%;
     background-color: ${ theme.color.black };
     color: ${ theme.color.white };
-    padding: ${ theme.spacing.extraSmall };
-    // clip-path: polygon(0% 0.5rem, calc(50% - 0.5rem) 0.5rem, 50% 0%, calc(50% + 0.5rem) 0.5rem, 100% 0.5rem, 100% 100%, 0% 100%);
+    padding: ${ theme.spacing.small } ${ theme.spacing.extraSmall } ${ theme.spacing.extraSmall } ${ theme.spacing.extraSmall };
+    clip-path: polygon(0% 0.25rem, calc(50% - 0.25rem) 0.25rem, 50% 0%, calc(50% + 0.25rem) 0.25rem, 100% 0.25rem, 100% 100%, 0% 100%);
     text-align: center;
     font-size: 90%;
     min-width: ${ width };
     max-width: 200px;
-    opacity: 0.0;
-    transform-origin: top center;
-    transform: translate(-50%, ${ theme.spacing.extraSmall }) scaleY(0);
-    transition: opacity 500ms 250ms ease-out, transform 250ms 250ms ease-out;
+    opacity: 0.9;
+    transform: translateX(-50%);
 `)
 
 const Wrapper = styled.span`
     position: relative;
-    &:hover ${ Tip } {
-        opacity: 0.9;
-        transform: translate(-50%, 0) scaleY(1.0);
-        transition: opacity 500ms, transform 250ms;
-    }
 `
 
 export const Tooltip = ({ tip, children }) => {
     const { windowWidth } = useWindow()
+    const wrapperRef = useRef()
     const tipRef = useRef()
+    const [active, setActive] = useState(false)
     const [stringPixelWidth, setStringPixelWidth] = useState(0)
-    const [offsetX, setOffsetX] = useState(0)
+
+    const animation = useSpring({
+        opacity: active ? 1 : 0,
+        top: active ? '100%' : '150%',
+        display: active ? 'block' : 'none',
+        config: {
+            mass: 1,
+            tension: 100,
+            friction: 25,
+        },
+    })
 
     useEffect(() => {
         setStringPixelWidth(tip.length * 10)
     }, [tip])
 
+    const handleShowTooltip = event => {
+        setActive(true)
+    }
+    const handleHideTooltip = event => setActive(false)
+
     return (
-        <Wrapper>
+        <Wrapper ref={ wrapperRef } onMouseEnter={ handleShowTooltip } onMouseLeave={ handleHideTooltip }>
             { children }
-            <Tip ref={ tipRef } width={ `${ stringPixelWidth }px` } offsetX={ `${ offsetX }px` } offsetY={ `0px` }>{ tip }</Tip>
+            <Tip ref={ tipRef } style={ animation } width={ `${ stringPixelWidth }px` }>{ tip }</Tip>
         </Wrapper>
     )
 }

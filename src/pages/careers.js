@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { SEO } from '../components/seo'
-import { Container, Section, Hero, HorizontalRule } from '../components/layout'
+import { Container, Section, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { useCareers } from '../hooks'
 import { JobPosting } from '../components/careers'
