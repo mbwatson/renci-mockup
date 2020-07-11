@@ -194,7 +194,7 @@ exports.createPages = ({ actions, graphql }) => {
         const groups = result.data.groups.edges
         console.log(`\nCreating group pages...`)
         groups.forEach(({ node }) => {
-            const path = `/groups/${ node.id }`
+            const path = `/research/${ node.id }`
             console.log(` - ${ node.name } (${ path })`)
             createPage({
                 id: node.id,
