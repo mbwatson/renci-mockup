@@ -6,20 +6,18 @@ import { useScrollPosition } from '../../hooks'
 
 const Content = styled.div(({ theme }) => `
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     padding: ${ theme.spacing.large };
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: calc(100% - 2 * ${ theme.spacing.extraLarge });
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: ${ theme.color.black }66;
-    & h1, & p {
-        color: ${ theme.color.whitish };
-    }
+    background-color: transparent;
 `)
 
 const Overlay = styled.div(({ theme, color }) => `
@@ -69,6 +67,6 @@ Hero.propTypes = {
 }
 
 Hero.defaultProps = {
-    backgroundColor: '#00abc7',
+    backgroundColor: 'transparent',
     overlayColor: '#fff',
 }
