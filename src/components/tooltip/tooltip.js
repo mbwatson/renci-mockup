@@ -38,7 +38,8 @@ export const Tooltip = ({ tip, children }) => {
         config: {
             mass: 1,
             tension: 100,
-            friction: 25,
+            friction: 15,
+            clamp: true,
         },
     })
 
