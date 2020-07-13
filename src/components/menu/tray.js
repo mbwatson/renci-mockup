@@ -23,10 +23,10 @@ const Wrapper = styled.nav(({ theme, open }) => css`
     border-width: 1px 0;
     border-style: solid;
     border-color: ${ theme.color.lightgrey };
-    padding: ${ theme.spacing.large } ${ theme.spacing.extraLarge };
+    padding: ${ theme.spacing.small } ${ theme.spacing.large };
     background-color: ${ theme.color.whitish };
     pointer-events: auto;
-    animation: 500ms ${ open ? hide : reveal };
+    animation: 250ms ${ open ? hide : reveal };
 `)
 
 export const Tray = ({ children, ...props }) => {

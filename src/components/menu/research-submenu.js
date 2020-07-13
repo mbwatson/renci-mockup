@@ -10,7 +10,7 @@ const NavColumn = styled.div`
 `
 
 const NavHeading = styled(Heading)`
-    font-size: 150%;
+    font-size: 150% !important;
 `
 
 const NavList = styled.ul`

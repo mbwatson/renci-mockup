@@ -54,8 +54,22 @@ export const Menu = ({ items, dark }) => {
     const theme = useTheme()
     const [trayOpen, setTrayOpen] = useState(false)
 
-    const handleOpenTray = () => setTrayOpen(true)
-    const handleCloseTray = () => setTrayOpen(false)
+    const handleKeyDown = event => {
+        if (event.keyCode === 27) {
+            event.preventDefault()
+            setTrayOpen(false)
+            console.log('escape')
+        }
+    }
+    
+    const handleOpenTray = () => {
+        setTrayOpen(true)
+        document.body.addEventListener('keydown', handleKeyDown)
+    }
+    const handleCloseTray = () => {
+        setTrayOpen(false)
+        document.body.removeEventListener('keydown', handleKeyDown)
+    }
 
     return (
         <Navigation>
