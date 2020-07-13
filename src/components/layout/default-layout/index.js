@@ -7,10 +7,11 @@ import { Header }from './header'
 import { Main } from './main'
 import { Footer } from './footer'
 import { Container } from '../container'
-import { Menu, MobileMenu } from '../../menu'
+import { Menu, MobileMenu, ResearchSubmenu } from '../../menu'
 import { useBrand, useWindow } from '../../../hooks'
 import { Container as Grid, Row, Col } from 'react-grid-system'
 import { ExternalLink } from '../../link'
+
 import "../../../styles/base.css"
 
 export const Page = styled.div(({ theme }) => `
@@ -78,7 +79,10 @@ const FooterContents = () => {
 
 const menuItems = [
     { path: '/about', text: 'About' },
-    { path: '/research', text: 'Research' },
+    {
+        path: '/research', text: 'Research',
+        submenu: ResearchSubmenu,
+    },
     { path: '/people', text: 'People' },
     { path: '/news', text: 'News' },
     { path: '/events', text: 'Events' },

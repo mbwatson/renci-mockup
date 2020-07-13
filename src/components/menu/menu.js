@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { useTheme } from 'styled-components'
 import { Link } from 'gatsby'
 import { IconButton } from '../buttons'
 import { MagnifyingGlassIcon } from '../icons'
+import { Tray } from './tray'
 
 export const Navigation = styled.nav`
     display: flex;
@@ -11,7 +12,7 @@ export const Navigation = styled.nav`
     align-items: stretch;
 `
 
-export const MenuItem = styled(Link)(({ theme, dark }) => `
+export const MenuLink = styled(Link)(({ theme, dark }) => `
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,6 +41,8 @@ export const MenuItem = styled(Link)(({ theme, dark }) => `
     }
 `)
 
+const MenuItem = styled.span``
+
 const ToolsMenu = styled.div`
     display: flex;
     flex-direction: row;
@@ -49,15 +52,33 @@ const ToolsMenu = styled.div`
 
 export const Menu = ({ items, dark }) => {
     const theme = useTheme()
+    const [trayOpen, setTrayOpen] = useState(false)
+
+    const handleOpenTray = () => setTrayOpen(true)
+    const handleCloseTray = () => setTrayOpen(false)
 
     return (
         <Navigation>
-            { items.map(item => <MenuItem key={ item.text } to={ item.path } dark={ dark } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuItem>) }
+            {
+                items.map((item, currentIndex) => item.submenu ? (
+                    <MenuItem key={ item.path }
+                        onMouseEnter={ handleOpenTray } onMouseLeave={ handleCloseTray }
+                        onFocus={ handleOpenTray } onBlur={ handleCloseTray }
+                    >
+                        <MenuLink to={ item.path } dark={ dark } activeClassName="active">{ item.text }</MenuLink>
+                        { trayOpen && <Tray onClick={ handleCloseTray }>{ React.createElement(item.submenu) }</Tray> }
+                    </MenuItem>
+                ) : (
+                    <MenuItem key={ item.path }>
+                        <MenuLink to={ item.path } dark={ dark } activeClassName="active">{ item.text }</MenuLink>
+                    </MenuItem>
+                ))
+            }
             <ToolsMenu>
                 <IconButton>
                     <MagnifyingGlassIcon size={ 24 } fill={ theme.color.grey } />
                 </IconButton>
-                <MenuItem to="#" dark={ dark }>Sign In</MenuItem>
+                <MenuLink to="#" dark={ dark }>Sign In</MenuLink>
             </ToolsMenu>
         </Navigation>
     )
