@@ -61,10 +61,12 @@ export const Hero = ({ backgroundImage, backgroundColor, overlayColor, children 
 
 Hero.propTypes = {
     backgroundImage: PropTypes.object,
+    backgroundColor: PropTypes.string,
     overlayColor: PropTypes.string.isRequired,
     children: PropTypes.node,
 }
 
 Hero.defaultProps = {
+    backgroundColor: 'transparent',
     overlayColor: '#fff',
 }
