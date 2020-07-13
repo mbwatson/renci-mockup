@@ -6,10 +6,16 @@ publish_date: 2020-06-18
 author: mwatson
 featuredImage: ./feet.jpg
 groups:
+    - nrig
 projects:
     - fabric
 people:
     - ibaldin
+    - subers
+teams: 
+    - ood
+collaborations:
+    - biodata-catalyst
 tags:
     - networking
 ---

@@ -5,15 +5,14 @@ import { Container, Hero, HorizontalRule } from '../components/layout'
 import { Meta, Title } from '../components/typography'
 import { Visible } from 'react-grid-system'
 import { ArrowLeftIcon, ArrowRightIcon } from '../components/icons'
+import { TagLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const theme = useTheme()
     const { article: {
         frontmatter: {
-            title,
-            featuredImage,
-            publish_date,
-            author,
+            title, publish_date, author, featuredImage,
+            people, groups, projects, teams, collaborations,
         },
         html: articleHTML
     }} = data
@@ -27,12 +26,22 @@ export default ({ data, pageContext }) => {
                 <Title>{ title }</Title>
 
                 <Meta>
-                    Published on { publish_date } by <Link to={ `/people/${ author.id }` }>{ author.name }</Link>
+                    Published on { publish_date } by <Link to={ `/people/${ author.id }` }>{ author.name }</Link> <br/>
                 </Meta>
 
                 <HorizontalRule />
 
                 <div style={{ padding: '1rem 0 0 0' }} dangerouslySetInnerHTML={{ __html: articleHTML }} />
+
+                <HorizontalRule />
+
+                <Meta>
+                    People: { people.map(({ name, id }) => <TagLink to={ `/people/${ id }` }>{ name }</TagLink>) } <br/>
+                    Groups: { groups.map(({ name, id }) => <TagLink to={ `/research/${ id }` }>{ name }</TagLink>) } <br/>
+                    Teams: { teams.map(({ name, id }) => <TagLink to={ `/teams/${ id }` }>{ name }</TagLink>) } <br/>
+                    Projects: { projects.map(({ name, id }) => <TagLink to={ `/projects/${ id }` }>{ name }</TagLink>) } <br/>
+                    Collaborations: { collaborations.map(({ name, id }) => <TagLink to={ `/collaborations/${ id }` }>{ name }</TagLink>) }
+                </Meta>
 
                 <HorizontalRule />
 
@@ -50,6 +59,7 @@ export default ({ data, pageContext }) => {
                             )
                         }
                     </div>
+
                     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
                         {
                             nextArticle && (
@@ -86,6 +96,26 @@ export const newsQuery = graphql`
                 }
                 publish_date(formatString: "dddd, MMMM Do, YYYY")
                 author {
+                    id
+                    name
+                }
+                people {
+                    id
+                    name
+                }
+                groups {
+                    id
+                    name
+                }
+                projects {
+                    id
+                    name
+                }
+                teams {
+                    id
+                    name
+                }
+                collaborations {
                     id
                     name
                 }

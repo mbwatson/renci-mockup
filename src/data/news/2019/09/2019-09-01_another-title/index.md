@@ -7,12 +7,16 @@ featuredImage: null
 groups:
     - data-science
     - nrig
-projects:
+projects: 
+    - 
 people:
     - cbizon
     - ibaldin
+teams: 
+    - project-management
+collaborations:
+    - ncds
 tags:
-    - cyberinfrastructure
     - networking
 ---
 

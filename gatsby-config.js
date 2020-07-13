@@ -64,5 +64,10 @@ module.exports = {
         "CollaborationsYaml.lead": `PeopleYaml`, // Link collaborationmembers to people
         // NEWS
         "MarkdownRemark.frontmatter.author": "PeopleYaml",
+        "MarkdownRemark.frontmatter.people": "PeopleYaml",
+        "MarkdownRemark.frontmatter.groups": "GroupsYaml",
+        "MarkdownRemark.frontmatter.projects": "ProjectsYaml",
+        "MarkdownRemark.frontmatter.teams": "TeamsYaml",
+        "MarkdownRemark.frontmatter.collaborations": "CollaborationsYaml",
     },
 }
