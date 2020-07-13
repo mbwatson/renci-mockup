@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { useScrollPosition } from '../../hooks'
 
-const Content = styled.div(({ theme, textColor }) => `
+const Content = styled.div(({ theme }) => `
     position: absolute;
     left: 0;
     right: 0;
@@ -18,7 +18,6 @@ const Content = styled.div(({ theme, textColor }) => `
     max-width: 1200px;
     margin: 0 auto;
     background-color: transparent;
-    color: ${ textColor };
 `)
 
 const Overlay = styled.div(({ theme, color }) => `
@@ -38,7 +37,7 @@ const Wrapper = styled.div(({ theme, backgroundColor }) => `
     background-color: ${ backgroundColor };
 `)
 
-export const Hero = ({ backgroundImage, backgroundColor, textColor, overlayColor, children }) => {
+export const Hero = ({ backgroundImage, backgroundColor, overlayColor, children }) => {
     const { scrollPosition } = useScrollPosition()
 
     return (
@@ -53,7 +52,7 @@ export const Hero = ({ backgroundImage, backgroundColor, textColor, overlayColor
                 )
             }
             <Overlay color={ overlayColor } />
-            <Content textColor={ textColor }>
+            <Content>
                 { children }
             </Content>
         </Wrapper>
