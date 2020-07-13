@@ -12,6 +12,11 @@ const ResearchPage = () => {
 
             <Paragraph>
                 High-level view of research at RENCI.
+                While this should still list out specific research efforts at RENCI,
+                perhaps this is a good way to expose information around how, why, etc research is done at RENCI.
+            </Paragraph>
+
+            <Paragraph>
                 Libero aperiam, adipisci cum natus eaque officiis consequatur, laboriosam?
                 Alias fugiat similique officiis eaque minima, vitae atque! Iure nemo,
                 nesciunt cum possimus nulla aut tenetur!

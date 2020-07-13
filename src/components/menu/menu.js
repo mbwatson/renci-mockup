@@ -75,6 +75,7 @@ export const Menu = ({ items, dark }) => {
             {
                 items.map((item, currentIndex) => item.submenu ? (
                     <MenuItem key={ item.path }
+                        onClick={ handleCloseTray }
                         onMouseEnter={ handleOpenTray } onMouseLeave={ handleCloseTray }
                         onFocus={ handleOpenTray } onBlur={ handleCloseTray }
                     >
