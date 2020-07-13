@@ -47,9 +47,7 @@ export const Tooltip = ({ tip, children }) => {
         setStringPixelWidth(tip.length * 10)
     }, [tip])
 
-    const handleShowTooltip = event => {
-        setActive(true)
-    }
+    const handleShowTooltip = event => setActive(true)
     const handleHideTooltip = event => setActive(false)
 
     return (
