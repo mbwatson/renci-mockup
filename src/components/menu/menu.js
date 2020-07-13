@@ -58,7 +58,6 @@ export const Menu = ({ items, dark }) => {
         if (event.keyCode === 27) {
             event.preventDefault()
             setTrayOpen(false)
-            console.log('escape')
         }
     }
     

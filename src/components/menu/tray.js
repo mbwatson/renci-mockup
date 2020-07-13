@@ -9,12 +9,12 @@ const reveal = keyframes`
 `
 
 const hide = keyframes`
-    0% { display: block; opacity: 1.0; }
-    1% { display: block; opacity: 1.0; }
+    0%, 20% { display: block; opacity: 1.0; }
+    21% { display: block; opacity: 1.0; }
     100% { display: none; opacity: 0.0; }
 `
 
-const Wrapper = styled.nav(({ theme, open }) => css`
+const Wrapper = styled.nav(({ theme }) => css`
     position: absolute;
     left: 0;
     right: 0;
@@ -26,7 +26,7 @@ const Wrapper = styled.nav(({ theme, open }) => css`
     padding: ${ theme.spacing.small } ${ theme.spacing.large };
     background-color: ${ theme.color.whitish };
     pointer-events: auto;
-    animation: 250ms ${ open ? hide : reveal };
+    animation: 250ms ${ reveal };
 `)
 
 export const Tray = ({ children, ...props }) => {
