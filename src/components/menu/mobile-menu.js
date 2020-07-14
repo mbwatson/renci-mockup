@@ -10,10 +10,9 @@ const reveal = keyframes`
     100% { display: block; opacity: 1.0; }
 `
 
-const hide = keyframes`
-    0%, 20% { display: block; opacity: 1.0; }
-    21% { display: block; opacity: 1.0; }
-    100% { display: none; opacity: 0.0; }
+const slideIn = keyframes`
+    0% { transform: translateX(-100%); opacity: 0.0; }
+    100% { transform: translateX(0px); opacity: 1.0; }
 `
 
 const Overlay = styled.div(({ theme }) => css`
@@ -31,28 +30,36 @@ const NavWrapper = styled.nav(({ theme }) => `
     // border: 1px solid #f99;
     height: 100%;
     width: 100%;
-    padding: calc(4 * ${ theme.spacing.large }) ${ theme.spacing.large } ${ theme.spacing.large } ${ theme.spacing.large };
+    padding-top: calc(3 * ${ theme.spacing.large });
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
 `)
 
-const MenuLink = styled(Link)(({ theme }) => `
+const MenuLink = styled(Link)(({ theme }) => css`
     // border: 1px solid #f99;
-    font-size: 200%;
+    font-size: 150%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 100%;
-    max-height: 100px;
-    padding: 0 1rem;
+    height: 4rem;
+    font-weight: 300;
+    padding: 0 ${ theme.spacing.extraLarge };
     text-decoration: none;
     transition: color 250ms, background-color 250ms;
     color: ${ theme.color.whitish };
     &:hover {
         color: ${ theme.color.renciBlue };
+        background-color: ${ theme.color.darkgrey };
     }
+    animation: 250ms ${ slideIn };
+    &:nth-child(1) { animation-delay: 25ms }
+    &:nth-child(2) { animation-delay: 50ms }
+    &:nth-child(3) { animation-delay: 75ms }
+    &:nth-child(4) { animation-delay: 100ms }
+    &:nth-child(5) { animation-delay: 125ms }
+    &:nth-child(6) { animation-delay: 150ms }
 `)
 
 export const MobileMenu = ({ items }) => {
