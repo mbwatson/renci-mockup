@@ -68,12 +68,12 @@ export const MobileMenu = ({ items }) => {
                 handleCloseMenu()
             }
         }
-        // if (visible) {
-        //     document.addEventListener('keydown', escapeHatch)
+        if (visible) {
+            document.addEventListener('keydown', escapeHatch)
         //     document.body.style.overflow = 'hidden'
         // } else {
         //     document.body.style.overflow = 'auto'
-        // }
+        }
         return () => document.removeEventListener('keydown', escapeHatch)
     }, [visible])
 
