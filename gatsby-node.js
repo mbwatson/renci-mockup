@@ -73,6 +73,102 @@ exports.createResolvers = ({ createResolvers }) => {
                         type: "CollaborationsYaml",
                         firstOnly: false,
                     })
+                },
+            },
+        },
+        GroupsYaml: {
+            news: {
+                type: ["MarkdownRemark"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: {
+                            filter: {
+                                frontmatter: {
+                                    groups: {
+                                        elemMatch: {
+                                            id: {
+                                                in: [source.id],
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        type: "MarkdownRemark",
+                        firstOnly: false,
+                    })
+                }
+            },
+        },
+        PeopleYaml: {
+            news: {
+                type: ["MarkdownRemark"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: {
+                            filter: {
+                                frontmatter: {
+                                    people: {
+                                        elemMatch: {
+                                            id: {
+                                                in: [source.id],
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        type: "MarkdownRemark",
+                        firstOnly: false,
+                    })
+                }
+            },
+        },
+        ProjectsYaml: {
+            news: {
+                type: ["MarkdownRemark"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: {
+                            filter: {
+                                frontmatter: {
+                                    projects: {
+                                        elemMatch: {
+                                            id: {
+                                                in: [source.id],
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        type: "MarkdownRemark",
+                        firstOnly: false,
+                    })
+                }
+            },
+        },
+        CollaborationsYaml: {
+            news: {
+                type: ["MarkdownRemark"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: {
+                            filter: {
+                                frontmatter: {
+                                    collaborations: {
+                                        elemMatch: {
+                                            id: {
+                                                in: [source.id],
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        type: "MarkdownRemark",
+                        firstOnly: false,
+                    })
                 }
             },
         },
