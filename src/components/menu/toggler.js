@@ -11,7 +11,7 @@ const Wrapper = styled.button`
     align-items: center;
     padding: 1rem;
     transition: filter 250ms;
-    &:hover {
+    &:hover, &:focus {
         filter: brightness(1.5);
     }
 `
