@@ -21,6 +21,7 @@ export const Page = styled.div(({ theme }) => `
     color: ${ theme.color.primary.main };
     width: 100%;
     margin: auto;
+    overflow: auto;
 `)
 
 const FooterContents = () => {
