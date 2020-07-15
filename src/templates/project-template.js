@@ -64,6 +64,21 @@ export const projectQuery = graphql`
                 twitter
                 github
             }
+            news {
+                id
+                frontmatter {
+                    title
+                    publish_date(formatString: "MMMM DD, YYYY")
+                    featuredImage {
+                        childImageSharp {
+                            previewSize: fixed(width: 300, height: 300) {
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
+                    }
+                }
+                excerpt(pruneLength: 500)
+            }
         }
     }
 `

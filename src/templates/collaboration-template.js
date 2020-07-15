@@ -29,18 +29,22 @@ export default ({ data, pageContext }) => {
                 
                 <HorizontalRule />
 
-                <Section title="News">
-                    {
-                        news.map((article, i) => {
-                            return (
-                                <Fragment key={ article.id }>
-                                    <ArticlePreview article={ article } compact />
-                                    { i < news.length - 1 && <HorizontalRule /> }
-                                </Fragment>
-                            )
-                        })
-                    }
-                </Section>
+                {
+                    news && (
+                        <Section title="News">
+                            {
+                                news.map((article, i) => {
+                                    return (
+                                        <Fragment key={ article.id }>
+                                            <ArticlePreview article={ article } compact />
+                                            { i < news.length - 1 && <HorizontalRule /> }
+                                        </Fragment>
+                                    )
+                                })
+                            }
+                        </Section>
+                    )
+                }
 
                 <HorizontalRule />
 
@@ -66,6 +70,21 @@ export const collaborationQuery = graphql`
                 url
                 twitter
                 github
+            }
+            news {
+                id
+                frontmatter {
+                    title
+                    publish_date(formatString: "MMMM DD, YYYY")
+                    featuredImage {
+                        childImageSharp {
+                            previewSize: fixed(width: 300, height: 300) {
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
+                    }
+                }
+                excerpt(pruneLength: 500)
             }
         }
     }

@@ -70,30 +70,30 @@ exports.createResolvers = ({ createResolvers }) => {
                 }
             },
         },
-        // ProjectsYaml: {
-        //     news: {
-        //         type: ["MarkdownRemark"],
-        //         resolve(source, args, context, info) {
-        //             return context.nodeModel.runQuery({
-        //                 query: { filter: { frontmatter: { projects: { elemMatch: { id: { eq: source.id } } } } } },
-        //                 type: "MarkdownRemark",
-        //                 firstOnly: false,
-        //             })
-        //         }
-        //     },
-        // },
-        // CollaborationsYaml: {
-        //     news: {
-        //         type: ["MarkdownRemark"],
-        //         resolve(source, args, context, info) {
-        //             return context.nodeModel.runQuery({
-        //                 query: { filter: { frontmatter: { collaborations: { elemMatch: { id: { eq: source.id } } } } } },
-        //                 type: "MarkdownRemark",
-        //                 firstOnly: false,
-        //             })
-        //         }
-        //     },
-        // },
+        CollaborationsYaml: {
+            news: {
+                type: ["MarkdownRemark"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: { filter: { frontmatter: { collaborations: { elemMatch: { id: { eq: source.id } } } } } },
+                        type: "MarkdownRemark",
+                        firstOnly: false,
+                    })
+                }
+            },
+        },
+        ProjectsYaml: {
+            news: {
+                type: ["MarkdownRemark"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: { filter: { frontmatter: { projects: { elemMatch: { id: { eq: source.id } } } } } },
+                        type: "MarkdownRemark",
+                        firstOnly: false,
+                    })
+                }
+            },
+        },
     }
     createResolvers(resolvers)
 }
