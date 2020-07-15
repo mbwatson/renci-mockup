@@ -28,18 +28,22 @@ export default ({ data, pageContext }) => {
             <Container>
                 <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
 
-                <Section title="News & Events">
-                    {
-                        news.map((article, i) => {
-                            return (
-                                <Fragment key={ article.id }>
-                                    <ArticlePreview article={ article } compact />
-                                    { i < news.length - 1 && <HorizontalRule /> }
-                                </Fragment>
-                            )
-                        })
-                    }
-                </Section>
+                {
+                    news && (
+                        <Section title="News">
+                            {
+                                news.map((article, i) => {
+                                    return (
+                                        <Fragment key={ article.id }>
+                                            <ArticlePreview article={ article } compact />
+                                            { i < news.length - 1 && <HorizontalRule /> }
+                                        </Fragment>
+                                    )
+                                })
+                            }
+                        </Section>
+                    )
+                }
 
                 <HorizontalRule />
                 
@@ -109,7 +113,7 @@ export const groupQuery = graphql`
                 id
                 frontmatter {
                     title
-                    publish_date
+                    publish_date(formatString: "MMMM DD, YYYY")
                     featuredImage {
                         childImageSharp {
                             previewSize: fixed(width: 300, height: 300) {

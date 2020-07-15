@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import { Container, Article, Section, HorizontalRule } from '../components/layout'
 import { Title, Heading } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { ArrowLink } from '../components/link'
+import { ArticlePreview } from '../components/news'
 
 export default ({ data, pageContext }) => {
-    const { peopleYaml: { name, title, email, office, online_presence, bio, groups, collaborations, teams }} = data
+    const { peopleYaml: { name, title, email, office, online_presence, bio, groups, collaborations, teams, news }} = data
 
     return (
         <Container>
@@ -51,6 +52,26 @@ export default ({ data, pageContext }) => {
                     </Section>
                 )
             }
+
+            <HorizontalRule />
+            
+            {
+                news && (
+                    <Section title="News">
+                        {
+                            news.map((article, i) => {
+                                return (
+                                    <Fragment key={ article.id }>
+                                        <ArticlePreview article={ article } compact />
+                                        { i < news.length - 1 && <HorizontalRule /> }
+                                    </Fragment>
+                                )
+                            })
+                        }
+                    </Section>
+                )
+            }
+
         </Container>
     )
 }
@@ -83,6 +104,21 @@ export const personQuery = graphql`
             collaborations {
                 id
                 name
+            }
+            news {
+                id
+                frontmatter {
+                    title
+                    publish_date(formatString: "MMMM DD, YYYY")
+                    featuredImage {
+                        childImageSharp {
+                            previewSize: fixed(width: 300, height: 300) {
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
+                    }
+                }
+                excerpt(pruneLength: 500)
             }
         }
     }

@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import { Container, Section, Hero } from '../components/layout'
+import { Container, Section, Hero, HorizontalRule } from '../components/layout'
 import { Title } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { ArrowLink } from '../components/link'
+import { ArticlePreview } from '../components/news'
 
 export default ({ data, pageContext }) => {
     const { collaborationsYaml: {
@@ -11,7 +12,8 @@ export default ({ data, pageContext }) => {
         members,
         projects,
         online_presence,
-        featuredImage
+        featuredImage,
+        news,
     }} = data
     return (
         <Fragment>
@@ -25,20 +27,28 @@ export default ({ data, pageContext }) => {
             <Container>
                 <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
                 
+                <HorizontalRule />
+
+                <Section title="News">
+                    {
+                        news.map((article, i) => {
+                            return (
+                                <Fragment key={ article.id }>
+                                    <ArticlePreview article={ article } compact />
+                                    { i < news.length - 1 && <HorizontalRule /> }
+                                </Fragment>
+                            )
+                        })
+                    }
+                </Section>
+
+                <HorizontalRule />
+
                 <Section title="Contributors">
                     { members.map(person => <div><ArrowLink key={ person.id } to={ `/people/${ person.id }` } text={ person.name } /></div>) }
                 </Section>
 
-                <br/>
-
-                {
-                    projects && projects.map(project => (
-                        <Section title="Projects">
-                            <div><ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /></div>
-                        </Section>
-                    ))
-                }
-
+                
             </Container>
         </Fragment>
     )
@@ -56,6 +66,21 @@ export const collaborationQuery = graphql`
                 url
                 twitter
                 github
+            }
+            news {
+                id
+                frontmatter {
+                    title
+                    publish_date(formatString: "MMMM DD, YYYY")
+                    featuredImage {
+                        childImageSharp {
+                            previewSize: fixed(width: 300, height: 300) {
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
+                    }
+                }
+                excerpt(pruneLength: 500)
             }
         }
     }
