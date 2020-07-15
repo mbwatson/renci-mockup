@@ -39,7 +39,7 @@ const BodyContainer = styled.div`
     }
 `
 
-export const ArticlePreview = ({ article, compact = false }) => {
+export const ArticlePreview = ({ article, path, compact = false }) => {
     const hasFeaturedImage = (article.frontmatter.featuredImage !== null) && (compact === false)
     return (
         <Wrapper>
@@ -72,10 +72,10 @@ export const ArticlePreview = ({ article, compact = false }) => {
                     <Col xs={ 12 } md={ hasFeaturedImage ? 8 : 12 } lg={ hasFeaturedImage ? 9 : 12 }>
                         <BodyContainer>
                             <ArticleDate>{ article.frontmatter.publish_date }</ArticleDate>
-                            <ArticleTitle><Link to={ article.path }>{ article.frontmatter.title }</Link></ArticleTitle>
+                            <ArticleTitle><Link to={ path }>{ article.frontmatter.title }</Link></ArticleTitle>
                             <div dangerouslySetInnerHTML={{ __html: article.excerpt }} />
                         </BodyContainer>
-                        <ArrowLink to={ article.path } text="Continue Reading" float="right" />
+                        <ArrowLink to={ path } text="Continue Reading" float="right" />
                     </Col>
                 </Row>
             </Grid>

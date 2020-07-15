@@ -1,5 +1,23 @@
 const path = require(`path`)
 
+exports.onCreateNode = ({ node, actions }) => {
+    const { createNode, createNodeField } = actions
+    if (node.internal.type === 'MarkdownRemark') {
+        const matches = node.fileAbsolutePath.match(/data\/news\/(\d{4}\/\d{2})\/.+\/index.md$/)
+        if (matches) {
+            const [, yyyydd] = matches
+            const path = `/news/${ yyyydd }/${ node.frontmatter.slug }`
+            createNodeField({
+                node,
+                name: 'path',
+                value: path,
+            })
+        }
+    }
+    // Transform the new node here and create a new node or
+    // create a new node field.
+}
+
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions
     const typeDefs = `

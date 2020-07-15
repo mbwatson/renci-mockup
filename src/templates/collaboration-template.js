@@ -36,7 +36,7 @@ export default ({ data, pageContext }) => {
                                 news.map((article, i) => {
                                     return (
                                         <Fragment key={ article.id }>
-                                            <ArticlePreview article={ article } compact />
+                                            <ArticlePreview article={ article } path={ article.fields.path } compact />
                                             { i < news.length - 1 && <HorizontalRule /> }
                                         </Fragment>
                                     )
@@ -73,6 +73,9 @@ export const collaborationQuery = graphql`
             }
             news {
                 id
+                fields {
+                    path
+                }
                 frontmatter {
                     title
                     publish_date(formatString: "MMMM DD, YYYY")
