@@ -28,7 +28,7 @@ const NewsPage = () => {
                     articles.map((article, i) => {
                         return (
                             <Fragment key={ article.id }>
-                                <ArticlePreview article={ article } />
+                                <ArticlePreview article={ article } path={ article.path } />
                                 { i < articles.length - 1 && <HorizontalRule /> }
                             </Fragment>
                         )
