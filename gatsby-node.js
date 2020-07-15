@@ -19,17 +19,7 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ["TeamsYaml"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
-                        query: {
-                            filter: {
-                                members: {
-                                    elemMatch: {
-                                        id: {
-                                            eq: source.id,
-                                        }
-                                    }
-                                }
-                            }
-                        },
+                        query: { filter: { members: { elemMatch: { id: { eq: source.id } } } } },
                         type: "TeamsYaml",
                         firstOnly: false,
                     })
@@ -39,17 +29,7 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ["GroupsYaml"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
-                        query: {
-                            filter: {
-                                members: {
-                                    elemMatch: {
-                                        id: {
-                                            eq: source.id,
-                                        }
-                                    }
-                                }
-                            }
-                        },
+                        query: { filter: { members: { elemMatch: { id: { eq: source.id } } } } },
                         type: "GroupsYaml",
                         firstOnly: false,
                     })
@@ -59,17 +39,7 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ["CollaborationsYaml"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
-                        query: {
-                            filter: {
-                                members: {
-                                    elemMatch: {
-                                        id: {
-                                            eq: source.id,
-                                        }
-                                    }
-                                }
-                            }
-                        },
+                        query: { filter: { members: { elemMatch: { id: { eq: source.id } } } } },
                         type: "CollaborationsYaml",
                         firstOnly: false,
                     })
@@ -81,19 +51,7 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ["MarkdownRemark"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
-                        query: {
-                            filter: {
-                                frontmatter: {
-                                    groups: {
-                                        elemMatch: {
-                                            id: {
-                                                in: [source.id],
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
+                        query: { filter: { frontmatter: { groups: { elemMatch: { id: { eq: source.id } } } } } },
                         type: "MarkdownRemark",
                         firstOnly: false,
                     })
@@ -105,73 +63,37 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ["MarkdownRemark"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
-                        query: {
-                            filter: {
-                                frontmatter: {
-                                    people: {
-                                        elemMatch: {
-                                            id: {
-                                                in: [source.id],
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
+                        query: { filter: { frontmatter: { people: { elemMatch: { id: { eq: source.id } } } } } },
                         type: "MarkdownRemark",
                         firstOnly: false,
                     })
                 }
             },
         },
-        ProjectsYaml: {
-            news: {
-                type: ["MarkdownRemark"],
-                resolve(source, args, context, info) {
-                    return context.nodeModel.runQuery({
-                        query: {
-                            filter: {
-                                frontmatter: {
-                                    projects: {
-                                        elemMatch: {
-                                            id: {
-                                                in: [source.id],
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        type: "MarkdownRemark",
-                        firstOnly: false,
-                    })
-                }
-            },
-        },
-        CollaborationsYaml: {
-            news: {
-                type: ["MarkdownRemark"],
-                resolve(source, args, context, info) {
-                    return context.nodeModel.runQuery({
-                        query: {
-                            filter: {
-                                frontmatter: {
-                                    collaborations: {
-                                        elemMatch: {
-                                            id: {
-                                                in: [source.id],
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        type: "MarkdownRemark",
-                        firstOnly: false,
-                    })
-                }
-            },
-        },
+        // ProjectsYaml: {
+        //     news: {
+        //         type: ["MarkdownRemark"],
+        //         resolve(source, args, context, info) {
+        //             return context.nodeModel.runQuery({
+        //                 query: { filter: { frontmatter: { projects: { elemMatch: { id: { eq: source.id } } } } } },
+        //                 type: "MarkdownRemark",
+        //                 firstOnly: false,
+        //             })
+        //         }
+        //     },
+        // },
+        // CollaborationsYaml: {
+        //     news: {
+        //         type: ["MarkdownRemark"],
+        //         resolve(source, args, context, info) {
+        //             return context.nodeModel.runQuery({
+        //                 query: { filter: { frontmatter: { collaborations: { elemMatch: { id: { eq: source.id } } } } } },
+        //                 type: "MarkdownRemark",
+        //                 firstOnly: false,
+        //             })
+        //         }
+        //     },
+        // },
     }
     createResolvers(resolvers)
 }
