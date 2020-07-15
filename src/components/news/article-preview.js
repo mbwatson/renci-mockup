@@ -39,8 +39,8 @@ const BodyContainer = styled.div`
     }
 `
 
-export const ArticlePreview = ({ article }) => {
-    const hasFeaturedImage = article.frontmatter.featuredImage !== null
+export const ArticlePreview = ({ article, compact = false }) => {
+    const hasFeaturedImage = (article.frontmatter.featuredImage !== null) && (compact === false)
     return (
         <Wrapper>
             <Grid fluid>

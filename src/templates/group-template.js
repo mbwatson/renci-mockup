@@ -4,14 +4,16 @@ import { Container, Article, Section, Hero, HorizontalRule } from '../components
 import { Title, Paragraph } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { ArrowLink } from '../components/link'
+import { ArticlePreview } from '../components/news'
 
 export default ({ data, pageContext }) => {
     const { groupsYaml: {
         name,
         lead,
         members,
-        projects,
         online_presence,
+        projects,
+        news,
         featuredImage,
     }} = data
     return (
@@ -27,19 +29,16 @@ export default ({ data, pageContext }) => {
                 <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
 
                 <Section title="News & Events">
-                    <Article title="Lorem ipsum">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo alias, velit cumque numquam, blanditiis consequuntur provident debitis illo eaque repellendus excepturi maxime! Quas vel totam delectus quisquam eligendi, perferendis nisi.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, est, blanditiis, suscipit dolorem cumque incidunt officiis sit sunt laborum, iure iusto molestiae reprehenderit nobis! Officiis veniam odio, minus distinctio repellat deleniti facilis provident cupiditate blanditiis molestiae asperiores laudantium perspiciatis possimus quasi harum sequi ab voluptates.</p>
-                    </Article>
-
-                    <Article title="Dolor sit">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut consectetur iste, dignissimos quo magni!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae maiores delectus dolor perferendis fugiat tenetur cupiditate, quod porro minima at, blanditiis odio esse quia molestias. Deleniti officiis exercitationem sit molestias nihil, magni rerum maxime amet.</p>
-                    </Article>
-
-                    <Article title="Loremamet consectetur">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat totam laudantium, doloremque minus rem soluta ex molestiae pariatur esse cupiditate est ea quam temporibus ab officia facere tempore aspernatur tenetur, voluptatum deleniti iusto minima adipisci quidem harum modi. Nobis, voluptates!</p>
-                    </Article>
+                    {
+                        news.map((article, i) => {
+                            return (
+                                <Fragment key={ article.id }>
+                                    <ArticlePreview article={ article } compact />
+                                    { i < news.length - 1 && <HorizontalRule /> }
+                                </Fragment>
+                            )
+                        })
+                    }
                 </Section>
 
                 <HorizontalRule />
@@ -97,14 +96,29 @@ export const groupQuery = graphql`
                 id
                 name
             }
-            projects {
-                id
-                name
-            }
             online_presence {
                 url
                 twitter
                 github
+            }
+            projects {
+                id
+                name
+            }
+            news {
+                id
+                frontmatter {
+                    title
+                    publish_date
+                    featuredImage {
+                        childImageSharp {
+                            previewSize: fixed(width: 300, height: 300) {
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
+                    }
+                }
+                excerpt(pruneLength: 500)
             }
         }
     }
