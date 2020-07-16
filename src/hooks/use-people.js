@@ -8,6 +8,9 @@ const peopleQuery = graphql`{
                 name
                 email
                 title
+                fields {
+                    path
+                }
             }
         }
     }

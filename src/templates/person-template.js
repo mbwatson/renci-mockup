@@ -96,14 +96,23 @@ export const personQuery = graphql`
             teams {
                 id
                 name
+                fields {
+                    path
+                }
             }
             groups {
                 id
                 name
+                fields {
+                    path
+                }
             }
             collaborations {
                 id
                 name
+                fields {
+                    path
+                }
             }
             news {
                 id

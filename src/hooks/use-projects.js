@@ -12,6 +12,9 @@ const projectsQuery = graphql`{
                     github
                     twitter
                 }
+                fields {
+                    path
+                }
             }
         }
     }

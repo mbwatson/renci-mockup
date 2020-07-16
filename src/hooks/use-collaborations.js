@@ -18,6 +18,9 @@ const collaborationsQuery = graphql`{
                     github
                     twitter
                 }
+                fields {
+                    path
+                }
             }
         }
     }

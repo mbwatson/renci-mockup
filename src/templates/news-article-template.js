@@ -36,11 +36,11 @@ export default ({ data, pageContext }) => {
                 <HorizontalRule />
 
                 <Meta>
-                    People: { people.map(({ name, id }) => <TagLink key={ id } to={ `/people/${ id }` }>{ name }</TagLink>) } <br/>
-                    Groups: { groups.map(({ name, id }) => <TagLink key={ id } to={ `/research/${ id }` }>{ name }</TagLink>) } <br/>
-                    Teams: { teams.map(({ name, id }) => <TagLink key={ id } to={ `/teams/${ id }` }>{ name }</TagLink>) } <br/>
-                    Projects: { projects.map(({ name, id }) => <TagLink key={ id } to={ `/projects/${ id }` }>{ name }</TagLink>) } <br/>
-                    Collaborations: { collaborations.map(({ name, id }) => <TagLink key={ id } to={ `/collaborations/${ id }` }>{ name }</TagLink>) }
+                    People: { people.map(person => <TagLink key={ person.id } to={ person.fields.path }>{ person.name }</TagLink>) } <br/><br/>
+                    Groups: { groups.map(group => <TagLink key={ group.id } to={ group.fields.path }>{ group.name }</TagLink>) } <br/><br/>
+                    Teams: { teams.map(team => <TagLink key={ team.id } to={ team.fields.path }>{ team.name }</TagLink>) } <br/><br/>
+                    Projects: { projects.map(project => <TagLink key={ project.id } to={ project.fields.path }>{ project.name }</TagLink>) } <br/><br/>
+                    Collaborations: { collaborations.map(collaboration => <TagLink key={ collaboration.id } to={ collaboration.fields.path }>{ collaboration.name }</TagLink>) }
                 </Meta>
 
                 <HorizontalRule />
@@ -98,26 +98,44 @@ export const newsQuery = graphql`
                 author {
                     id
                     name
+                    fields {
+                        path
+                    }
                 }
                 people {
                     id
                     name
+                    fields {
+                        path
+                    }
                 }
                 groups {
                     id
                     name
+                    fields {
+                        path
+                    }
                 }
                 projects {
                     id
                     name
+                    fields {
+                        path
+                    }
                 }
                 teams {
                     id
                     name
+                    fields {
+                        path
+                    }
                 }
                 collaborations {
                     id
                     name
+                    fields {
+                        path
+                    }
                 }
             }
             html

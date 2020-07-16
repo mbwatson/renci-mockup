@@ -109,24 +109,6 @@ export const groupQuery = graphql`
                 id
                 name
             }
-            news {
-                id
-                fields {
-                    path
-                }
-                frontmatter {
-                    title
-                    publish_date(formatString: "MMMM DD, YYYY")
-                    featuredImage {
-                        childImageSharp {
-                            previewSize: fixed(width: 300, height: 300) {
-                                ...GatsbyImageSharpFixed
-                            }
-                        }
-                    }
-                }
-                excerpt(pruneLength: 500)
-            }
         }
     }
 `

@@ -23,6 +23,9 @@ const groupsQuery = graphql`{
                     name
                     description
                 }
+                fields {
+                    path
+                }
             }
         }
     }
