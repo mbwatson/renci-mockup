@@ -1,5 +1,10 @@
 const path = require(`path`)
 
+const now = new Date()
+const dateString = `${ now.getFullYear() }-${ now.getMonth() + 1 < 10 ? '0' : '' }${ now.getMonth() + 1 }-${ now.getDate()  < 10 ? '0' : '' }${ now.getDate() }`
+
+console.log(`\n\nStarting build, ${ now }\n\n`)
+
 exports.onCreateNode = ({ node, actions }) => {
     const { createNode, createNodeField } = actions
     if (node.internal.type === 'MarkdownRemark') {
@@ -78,7 +83,15 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ["MarkdownRemark"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
-                        query: { filter: { frontmatter: { groups: { elemMatch: { id: { eq: source.id } } } } } },
+                        query: {
+                            sort: { fields: ['frontmatter.publish_date'], order: ['DESC'] },
+                            filter: {
+                                frontmatter: {
+                                    publish_date: {  lte: dateString },
+                                    groups: { elemMatch: { id: { eq: source.id } } }
+                                }
+                            }
+                        },
                         type: "MarkdownRemark",
                         firstOnly: false,
                     })
@@ -350,9 +363,6 @@ exports.createPages = ({ actions, graphql }) => {
          */
 
         console.log(`\nCreating events list pages...`)
-
-        const todaysDate = new Date()
-        const dateString = `${ todaysDate.getFullYear() }-${ todaysDate.getMonth() + 1 < 10 ? '0' : '' }${ todaysDate.getMonth() + 1 }-${ todaysDate.getDate()  < 10 ? '0' : '' }${ todaysDate.getDate() }`
 
         console.log(` - Future events (/events)`)
         createPage({
