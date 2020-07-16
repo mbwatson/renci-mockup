@@ -35,7 +35,7 @@ export const ResearchSubmenu = () => {
                         { groups.map((group, i) => <NavListItem key={ group.id }><ArrowLink to={ `/research/${ group.id }` } text={ group.name } /></NavListItem>) }
                     </NavList>
                 </Col>
-                <Col xs={ 12 } md={ 6 }>
+                <Col xs={ 12 } md={ 6 } component={ NavColumn }>
                     <NavHeading>Collaborations & Team Science</NavHeading>
                     <NavList style={{ listStyleType: 'none' }}>
                         { collaborations.map((collaboration, i) => <NavListItem key={ collaboration.id }><ArrowLink to={ `/collaborations/${ collaboration.id }` } text={ collaboration.name } /></NavListItem>) }
