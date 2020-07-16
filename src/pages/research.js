@@ -2,8 +2,12 @@ import React from 'react'
 import { SEO } from '../components/seo'
 import { Container, Section, Article, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
+import { ArrowLink } from '../components/link'
+import { useGroups } from '../hooks'
 
 const ResearchPage = () => {
+    const groups = useGroups()
+
     return (
         <Container>
             <SEO title="Research at RENCI" />
@@ -44,8 +48,12 @@ const ResearchPage = () => {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus eius velit mollitia aut, quo laborum totam voluptatibus inventore delectus, voluptatem accusamus labore, sint nesciunt ut ipsa enim repellat neque pariatur quaerat quibusdam autem eum ea vero doloremque. Dolorem dicta, ipsam.
                 </Article>
 
-                <Article title="More Stuff">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quae eligendi consequatur nihil quaerat saepe dignissimos, quos impedit rem voluptatibus ducimus velit. Labore quidem est voluptate suscipit esse ipsa molestias, praesentium aspernatur. Rerum illo porro vel iure ab dolores culpa ratione est labore voluptas. Quasi natus recusandae nisi quidem ea laudantium, eaque dignissimos quo, excepturi facere nihil molestiae. Cum laboriosam nisi sunt nulla officiis assumenda cumque ex facilis accusamus consequatur mollitia praesentium animi, obcaecati odio commodi quam cupiditate asperiores quisquam alias hic nesciunt! Magni, delectus distinctio consectetur, ipsa possimus obcaecati.
+                <Article title="Research Groups">
+                    {
+                        groups.map(group => (
+                            <div key={ group.id }><ArrowLink to={ group.fields.path } text={ group.name } /></div>
+                        ))
+                    }
                 </Article>
             </Section>
 

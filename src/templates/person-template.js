@@ -32,7 +32,7 @@ export default ({ data, pageContext }) => {
             {
                 groups && (
                     <Section title="Groups">
-                        { groups.map(group => <div><ArrowLink to={ `/groups/${ group.id }` } text={ group.name } /></div>) }
+                        { groups.map(group => <div key={ group.id }><ArrowLink to={ group.fields.path } text={ group.name } /></div>) }
                     </Section>
                 )
             }
@@ -40,7 +40,7 @@ export default ({ data, pageContext }) => {
             {
                 collaborations && (
                     <Section title="Collaborations">
-                        { collaborations.map(collaboration => <div><ArrowLink to={ `/collaborations/${ collaboration.id }` } text={ collaboration.name } /></div>) }
+                        { collaborations.map(collaboration => <div key={ collaboration.id }><ArrowLink to={ collaboration.fields.path } text={ collaboration.name } /></div>) }
                     </Section>
                 )
             }
@@ -48,7 +48,7 @@ export default ({ data, pageContext }) => {
             {
                 teams && (
                     <Section title="Teams">
-                        { teams.map(team => <div><ArrowLink to={ `/teams/${ team.id }` } text={ team.name } /></div>) }
+                        { teams.map(team => <div key={ team.id }><ArrowLink to={ team.fields.path } text={ team.name } /></div>) }
                     </Section>
                 )
             }

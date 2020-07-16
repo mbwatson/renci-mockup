@@ -36,11 +36,11 @@ export default ({ data, pageContext }) => {
                 <HorizontalRule />
 
                 <Meta>
-                    People: { people.map(({ name, id }) => <TagLink to={ `/people/${ id }` }>{ name }</TagLink>) } <br/>
-                    Groups: { groups.map(({ name, id }) => <TagLink to={ `/research/${ id }` }>{ name }</TagLink>) } <br/>
-                    Teams: { teams.map(({ name, id }) => <TagLink to={ `/teams/${ id }` }>{ name }</TagLink>) } <br/>
-                    Projects: { projects.map(({ name, id }) => <TagLink to={ `/projects/${ id }` }>{ name }</TagLink>) } <br/>
-                    Collaborations: { collaborations.map(({ name, id }) => <TagLink to={ `/collaborations/${ id }` }>{ name }</TagLink>) }
+                    People: { people.map(({ name, id }) => <TagLink key={ id } to={ `/people/${ id }` }>{ name }</TagLink>) } <br/>
+                    Groups: { groups.map(({ name, id }) => <TagLink key={ id } to={ `/research/${ id }` }>{ name }</TagLink>) } <br/>
+                    Teams: { teams.map(({ name, id }) => <TagLink key={ id } to={ `/teams/${ id }` }>{ name }</TagLink>) } <br/>
+                    Projects: { projects.map(({ name, id }) => <TagLink key={ id } to={ `/projects/${ id }` }>{ name }</TagLink>) } <br/>
+                    Collaborations: { collaborations.map(({ name, id }) => <TagLink key={ id } to={ `/collaborations/${ id }` }>{ name }</TagLink>) }
                 </Meta>
 
                 <HorizontalRule />

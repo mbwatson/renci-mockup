@@ -20,7 +20,7 @@ const CollaborationsPage = () => {
                 collaborations.map(collaboration => (
                     <Card key={ collaboration.id }>
                         <CardHeader>
-                            <Heading><Link to={ `/collaborations/${ collaboration.id }` }>{ collaboration.name }</Link></Heading>
+                            <Heading><Link to={ collaboration.fields.path }>{ collaboration.name }</Link></Heading>
                         </CardHeader>
 
                         <CardBody>
