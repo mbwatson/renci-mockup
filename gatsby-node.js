@@ -7,11 +7,7 @@ exports.onCreateNode = ({ node, actions }) => {
         if (matches) {
             const [, yyyydd] = matches
             const path = `/news/${ yyyydd }/${ node.frontmatter.slug }`
-            createNodeField({
-                node,
-                name: 'path',
-                value: path,
-            })
+            createNodeField({ node, name: 'path', value: path })
         }
     }
     if (node.internal.type === 'PeopleYaml') { createNodeField({ node, name: 'path', value: `/people/${ node.id }` }) }
