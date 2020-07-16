@@ -44,7 +44,7 @@ export const ArticlePreview = ({ article, path, compact = false }) => {
     return (
         <Wrapper>
             <Grid fluid>
-                <Row nogutter>
+                <Row>
                     {
                         hasFeaturedImage && (
                             <Fragment>
