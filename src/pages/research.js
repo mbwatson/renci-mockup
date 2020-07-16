@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { SEO } from '../components/seo'
 import { Container, Section, Article, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { ArrowLink } from '../components/link'
-import { useGroups } from '../hooks'
+import { useCollaborations, useGroups } from '../hooks'
 
 const ResearchPage = () => {
     const groups = useGroups()
+    const collaborations = useCollaborations()
 
     return (
         <Container>
@@ -44,17 +45,37 @@ const ResearchPage = () => {
             
             <Section title="In Depth">
                 <Article title="Some Stuff">
-                    More in-the-weeds stuff about research at RENCI.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus eius velit mollitia aut, quo laborum totam voluptatibus inventore delectus, voluptatem accusamus labore, sint nesciunt ut ipsa enim repellat neque pariatur quaerat quibusdam autem eum ea vero doloremque. Dolorem dicta, ipsam.
+                    <Paragraph>
+                        More in-the-weeds stuff about research at RENCI and its research efforts.
+                    </Paragraph>
+                    <Paragraph>
+                        We do research internally and partner with outside insitutions&mdash;team science!
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus eius velit mollitia aut, quo laborum totam voluptatibus inventore delectus, voluptatem accusamus labore, sint nesciunt ut ipsa enim repellat neque pariatur quaerat quibusdam autem eum ea vero doloremque. Dolorem dicta, ipsam.
+                    </Paragraph>
                 </Article>
 
                 <Article title="Research Groups">
+                    <Paragraph>
+                        {
+                            groups.map(group => (
+                                <Fragment key={ group.id }>
+                                    <ArrowLink to={ group.fields.path } text={ group.name } /> <br/>
+                                </Fragment>
+                            ))
+                        }
+                    </Paragraph>
+                </Article>
+
+                <Article title="Collaborations & Team Science">
                     {
-                        groups.map(group => (
-                            <div key={ group.id }><ArrowLink to={ group.fields.path } text={ group.name } /></div>
+                        collaborations.map(collaboration => (
+                            <Fragment key={ collaboration.id }>
+                                <ArrowLink to={ collaboration.fields.path } text={ collaboration.name } /> <br/>
+                            </Fragment>
                         ))
                     }
                 </Article>
+
             </Section>
 
         </Container>

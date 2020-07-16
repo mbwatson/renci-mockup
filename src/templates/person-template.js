@@ -40,7 +40,13 @@ export default ({ data, pageContext }) => {
             {
                 collaborations && (
                     <Section title="Collaborations">
-                        { collaborations.map(collaboration => <div key={ collaboration.id }><ArrowLink to={ collaboration.fields.path } text={ collaboration.name } /></div>) }
+                        {
+                            collaborations.map(collaboration => (
+                                <Fragment key={ collaboration.id }>
+                                    <ArrowLink to={ collaboration.fields.path } text={ collaboration.name } /> <br/>
+                                </Fragment>
+                            ))
+                        }
                     </Section>
                 )
             }
@@ -48,7 +54,13 @@ export default ({ data, pageContext }) => {
             {
                 teams && (
                     <Section title="Teams">
-                        { teams.map(team => <div key={ team.id }><ArrowLink to={ team.fields.path } text={ team.name } /></div>) }
+                        {
+                            teams.map(team => (
+                                <Fragment key={ team.id }>
+                                    <ArrowLink to={ team.fields.path } text={ team.name } /> <br/>
+                                </Fragment>
+                            ))
+                        }
                     </Section>
                 )
             }

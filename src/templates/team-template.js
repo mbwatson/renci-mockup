@@ -30,7 +30,13 @@ export default ({ data, pageContext }) => {
                     </Article>
                     
                     <Article title="Members">
-                        { members.map(person => <div><ArrowLink key={ person.id } to={ `/people/${ person.id }` } text={ `${ person.name } ${ person.id === lead.id ? '(lead)' : '' }` } /></div>) }
+                        {
+                            members.map(person => (
+                                <Fragment key={ person.id }>
+                                    <ArrowLink to={ `/people/${ person.id }` } text={ `${ person.name } ${ person.id === lead.id ? '(lead)' : '' }` } /> <br/>
+                                </Fragment>
+                            ))
+                        }
                     </Article>
                 </Section>
 

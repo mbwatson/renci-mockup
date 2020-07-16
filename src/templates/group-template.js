@@ -51,7 +51,9 @@ export default ({ data, pageContext }) => {
                     <Article title="Current">
                         {
                             projects ? projects.map(project => (
-                                <div key={ project.id }><ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /></div>
+                                <Fragment key={ project.id }>
+                                    <ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /> <br/>
+                                </Fragment>
                             )) : <div>&empty;</div>
                         }
                     </Article>
@@ -64,7 +66,13 @@ export default ({ data, pageContext }) => {
                 <HorizontalRule />
                 
                 <Section title="Contributors">
-                    { members.map(person => <div key={ person.id }><ArrowLink to={ `/people/${ person.id }` } text={ `${ person.name } ${ person.id === lead.id ? '(lead)' : '' }` } /></div>) }
+                    {
+                        members.map(person => (
+                            <Fragment key={ person.id }>
+                                <ArrowLink to={ `/people/${ person.id }` } text={ `${ person.name } ${ person.id === lead.id ? '(lead)' : '' }` } /> <br/>
+                            </Fragment>
+                        ))
+                    }
                 </Section>
                 
                 <HorizontalRule />
