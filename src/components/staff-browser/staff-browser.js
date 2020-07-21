@@ -39,9 +39,9 @@ export const StaffBrowser = ({ staff }) => {
             </LettersMenu>
             <StaffList>
                 {
-                    staff.slice(0, 10).map(({ id, name, title }) => {
+                    staff.map(({ id, name, title, photo }) => {
                         return (
-                            <pre key={ id }>{ JSON.stringify(({ id, name, title }), null, 2) }</pre>
+                            <pre key={ id }>{ JSON.stringify(({ id, name, title, photo }), null, 2) }</pre>
                         )
                     })
                 }

@@ -8,6 +8,13 @@ const peopleQuery = graphql`{
                 name
                 email
                 title
+                photo {
+                    childImageSharp {
+                        fixed(width: 300, height: 300) {
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
                 fields {
                     path
                 }
