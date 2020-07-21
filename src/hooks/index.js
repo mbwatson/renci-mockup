@@ -1,3 +1,4 @@
+export * from './use-avatar'
 export * from './use-brand'
 export * from './use-careers'
 export * from './use-collaborations'

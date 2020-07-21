@@ -1,12 +1,13 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { SEO } from '../components/seo'
-import { usePeople } from '../hooks'
+import { usePeople, useTeams } from '../hooks'
 import { Container, Section, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
-import { StaffBrowser } from '../components/staff-browser'
+import { StaffList } from '../components/people'
 
 const PeoplePage = () => {
-    const staff = usePeople()
+    const { staff, ood, management, chiefScientists } = usePeople()
+    const teams = useTeams()
 
     return (
         <Container>
@@ -30,25 +31,25 @@ const PeoplePage = () => {
             <HorizontalRule />
 
             <Section title="Office of the Director" fullWidth>
-                Lorem ipsum dolor sit.
+                <StaffList staff={ ood } />
             </Section>
 
             <HorizontalRule />
 
             <Section title="Management Team" fullWidth>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, placeat voluptates vitae assumenda atque.
+                <StaffList staff={ management } />
             </Section>
 
             <HorizontalRule />
 
             <Section title="Chief Scientists" fullWidth>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos accusantium exercitationem placeat architecto quas dolore!
+                <StaffList staff={ chiefScientists } />
             </Section>
 
             <HorizontalRule />
 
             <Section title="All Staff" fullWidth>
-                <StaffBrowser staff={ staff } />
+                <StaffList staff={ staff } />
             </Section>
 
         </Container>
