@@ -12,6 +12,7 @@ projects:
   - ctmd
   - precision-dosing
   - cellfie
+  - some-past-project
 online_presence:
   url: https://txscience.renci.org
   github: null

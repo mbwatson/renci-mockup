@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { Container, Article, Section, Hero, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
@@ -16,6 +16,14 @@ export default ({ data, pageContext }) => {
         news,
         featuredImage,
     }} = data
+    const [currentProjects, setCurrentProjects] = useState([])
+    const [pastProjects, setPastProjects] = useState([])
+
+    useEffect(() => {
+        setCurrentProjects(projects.filter(project => !project.archived))
+        setPastProjects(projects.filter(project => project.archived))
+    }, [projects])
+
     return (
         <Fragment>
             <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fluid }>
@@ -44,37 +52,45 @@ export default ({ data, pageContext }) => {
                         </Section>
                     )
                 }
+                
+                {
+                    projects && currentProjects && pastProjects && (
+                        <Section title="Projects">
+                            <Article title="Current">
+                                {
+                                    currentProjects.map(project => (
+                                        <Fragment key={ project.id }>
+                                            <ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /> <br/>
+                                        </Fragment>
+                                    ))
+                                }
+                            </Article>
+                            <Article title="Past">
+                                {
+                                    pastProjects.map(project => (
+                                        <Fragment key={ project.id }>
+                                            <ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /> <br/>
+                                        </Fragment>
+                                    ))
+                                }
+                            </Article>
+                        </Section>
+                    )
+                }
 
-                <Section title="Projects">
-                    <Article title="Current">
-                        {
-                            projects ? projects.map(project => (
-                                <Fragment key={ project.id }>
-                                    <ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /> <br/>
-                                </Fragment>
-                            )) : <div>&empty;</div>
-                        }
-                    </Article>
-                    <Article title="Past">
-                        <div><ArrowLink to="#" text="Lorem ipsum" /></div>
-                        <div><ArrowLink to="#" text="Optio tempora" /></div>
-                    </Article>
-                </Section>
-                
-                <Section title="Contributors">
-                    {
-                        members.map(person => (
-                            <Fragment key={ person.id }>
-                                <ArrowLink to={ `/people/${ person.id }` } text={ `${ person.name } ${ person.id === lead.id ? '(lead)' : '' }` } /> <br/>
-                            </Fragment>
-                        ))
-                    }
-                </Section>
-                
-                <Section title="Publications">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ex sapiente excepturi blanditiis veniam debitis non ratione minus, sit quae. Quae ut reiciendis soluta eveniet corporis nisi obcaecati excepturi, accusantium!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ducimus labore, dolorem sunt mollitia voluptate illo quas minima porro voluptatum voluptates eos molestiae error cupiditate recusandae velit quisquam molestias est praesentium, quod necessitatibus consequuntur veritatis? Laborum cupiditate, repudiandae libero nobis dignissimos unde, modi qui totam rem impedit nam illum cumque.</p>
-                </Section>
+                {
+                    members && (
+                        <Section title="Contributors">
+                            {
+                                members.map(person => (
+                                    <Fragment key={ person.id }>
+                                        <ArrowLink to={ `/people/${ person.id }` } text={ `${ person.name } ${ person.id === lead.id ? '(lead)' : '' }` } /> <br/>
+                                    </Fragment>
+                                ))
+                            }
+                        </Section>
+                    )
+                }
                 
             </Container>
             
@@ -110,6 +126,7 @@ export const groupQuery = graphql`
             projects {
                 id
                 name
+                archived
             }
             news {
                 id
