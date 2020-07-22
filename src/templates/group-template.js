@@ -20,8 +20,10 @@ export default ({ data, pageContext }) => {
     const [pastProjects, setPastProjects] = useState([])
 
     useEffect(() => {
-        setCurrentProjects(projects.filter(project => !project.archived))
-        setPastProjects(projects.filter(project => project.archived))
+        if (projects) {
+            setCurrentProjects(projects.filter(project => !project.archived))
+            setPastProjects(projects.filter(project => project.archived))
+        }
     }, [projects])
 
     return (
@@ -54,26 +56,34 @@ export default ({ data, pageContext }) => {
                 }
                 
                 {
-                    projects && currentProjects && pastProjects && (
+                    projects && (
                         <Section title="Projects">
-                            <Article title="Current">
-                                {
-                                    currentProjects.map(project => (
-                                        <Fragment key={ project.id }>
-                                            <ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /> <br/>
-                                        </Fragment>
-                                    ))
-                                }
-                            </Article>
-                            <Article title="Past">
-                                {
-                                    pastProjects.map(project => (
-                                        <Fragment key={ project.id }>
-                                            <ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /> <br/>
-                                        </Fragment>
-                                    ))
-                                }
-                            </Article>
+                            {
+                                currentProjects.length > 0 && (
+                                    <Article title="Current">
+                                        {
+                                            currentProjects.map(project => (
+                                                <Fragment key={ project.id }>
+                                                    <ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /> <br/>
+                                                </Fragment>
+                                            ))
+                                        }
+                                    </Article>
+                                )
+                            }
+                            {
+                                pastProjects.length > 0 && (
+                                    <Article title="Past">
+                                        {
+                                            pastProjects.map(project => (
+                                                <Fragment key={ project.id }>
+                                                    <ArrowLink to={ `/projects/${ project.id }` } text={ project.name } /> <br/>
+                                                </Fragment>
+                                            ))
+                                        }
+                                    </Article>
+                                )
+                            }
                         </Section>
                     )
                 }
