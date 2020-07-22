@@ -1,6 +1,6 @@
 import React from 'react'
 import { SEO } from '../components/seo'
-import { Container, HorizontalRule, Section, Article } from '../components/layout'
+import { Container, Section, Article } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 
 const BrandingPage = () => {

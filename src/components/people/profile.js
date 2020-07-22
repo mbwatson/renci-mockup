@@ -2,10 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { AvatarIcon } from '../icons'
-import { Container, Row, Col } from 'react-grid-system'
-import { Card, CardHeader, CardBody } from '../card'
-import { Subheading, Meta, TextLink } from '../typography'
+import { Subheading, Meta } from '../typography'
 
 const Wrapper = styled.div`
     flex: 1;

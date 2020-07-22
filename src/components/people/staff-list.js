@@ -9,25 +9,25 @@ const Wrapper = styled.div`
     flex-direction: row;
 `
 
-const LetterLink = styled.a(({ theme }) => `
-    text-decoration: none;
-    padding: 0.25rem 0;
-`)
+// const LetterLink = styled.a(({ theme }) => `
+//     text-decoration: none;
+//     padding: 0.25rem 0;
+// `)
 
-const LettersMenu = styled.nav(({ theme }) => `
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: ${ theme.spacing.small };
-`)
+// const LettersMenu = styled.nav(({ theme }) => `
+//     position: sticky;
+//     top: 0;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: center;
+//     padding: ${ theme.spacing.small };
+// `)
 
-const buckets = {
-    'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [], 'I': [], 'J': [], 'K': [], 'L': [], 'M': [],
-    'N': [], 'O': [], 'P': [], 'Q': [], 'R': [], 'S': [], 'T': [], 'U': [], 'V': [], 'W': [], 'X': [], 'Y': [], 'Z': [],
-}
+// const buckets = {
+//     'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [], 'I': [], 'J': [], 'K': [], 'L': [], 'M': [],
+//     'N': [], 'O': [], 'P': [], 'Q': [], 'R': [], 'S': [], 'T': [], 'U': [], 'V': [], 'W': [], 'X': [], 'Y': [], 'Z': [],
+// }
 
 const Profiles = styled.div`
     flex: 1;

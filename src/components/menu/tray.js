@@ -8,12 +8,6 @@ const reveal = keyframes`
     100% { display: block; opacity: 1.0; }
 `
 
-const hide = keyframes`
-    0%, 20% { display: block; opacity: 1.0; }
-    21% { display: block; opacity: 1.0; }
-    100% { display: none; opacity: 0.0; }
-`
-
 const Wrapper = styled.nav(({ theme }) => css`
     position: absolute;
     left: 0;

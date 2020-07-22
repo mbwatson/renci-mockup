@@ -1,6 +1,6 @@
 import React from 'react'
 import { SEO } from '../components/seo'
-import { Container, HorizontalRule } from '../components/layout'
+import { Container } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 
 const PublicationsPage = () => {

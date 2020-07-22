@@ -10,11 +10,11 @@ export default ({ data, pageContext }) => {
     const { collaborationsYaml: {
         name,
         members,
-        projects,
         online_presence,
         featuredImage,
         news,
     }} = data
+    
     return (
         <Fragment>
             <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fluid }>

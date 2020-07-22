@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { SEO } from '../components/seo'
-import { usePeople, useTeams } from '../hooks'
-import { Container, Section, HorizontalRule } from '../components/layout'
+import { usePeople } from '../hooks'
+import { Container, Section } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { StaffList } from '../components/people'
 
 const PeoplePage = () => {
     const { staff, ood, management, chiefScientists } = usePeople()
-    const teams = useTeams()
 
     return (
         <Container>

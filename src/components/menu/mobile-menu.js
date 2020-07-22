@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import styled, { css, keyframes, useTheme } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Link } from 'gatsby'
-import { CloseIcon, HamburgerIcon } from '../icons'
 import { Toggler } from './toggler'
 
 const reveal = keyframes`
@@ -63,7 +62,6 @@ const MenuLink = styled(Link)(({ theme }) => css`
 `)
 
 export const MobileMenu = ({ items }) => {
-    const theme = useTheme()
     const [visible, setVisible] = useState(false)
 
     const handleToggleMenu = () => setVisible(!visible)
