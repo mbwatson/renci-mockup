@@ -17,8 +17,6 @@ export default ({ data, pageContext }) => {
         <Container>
             <Title>{ name }</Title>
 
-            <HorizontalRule />
-
             <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
             
             {
@@ -38,15 +36,9 @@ export default ({ data, pageContext }) => {
                 )
             }
 
-            <HorizontalRule />
-
             <Section title="Project Details">
                 <Article title="Description">
                     <Paragraph>{ description }</Paragraph>
-                </Article>
-
-                <Article title="Some More Stuff">
-                    <Paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum provident ipsa incidunt, minus laborum itaque sequi quia hic commodi quod perspiciatis aperiam, iste facere fugit eligendi deserunt corporis iusto doloribus.</Paragraph>
                 </Article>
             </Section>
 

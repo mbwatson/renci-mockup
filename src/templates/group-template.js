@@ -45,8 +45,6 @@ export default ({ data, pageContext }) => {
                     )
                 }
 
-                <HorizontalRule />
-                
                 <Section title="Projects">
                     <Article title="Current">
                         {
@@ -63,8 +61,6 @@ export default ({ data, pageContext }) => {
                     </Article>
                 </Section>
                 
-                <HorizontalRule />
-                
                 <Section title="Contributors">
                     {
                         members.map(person => (
@@ -74,8 +70,6 @@ export default ({ data, pageContext }) => {
                         ))
                     }
                 </Section>
-                
-                <HorizontalRule />
                 
                 <Section title="Publications">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ex sapiente excepturi blanditiis veniam debitis non ratione minus, sit quae. Quae ut reiciendis soluta eveniet corporis nisi obcaecati excepturi, accusantium!</p>

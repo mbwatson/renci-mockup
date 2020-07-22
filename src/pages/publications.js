@@ -22,8 +22,6 @@ const PublicationsPage = () => {
                 nesciunt cum possimus nulla aut tenetur!
             </Paragraph>
 
-            <HorizontalRule />
-
             <Paragraph>
                 no idea.
             </Paragraph>

@@ -28,25 +28,17 @@ const PeoplePage = () => {
                 dolorum possimus nihil perferendis necessitatibus corrupti!
             </Paragraph>
 
-            <HorizontalRule />
-
             <Section title="Office of the Director" fullWidth>
                 <StaffList staff={ ood } />
             </Section>
-
-            <HorizontalRule />
 
             <Section title="Management Team" fullWidth>
                 <StaffList staff={ management } />
             </Section>
 
-            <HorizontalRule />
-
             <Section title="Chief Scientists" fullWidth>
                 <StaffList staff={ chiefScientists } />
             </Section>
-
-            <HorizontalRule />
 
             <Section title="All Staff" fullWidth>
                 <StaffList staff={ staff } />

@@ -14,8 +14,6 @@ export default ({ data, pageContext }) => {
             <Title>{ name }</Title>
             <Heading>{ title }</Heading>
             
-            <HorizontalRule />
-
             <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter_username } github={ online_presence.github_username } />
 
             <Section title="Details">
@@ -65,8 +63,6 @@ export default ({ data, pageContext }) => {
                 )
             }
 
-            <HorizontalRule />
-            
             {
                 news && (
                     <Section title="News">

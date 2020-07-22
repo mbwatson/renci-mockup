@@ -27,8 +27,6 @@ export default ({ data, pageContext }) => {
             <Container>
                 <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
                 
-                <HorizontalRule />
-
                 {
                     news && (
                         <Section title="News">
@@ -46,12 +44,9 @@ export default ({ data, pageContext }) => {
                     )
                 }
 
-                <HorizontalRule />
-
                 <Section title="Contributors">
                     { members.map(person => <div><ArrowLink key={ person.id } to={ `/people/${ person.id }` } text={ person.name } /></div>) }
                 </Section>
-
                 
             </Container>
         </Fragment>

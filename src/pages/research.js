@@ -27,8 +27,6 @@ const ResearchPage = () => {
                 nesciunt cum possimus nulla aut tenetur!
             </Paragraph>
 
-            <HorizontalRule />
-            
             <Section title="Overview">
                 <Article title="A thing">
                     More in-the-weeds stuff about research at RENCI.
@@ -40,8 +38,6 @@ const ResearchPage = () => {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, accusamus! Exercitationem sequi at hic explicabo facilis minus recusandae et. Perspiciatis sapiente maiores natus in mollitia reiciendis excepturi eius corporis officia.
                 </Article>
             </Section>
-            
-            <HorizontalRule />
             
             <Section title="In Depth">
                 <Article title="Some Stuff">

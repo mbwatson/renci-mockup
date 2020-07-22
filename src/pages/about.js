@@ -15,8 +15,6 @@ const AboutPage = () => {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid incidunt quaerat distinctio est, inventore. Asperiores ex repudiandae quam saepe, blanditiis sed temporibus est dolore aperiam nobis? Aliquam eveniet, sit assumenda.
             </Paragraph>
 
-            <HorizontalRule />
-            
             <Section title="Overview">
                 <Article title="What We Do">
                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sequi quia, eaque reiciendis officiis, velit hic voluptates omnis dolorem vel, porro maiores quisquam. Quam quod atque ut ea porro. Autem natus aliquam repellat beatae at excepturi unde tempore modi aspernatur.

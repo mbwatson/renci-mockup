@@ -16,8 +16,6 @@ const BrandingPage = () => {
                 praesentium unde cumque ea omnis veritatis quaerat id.
             </Paragraph>
 
-            <HorizontalRule />
-            
             <Section title="Personality">
                 <Article title="Bold">
                     <Paragraph>
@@ -36,8 +34,6 @@ const BrandingPage = () => {
                 </Article>
             </Section>
 
-            <HorizontalRule />
-            
             <Section title="Writing Style">
                 <Article title="Clean">
                     <Paragraph>
@@ -51,8 +47,6 @@ const BrandingPage = () => {
                 </Article>
             </Section>
 
-            <HorizontalRule />
-            
             <Section title="Color">
                 <Article title="Overview">
                     <Paragraph>
@@ -85,8 +79,6 @@ const BrandingPage = () => {
                 </Article>
             </Section>
 
-            <HorizontalRule />
-            
             <Section title="Logos">
                 <Article title="The RENCI Logo">
                     <Paragraph>
@@ -113,8 +105,6 @@ const BrandingPage = () => {
                 </Article>
             </Section>
             
-            <HorizontalRule />
-
             <Section title="Typography">
                 <Article title="Overview">
                     <Paragraph>
