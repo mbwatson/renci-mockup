@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { SEO } from '../components/seo'
-import { Container, Section, Article, HorizontalRule } from '../components/layout'
+import { Container, Section, Article } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { ArrowLink } from '../components/link'
 import { useCollaborations, useGroups } from '../hooks'
