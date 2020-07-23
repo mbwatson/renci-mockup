@@ -275,20 +275,20 @@ exports.createPages = ({ actions, graphql }) => {
          * Create team pages
          */
 
-        // const teams = result.data.teams.edges
-        // console.log(`\nCreating team pages...`)
-        // teams.forEach(({ node }) => {
-        //     const path = `/teams/${ node.id }`
-        //     console.log(` - ${ node.name } (${ path })`)
-        //     createPage({
-        //         id: node.id,
-        //         path: path,
-        //         component: teamTemplate,
-        //         context: { // additional data passed via context
-        //             id: node.id,
-        //         },
-        //     })
-        // })
+        const teams = result.data.teams.edges
+        console.log(`\nCreating team pages...`)
+        teams.forEach(({ node }) => {
+            const path = `/teams/${ node.id }`
+            console.log(` - ${ node.name } (${ path })`)
+            createPage({
+                id: node.id,
+                path: path,
+                component: teamTemplate,
+                context: { // additional data passed via context
+                    id: node.id,
+                },
+            })
+        })
 
         /**
          * Create collaboration pages
@@ -386,7 +386,7 @@ exports.createPages = ({ actions, graphql }) => {
             ...people,
             ...groups,
             ...projects,
-            // ...teams,
+            ...teams,
             ...collaborations,
             ...articles,
             ...events,
