@@ -1,7 +1,7 @@
 id: sahalt
 name: Stan Ahalt
 photo: ahalt-stan.jpg
-email: sahalt@renci.org
+email: ahalt@renci.org
 title: Director
 office: 
   location: 583
@@ -10,4 +10,5 @@ online_presence:
   twitter_username: 
   github_username: 
   url: 
-bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+bio: >
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.

@@ -7,7 +7,9 @@ import { ArrowLink } from '../components/link'
 import { ArticlePreview } from '../components/news'
 
 export default ({ data, pageContext }) => {
-    const { peopleYaml: { name, title, email, office, online_presence, bio, groups, collaborations, teams, news }} = data
+    const {
+        peopleYaml: { name, title, email, office, online_presence, bio, groups, collaborations, teams, news }
+    } = data
 
     return (
         <Container>
@@ -30,7 +32,13 @@ export default ({ data, pageContext }) => {
             {
                 groups && (
                     <Section title="Groups">
-                        { groups.map(group => <div key={ group.id }><ArrowLink to={ group.fields.path } text={ group.name } /></div>) }
+                        {
+                            groups.map(group => (
+                                <Fragment key={ group.id }>
+                                    <ArrowLink to={ group.fields.path } text={ group.name } />
+                                </Fragment>
+                            ))
+                        }
                     </Section>
                 )
             }
@@ -67,14 +75,12 @@ export default ({ data, pageContext }) => {
                 news && (
                     <Section title="News">
                         {
-                            news.map((article, i) => {
-                                return (
-                                    <Fragment key={ article.id }>
-                                        <ArticlePreview article={ article } path={ article.fields.path } compact />
-                                        { i < news.length - 1 && <HorizontalRule /> }
-                                    </Fragment>
-                                )
-                            })
+                            news.map((article, i) => (
+                                <Fragment key={ article.id }>
+                                    <ArticlePreview article={ article } path={ article.fields.path } compact />
+                                    { i < news.length - 1 && <HorizontalRule /> }
+                                </Fragment>
+                            ))
                         }
                     </Section>
                 )
