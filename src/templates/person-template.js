@@ -7,11 +7,13 @@ import { SocialLinks } from '../components/social-links'
 import { ArrowLink } from '../components/link'
 import { ArticlePreview } from '../components/news'
 import { Profile } from '../components/people'
+import { useAvatar } from '../hooks'
 
 export default ({ data, pageContext }) => {
     const {
         peopleYaml: { name, photo, title, email, office, online_presence, bio, groups, collaborations, teams, news }
     } = data
+    const avatar = useAvatar()
 
     return (
         <Container>
@@ -22,7 +24,7 @@ export default ({ data, pageContext }) => {
                 email={ email }
                 online_presence={ online_presence }
                 bio={ bio }
-                photo={ photo.childImageSharp.fixed }
+                photo={ photo ? photo.childImageSharp.fixed : avatar.childImageSharp.fixed }
                 phone={ office.phone }
             />
 
