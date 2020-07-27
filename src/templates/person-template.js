@@ -10,7 +10,7 @@ import { Profile } from '../components/people'
 
 export default ({ data, pageContext }) => {
     const {
-        peopleYaml: { name, photo, title, email, office, online_presence, bio, groups = [], collaborations = [], teams = [], news }
+        peopleYaml: { name, photo, title, email, office, online_presence, bio, groups, collaborations, teams, news }
     } = data
 
     return (
@@ -109,6 +109,9 @@ export const personQuery = graphql`
                 twitter_username
                 github_username
                 url
+                instagram
+                linkedin
+                youtube
             }
             bio
             teams {

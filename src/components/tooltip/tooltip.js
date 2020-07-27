@@ -33,7 +33,7 @@ export const Tooltip = ({ tip, children }) => {
 
     const animation = useSpring({
         opacity: active ? 1 : 0,
-        top: active ? '100%' : '150%',
+        top: active ? '110%' : '150%',
         display: active ? 'block' : 'none',
         config: {
             mass: 1,

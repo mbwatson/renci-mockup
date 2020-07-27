@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Title, Heading, Paragraph } from '../typography'
+import { SocialLinks } from '../social-links'
 
 const Wrapper = styled.div(({ theme }) => `
-    ${ theme.debug }
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -34,7 +34,14 @@ export const Profile = ({ name, title, email, online_presence, photo, phone }) =
                     <a href={ `mailto:${ email }`}>{ email }</a> <br/>
                     { phone }
                 </Paragraph>
-                
+                <SocialLinks
+                    url={ online_presence.url }
+                    twitter={ online_presence.twitter }
+                    github={ online_presence.github }
+                    instagram={ online_presence.instagram }
+                    linkedin={ online_presence.linkedin }
+                    youtube={ online_presence.youtube }
+                />                
             </Details>
         </Wrapper>
     )

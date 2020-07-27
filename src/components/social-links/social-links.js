@@ -1,18 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LinkIcon, TwitterIcon, GitHubIcon } from '../icons'
-import { Tooltip } from '../tooltip'
 import { useWindow } from '../../hooks'
+import { Tooltip } from '../tooltip'
+import { IconLink } from '../link'
+import { LinkIcon, TwitterIcon, GitHubIcon, InstagramIcon, LinkedInIcon, YoutubeIcon } from '../icons'
 
-const SocialLinksWrapper = styled.div(({ theme, center }) => `
+const Wrapper = styled.div(({ theme }) => `
     display: flex;
     flex-direction: row;
-    justify-content: ${ center ? 'center' : 'flex-end' };
+    justify-content: flex-start;
+    & > * { margin: 0 0.25rem; }
     svg {
         fill: ${ theme.color.primary.main };
     }
     a {
-        margin: 0 ${ theme.spacing.small };
         transition: filter 250ms;
     }
     a:hover {
@@ -20,15 +21,15 @@ const SocialLinksWrapper = styled.div(({ theme, center }) => `
     }
 `)
 
-export const SocialLinks = ({ url, twitter, github }) => {
-    const { windowWidth } = useWindow()
-    console.log(windowWidth)
-
+export const SocialLinks = ({ url, twitter, github, instagram, linkedin, youtube }) => {
     return (
-        <SocialLinksWrapper center={ windowWidth < 600 }>
-            { url && <Tooltip tip="View Website"><a href={ url } aria-label="View Website" target="_blank" rel="noopener noreferrer"><LinkIcon size={ 24 } /></a></Tooltip> }
-            { twitter && <Tooltip tip="View Twitter Profile"><a href={ `https://twitter.com/${ twitter }` } aria-label="View Twitter Profile" target="_blank" rel="noopener noreferrer"><TwitterIcon size={ 24 } /></a></Tooltip> }
-            { github && <Tooltip tip="View GitHub Page"><a href={ `https://github.com/${ github }` } aria-label="View GitHub Page" target="_blank" rel="noopener noreferrer"><GitHubIcon size={ 24 } /></a></Tooltip> }
-        </SocialLinksWrapper>
+        <Wrapper>
+            { url && <Tooltip tip="View Website"><IconLink to={ url } aria-label="View Website" icon={ <LinkIcon size={ 24 } /> }></IconLink></Tooltip> }
+            { twitter && <Tooltip tip="View Twitter Profile"><IconLink to={ `https://twitter.com/${ twitter }` } aria-label="View Twitter Profile" icon={ <TwitterIcon size={ 24 } /> }></IconLink></Tooltip> }
+            { github && <Tooltip tip="View GitHub Page"><IconLink to={ `https://github.com/${ github }` } aria-label="View GitHub Page" icon={ <GitHubIcon size={ 24 } /> }></IconLink></Tooltip> }
+            { instagram && <Tooltip tip="View Instagram Profile"><IconLink to={ `https://instagram.com/${ instagram }` } aria-label="View Instagram Profile" icon={ <InstagramIcon size={ 24 } /> }></IconLink></Tooltip> }
+            { linkedin && <Tooltip tip="View LinkedIn Profile"><IconLink to={ `https://linkedin.com/${ linkedin }` } aria-label="View LinkedIn Profile" icon={ <LinkedInIcon size={ 24 } /> }></IconLink></Tooltip> }
+            { youtube && <Tooltip tip="View YouTube Profile"><IconLink to={ `https://youtube.com/${ youtube }` } aria-label="View YouTube Profile" icon={ <YoutubeIcon size={ 24 } /> }></IconLink></Tooltip> }
+        </Wrapper>
     )
 }
