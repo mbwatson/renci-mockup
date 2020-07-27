@@ -34,4 +34,8 @@ export const theme = {
         large: '2rem',
         extraLarge: '4rem',
     },
+    debug: `
+        border: 1px solid #f99;
+        * { border: 1px solid #f99; }
+    `
 }

@@ -1,23 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { AvatarIcon } from '../icons'
+import Img from 'gatsby-image'
+import { Subheading, Meta } from '../typography'
 
-const ProfileWrapper = styled.div(({ theme }) => `
-    & a {
-        display: flex;
-        & svg {
-            fill: theme.color.primary.light;
-            margin: 0 0.25rem;
-            display: inline-block;
-        }
-    }
-`)
+const Wrapper = styled.div`
+    flex: 1;
+    max-width: 200px;
+    margin: 1rem;
+`
 
-export const MiniProfile = ({ person, lead }) => {
+const StaffName = styled(Subheading)`
+    font-size: 110%;
+`
+
+const StaffTitle = styled(Meta)`
+    font-size: 80%;
+`
+
+export const MiniProfile = ({ name, title, path, photo }) => {
     return (
-        <ProfileWrapper>
-            <Link to={ `/people/${ person.id }` }><AvatarIcon size={ 24 } />{ person.name }{ lead && ' - LEAD' }</Link>
-        </ProfileWrapper>   
+        <Wrapper>
+            <Img fixed={ photo } />
+            <StaffName><Link to={ path }>{ name }</Link></StaffName>
+            <StaffTitle>{ title }</StaffTitle>
+        </Wrapper>
     )
 }

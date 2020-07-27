@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Profile } from './profile'
+import { MiniProfile } from './mini-profile'
 import { useAvatar } from '../../hooks'
 
 const Wrapper = styled.div`
@@ -45,7 +45,7 @@ export const StaffList = ({ staff = [] }) => {
                     staff.map(person => {
                         const photo = person.photo ? person.photo.childImageSharp.fixed : avatar.childImageSharp.fixed
                         return (
-                            <Profile
+                            <MiniProfile
                                 key={ person.id }
                                 name={ person.name }
                                 title={ person.title }

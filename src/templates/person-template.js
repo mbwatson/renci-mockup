@@ -1,33 +1,30 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { Container, Article, Section, HorizontalRule } from '../components/layout'
 import { Title, Heading } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { ArrowLink } from '../components/link'
 import { ArticlePreview } from '../components/news'
+import { Profile } from '../components/people'
 
 export default ({ data, pageContext }) => {
     const {
-        peopleYaml: { name, title, email, office, online_presence, bio, groups, collaborations, teams, news }
+        peopleYaml: { name, photo, title, email, office, online_presence, bio, groups = [], collaborations = [], teams = [], news }
     } = data
 
     return (
         <Container>
-            <Title>{ name }</Title>
-            <Heading>{ title }</Heading>
-            
-            <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter_username } github={ online_presence.github_username } />
 
-            <Section title="Details">
-                <Article title="Contact">
-                    email: { email } <br/>
-                    office: { office.location } <br/>
-                    phone: { office.phone } <br/>
-                </Article>
-                <Article title="Biography">
-                    { bio }
-                </Article>
-            </Section>
+            <Profile
+                name={ name }
+                title={ title }
+                email={ email }
+                online_presence={ online_presence }
+                bio={ bio }
+                photo={ photo.childImageSharp.fixed }
+                phone={ office.phone }
+            />
 
             {
                 groups && (
@@ -100,6 +97,13 @@ export const personQuery = graphql`
             office {
                 location
                 phone
+            }
+            photo {
+                childImageSharp {
+                    fixed(width: 200, height: 200) {
+                        ...GatsbyImageSharpFixed
+                    }
+                }
             }
             online_presence {
                 twitter_username
