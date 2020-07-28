@@ -39,7 +39,7 @@ export default ({ data, pageContext }) => {
                             {
                                 groups.map(group => (
                                     <Fragment key={ group.id }>
-                                        <ArrowLink to={ '/' } text={ group.name } /> <br/>
+                                        <ArrowLink to={ group.fields.path } text={ group.name } /> <br/>
                                     </Fragment>
                                 ))
                             }
@@ -53,7 +53,7 @@ export default ({ data, pageContext }) => {
                             {
                                 collaborations.map(collaboration => (
                                     <Fragment key={ collaboration.id }>
-                                        <ArrowLink to={ '/' } text={ collaboration.name } /> <br/>
+                                        <ArrowLink to={ collaboration.fields.path } text={ collaboration.name } /> <br/>
                                     </Fragment>
                                 ))
                             }
@@ -67,7 +67,7 @@ export default ({ data, pageContext }) => {
                             {
                                 teams.map(team => (
                                     <Fragment key={ team.id }>
-                                        <ArrowLink to={ '/' } text={ team.name } /> <br/>
+                                        <ArrowLink to={ team.fields.path } text={ team.name } /> <br/>
                                     </Fragment>
                                 ))
                             }
