@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { useWindow } from '../../hooks'
-import { animated, useSpring } from 'react-spring'
+import { animated, useTransition } from 'react-spring'
 
 const Tip = styled(animated.div)(({ theme, width, offsetX, offsetY }) => `
     position: absolute;
@@ -25,22 +24,14 @@ const Wrapper = styled.span`
 `
 
 export const Tooltip = ({ tip, children }) => {
-    const { windowWidth } = useWindow()
     const wrapperRef = useRef()
     const tipRef = useRef()
     const [active, setActive] = useState(false)
     const [stringPixelWidth, setStringPixelWidth] = useState(0)
-
-    const animation = useSpring({
-        opacity: active ? 1 : 0,
-        top: active ? '110%' : '150%',
-        display: active ? 'block' : 'none',
-        config: {
-            mass: 1,
-            tension: 100,
-            friction: 15,
-            clamp: true,
-        },
+    const transitions = useTransition(active, null, {
+        from: { opacity: 0, top: '150%' },
+        enter: { opacity: 1, top: '110%' },
+        leave: { opacity: 0, top: '150%' },
     })
 
     useEffect(() => {
@@ -59,7 +50,7 @@ export const Tooltip = ({ tip, children }) => {
             onBlur={ handleHideTooltip }
         >
             { children }
-            <Tip ref={ tipRef } style={ animation } width={ `${ stringPixelWidth }px` }>{ tip }</Tip>
+            { transitions.map(({ item, key, props }) => item && <Tip key={ key } ref={ tipRef } style={ props } width={ `${ stringPixelWidth }px` }>{ tip }</Tip>) }
         </Wrapper>
     )
 }
