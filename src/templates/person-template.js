@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Container, Article, Section, HorizontalRule } from '../components/layout'
-import { Title, Heading } from '../components/typography'
+import { Title, Heading, Paragraph } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { ArrowLink } from '../components/link'
 import { ArticlePreview } from '../components/news'
@@ -14,6 +14,10 @@ export default ({ data, pageContext }) => {
         peopleYaml: { name, photo, title, email, office, online_presence, bio, groups, collaborations, teams, news }
     } = data
     const avatar = useAvatar()
+    // const membership = [groups, collaborations, teams]
+    //     .filter(x => x !== null)
+    //     .flat(1)
+    //     .sort((a, b) => b.name < a.name)
 
     return (
         <Container>
@@ -28,47 +32,49 @@ export default ({ data, pageContext }) => {
                 phone={ office.phone }
             />
 
-            {
-                groups && (
-                    <Section title="Groups">
-                        {
-                            groups.map(group => (
-                                <Fragment key={ group.id }>
-                                    <ArrowLink to={ group.fields.path } text={ group.name } /> <br/>
-                                </Fragment>
-                            ))
-                        }
-                    </Section>
-                )
-            }
+            <Section title="Contributions">
+                {
+                    groups && (
+                        <Article title="Research Groups">
+                            {
+                                groups.map(group => (
+                                    <Fragment key={ group.id }>
+                                        <ArrowLink to={ '/' } text={ group.name } /> <br/>
+                                    </Fragment>
+                                ))
+                            }
+                        </Article>
+                    )
+                }
 
-            {
-                collaborations && (
-                    <Section title="Collaborations">
-                        {
-                            collaborations.map(collaboration => (
-                                <Fragment key={ collaboration.id }>
-                                    <ArrowLink to={ collaboration.fields.path } text={ collaboration.name } /> <br/>
-                                </Fragment>
-                            ))
-                        }
-                    </Section>
-                )
-            }
+                {
+                    collaborations && (
+                        <Article title="Collaborations">
+                            {
+                                collaborations.map(collaboration => (
+                                    <Fragment key={ collaboration.id }>
+                                        <ArrowLink to={ '/' } text={ collaboration.name } /> <br/>
+                                    </Fragment>
+                                ))
+                            }
+                        </Article>
+                    )
+                }
 
-            {
-                teams && (
-                    <Section title="Teams">
-                        {
-                            teams.map(team => (
-                                <Fragment key={ team.id }>
-                                    <ArrowLink to={ team.fields.path } text={ team.name } /> <br/>
-                                </Fragment>
-                            ))
-                        }
-                    </Section>
-                )
-            }
+                {
+                    teams && (
+                        <Article title="Teams">
+                            {
+                                teams.map(team => (
+                                    <Fragment key={ team.id }>
+                                        <ArrowLink to={ '/' } text={ team.name } /> <br/>
+                                    </Fragment>
+                                ))
+                            }
+                        </Article>
+                    )
+                }
+            </Section>
 
             {
                 news && (
