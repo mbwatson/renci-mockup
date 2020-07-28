@@ -17,7 +17,11 @@ const Wrapper = styled.div(({ theme }) => `
         transition: filter 250ms;
     }
     a:hover, a:focus {
-        filter: brightness(0.5);
+        filter: brightness(0.9);
+        svg {
+            transition: fill 500ms;
+            fill: ${ theme.color.renciBlue };
+        }
     }
 `)
 
