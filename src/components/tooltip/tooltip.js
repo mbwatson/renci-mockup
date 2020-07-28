@@ -30,7 +30,7 @@ export const Tooltip = ({ tip, children }) => {
     const [stringPixelWidth, setStringPixelWidth] = useState(0)
     const transitions = useTransition(active, null, {
         from: { opacity: 0, top: '150%' },
-        enter: { opacity: 1, top: '110%' },
+        enter: { opacity: 0.9, top: '110%' },
         leave: { opacity: 0, top: '150%' },
     })
 
