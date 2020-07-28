@@ -102,7 +102,7 @@ export const personQuery = graphql`
             }
             photo {
                 childImageSharp {
-                    fixed(width: 200, height: 200) {
+                    fixed(width: 350, height: 350) {
                         ...GatsbyImageSharpFixed
                     }
                 }
