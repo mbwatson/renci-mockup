@@ -44,7 +44,7 @@ export const Tooltip = ({ tip, children }) => {
     })
 
     useEffect(() => {
-        setStringPixelWidth(tip.length * 10)
+        setStringPixelWidth(tip.length * 12)
     }, [tip])
 
     const handleShowTooltip = event => setActive(true)
