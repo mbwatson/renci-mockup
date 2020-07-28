@@ -4,7 +4,6 @@ import { MiniProfile } from './mini-profile'
 import { useAvatar } from '../../hooks'
 
 const Wrapper = styled.div`
-    border: 1px solid #ff999966;
     display: flex;
     flex-direction: row;
 `

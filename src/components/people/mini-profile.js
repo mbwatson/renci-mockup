@@ -21,7 +21,7 @@ const StaffTitle = styled(Meta)`
 export const MiniProfile = ({ name, title, path, photo }) => {
     return (
         <Wrapper>
-            <Img fixed={ photo } />
+            <Img style={{ height: '200px', width: '200px' }} fixed={ photo } />
             <StaffName><Link to={ path }>{ name }</Link></StaffName>
             <StaffTitle>{ title }</StaffTitle>
         </Wrapper>
