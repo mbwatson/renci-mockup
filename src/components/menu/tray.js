@@ -21,6 +21,16 @@ const Wrapper = styled.nav(({ theme }) => css`
     background-color: ${ theme.color.whitish };
     pointer-events: auto;
     animation: 250ms ${ reveal };
+    &::before {
+        // border: 1px solid red;
+        content: "";
+        background-color: transparent;
+        width: 100%;
+        height: 1rem;
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+    }
 `)
 
 export const Tray = ({ children, ...props }) => {
