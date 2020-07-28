@@ -51,7 +51,13 @@ export const Tooltip = ({ tip, children }) => {
     const handleHideTooltip = event => setActive(false)
 
     return (
-        <Wrapper ref={ wrapperRef } onMouseEnter={ handleShowTooltip } onMouseLeave={ handleHideTooltip }>
+        <Wrapper
+            ref={ wrapperRef }
+            onMouseEnter={ handleShowTooltip }
+            onMouseLeave={ handleHideTooltip }
+            onFocus={ handleShowTooltip }
+            onBlur={ handleHideTooltip }
+        >
             { children }
             <Tip ref={ tipRef } style={ animation } width={ `${ stringPixelWidth }px` }>{ tip }</Tip>
         </Wrapper>

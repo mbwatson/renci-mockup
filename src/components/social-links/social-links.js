@@ -16,7 +16,7 @@ const Wrapper = styled.div(({ theme }) => `
     a {
         transition: filter 250ms;
     }
-    a:hover {
+    a:hover, a:focus {
         filter: brightness(0.5);
     }
 `)
