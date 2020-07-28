@@ -34,7 +34,7 @@ export default ({ data, pageContext }) => {
                         {
                             groups.map(group => (
                                 <Fragment key={ group.id }>
-                                    <ArrowLink to={ group.fields.path } text={ group.name } />
+                                    <ArrowLink to={ group.fields.path } text={ group.name } /> <br/>
                                 </Fragment>
                             ))
                         }
