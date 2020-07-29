@@ -30,7 +30,14 @@ module.exports = {
                 footnotes: true, // Footnotes mode (default: true)
                 pedantic: true, // Pedantic mode (default: true)
                 gfm: true, // GitHub Flavored Markdown mode (default: true)
-                plugins: [], // Plugins configs
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 800,
+                        },
+                    },
+                ], // Plugins configs
             },
         },
         `gatsby-transformer-sharp`,

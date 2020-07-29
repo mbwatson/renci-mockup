@@ -15,6 +15,8 @@ tags: ["networking"]
 
 The [iRODS Consortium](https://irods.org/), the foundation that leads development and support of the integrated Rule-Oriented Data System (iRODS) data management software, welcomes OpenIO as its newest Consortium member.
 
+![OpenIO Logo](./openio-logo.png)
+
 [OpenIO](https://www.openio.io/) is a software-defined, open source object storage solution designed for big data and artificial intelligence applications. OpenIO scales easily while delivering consistent performance and can be deployed on-premise, cloud-hosted or at the edge, and on any hardware mix that customers choose.
 
 iRODS is free open source software for data discovery, workflow automation, secure collaboration, and data virtualization used by research and business organizations around the globe. iRODS allows users to automate data management by creating a unified namespace and a metadata catalog of all the data and users within the storage environment.
