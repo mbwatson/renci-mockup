@@ -19,7 +19,7 @@ const Wrapper = styled.section(({ theme, fullWidth }) => `
         border-top: 1px solid ${ theme.color.lightgrey };
     }
     margin: 1rem auto;
-    padding: 1rem;
+    padding: ${ theme.spacing.large };
     display: flex;
     flex-direction: column;
     ${
