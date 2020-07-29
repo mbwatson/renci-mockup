@@ -45,7 +45,7 @@ export default ({ data, pageContext }) => {
                 }
 
                 <Section title="Contributors">
-                    { members.map(person => <div><ArrowLink key={ person.id } to={ `/people/${ person.id }` } text={ person.name } /></div>) }
+                    { members.map(person => <div key={ person.id }><ArrowLink to={ `/people/${ person.id }` } text={ person.name } /></div>) }
                 </Section>
                 
             </Container>
