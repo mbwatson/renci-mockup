@@ -29,9 +29,9 @@ export default ({ data, pageContext }) => {
                 
                 {
                     news && (
-                        <Section title="News">
+                        <Section title="Recent News">
                             {
-                                news.map((article, i) => {
+                                news.slice(0, 2).map((article, i) => {
                                     return (
                                         <Fragment key={ article.id }>
                                             <ArticlePreview article={ article } path={ article.fields.path } compact />

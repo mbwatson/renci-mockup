@@ -32,6 +32,12 @@ export default ({ data, pageContext }) => {
                 phone={ office.phone }
             />
 
+            <Section title="About">
+                <Paragraph>
+                    { bio }
+                </Paragraph>
+            </Section>
+
             <Section title="Contributions">
                 {
                     groups && (
@@ -78,9 +84,9 @@ export default ({ data, pageContext }) => {
 
             {
                 news && (
-                    <Section title="News">
+                    <Section title="Recent News">
                         {
-                            news.map((article, i) => (
+                            news.slice(0, 2).map((article, i) => (
                                 <Fragment key={ article.id }>
                                     <ArticlePreview article={ article } path={ article.fields.path } compact />
                                     { i < news.length - 1 && <HorizontalRule /> }
@@ -90,12 +96,6 @@ export default ({ data, pageContext }) => {
                     </Section>
                 )
             }
-
-            <Section title="About">
-                <Paragraph>
-                    { bio }
-                </Paragraph>
-            </Section>
 
         </Container>
     )
