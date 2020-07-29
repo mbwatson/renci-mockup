@@ -12,7 +12,7 @@ const PeoplePage = () => {
         <Container>
             <SEO title="RENCI Staff" />
             
-            <Title>Our Team</Title>
+            <Title>The RENCI Team</Title>
             
             <Paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
