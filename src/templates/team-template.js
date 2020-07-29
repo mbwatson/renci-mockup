@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { Container, Article, Section, Hero } from '../components/layout'
 import { Title } from '../components/typography'
 import { ArrowLink } from '../components/link'
+import { StaffList } from '../components/people'
 
 export default ({ data, pageContext }) => {
     const { teamsYaml: {
@@ -43,6 +44,10 @@ export default ({ data, pageContext }) => {
                     </Article>
                 </Section>
 
+                <Section title="Team Members">
+                    <StaffList staff={ members } />    
+                </Section>
+
             </Container>
         </Fragment>
     )
@@ -60,6 +65,10 @@ export const groupQuery = graphql`
             members {
                 id
                 name
+                title
+                fields {
+                    path
+                }
             }
         }
     }
