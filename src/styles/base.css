@@ -56,9 +56,10 @@ a {
     text-decoration-color: #ccc;
     transition: text-decoration-color 250ms;
 }
-a:active,
-a:hover {
+a:active, a:hover {
     outline-width: 0;
+}
+a:hover, a:focus {
     text-decoration-color: #333;
 }
 abbr[title] {

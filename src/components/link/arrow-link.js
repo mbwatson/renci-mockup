@@ -14,7 +14,7 @@ const Wrapper = styled(Link)(({ theme, float }) => `
         transform: translateX(0rem);
         opacity: 0.5;
     }
-    &:hover {
+    &:hover, &:focus {
         transition: transform 250ms, opacity 100ms;
         & .arrow-right {
             transform: translateX(0.1rem);
