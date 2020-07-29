@@ -91,6 +91,12 @@ export default ({ data, pageContext }) => {
                 )
             }
 
+            <Section title="About">
+                <Paragraph>
+                    { bio }
+                </Paragraph>
+            </Section>
+
         </Container>
     )
 }
