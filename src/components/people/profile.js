@@ -37,6 +37,12 @@ const Details = styled.div`
     }
 `
 
+const Detail = styled.p(({ theme, bold }) => `
+    color: ${ theme.color.black };
+    font-size: 150%;
+    font-weight: ${ bold ? '500' : '100' };
+`)
+
 const Footer = styled.div`
     grid-row: 3 / 4;
     grid-column: 1 / 3;
@@ -56,11 +62,9 @@ export const Profile = ({ name, title, email, online_presence, photo, phone }) =
             </PhotoContainer>
             <Details>
                 <Title>{ name }</Title>
-                <Paragraph>
-                    { title } <br/>
-                    <a href={ `mailto:${ email }`}>{ email }</a> <br/>
-                    { phone }
-                </Paragraph>
+                <Detail>{ title }</Detail>
+                <Detail bold><a href={ `mailto:${ email }` }>{ email }</a></Detail>
+                <Detail>{ phone }</Detail>
             </Details>
             <Footer>
                 <SocialLinks
