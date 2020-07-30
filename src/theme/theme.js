@@ -32,7 +32,7 @@ export const theme = {
         small: '0.5rem',
         medium: '1rem',
         large: '2rem',
-        extraLarge: '4rem',
+        extraLarge: '3rem',
     },
     debug: `
         border: 1px solid #f99;
