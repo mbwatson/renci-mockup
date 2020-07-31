@@ -18,7 +18,7 @@ const Wrapper = styled.button`
 
 const Line = styled.line(({ theme, active }) => `
     transform-origin: 50% 50%;
-    transition: transform 500ms, stroke 500ms, opacity 500ms;
+    transition: transform 250ms, stroke 250ms, opacity 250ms;
     transform-origin: 50% 50%;
     stroke: ${ active ? theme.color.danger : theme.color.renciBlue };
     &:nth-child(1) {

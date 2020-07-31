@@ -13,7 +13,7 @@ const Overlay = styled.div(({ theme, visible }) => `
     height: 100vh;
     z-index: 1;
     border-right: 1px solid ${ theme.color.darkgrey };
-    transition: transform 100ms;
+    transition: transform 250ms;
     transform: translate3d(${ visible ? '0' : '-100%' }, 0, 0);
 `)
 
