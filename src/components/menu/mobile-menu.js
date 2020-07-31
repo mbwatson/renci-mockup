@@ -2,9 +2,8 @@ import React, { Fragment, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { Toggler } from './toggler'
-import { animated, useTransition } from 'react-spring'
 
-const Overlay = styled(animated.div)(({ theme }) => `
+const Overlay = styled.div(({ theme, visible }) => `
     background-color: ${ theme.color.white };
     position: fixed;
     left: 0;
@@ -14,6 +13,8 @@ const Overlay = styled(animated.div)(({ theme }) => `
     height: 100vh;
     z-index: 1;
     border-right: 1px solid ${ theme.color.darkgrey };
+    transition: transform 100ms;
+    transform: translate3d(${ visible ? '0' : '-100%' }, 0, 0);
 `)
 
 const Navigation = styled.nav(({ theme }) => `
@@ -45,12 +46,6 @@ const MenuLink = styled(Link)(({ theme }) => `
 
 export const MobileMenu = ({ items }) => {
     const [visible, setVisible] = useState(false)
-    const transitions = useTransition(visible, null, {
-        config: { mass: 1, tension: 100, friction: 10, clamp: true },
-        from: { opacity: 0.5, transform: 'translateX(-100%)' },
-        enter: { opacity: 1, transform: 'translateX(0%)' },
-        leave: { opacity: 0, transform: 'translateX(-100%)' },
-    })
 
     const handleToggleMenu = () => setVisible(!visible)
     const handleCloseMenu = () => setVisible(false)
@@ -74,8 +69,8 @@ export const MobileMenu = ({ items }) => {
         <Fragment>
             <Toggler onClick={ handleToggleMenu } active={ visible } />
             {
-                transitions.map(({ item, key, props }) => item && 
-                    <Overlay style={ props }>
+                items && items.map(item => (
+                    <Overlay visible={ visible }>
                         <Navigation>
                             {
                                 items.map(item => (
@@ -84,7 +79,7 @@ export const MobileMenu = ({ items }) => {
                             }
                         </Navigation>
                     </Overlay>
-                )
+                ))
             }
         </Fragment>
     )
