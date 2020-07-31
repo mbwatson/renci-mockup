@@ -77,6 +77,16 @@ exports.createResolvers = ({ createResolvers }) => {
                     })
                 }
             },
+            authoredNews: {
+                type: ["MarkdownRemark"],
+                resolve(source, args, context, info) {
+                    return context.nodeModel.runQuery({
+                        query: { filter: { frontmatter: { author: { elemMatch: { id: { eq: source.id } } } } } },
+                        type: "MarkdownRemark",
+                        firstOnly: false,
+                    })
+                }
+            },
         },
         GroupsYaml: {
             news: {

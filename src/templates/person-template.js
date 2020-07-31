@@ -11,13 +11,10 @@ import { useAvatar } from '../hooks'
 
 export default ({ data, pageContext }) => {
     const {
-        peopleYaml: { name, photo, title, email, office, online_presence, bio, groups, collaborations, teams, news }
+        peopleYaml: { name, photo, title, email, office, online_presence, bio, groups, collaborations, teams, news, authoredNews }
     } = data
     const avatar = useAvatar()
-    // const membership = [groups, collaborations, teams]
-    //     .filter(x => x !== null)
-    //     .flat(1)
-    //     .sort((a, b) => b.name < a.name)
+    const allNews = [].concat(news, authoredNews).filter(n => n !== null)
 
     return (
         <Container>
@@ -83,13 +80,13 @@ export default ({ data, pageContext }) => {
             </Section>
 
             {
-                news && (
+                allNews && (
                     <Section title="Recent News">
                         {
-                            news.slice(0, 2).map((article, i) => (
+                            allNews.slice(0, 2).map((article, i) => (
                                 <Fragment key={ article.id }>
                                     <ArticlePreview article={ article } path={ article.fields.path } compact />
-                                    { i < news.length - 1 && <HorizontalRule /> }
+                                    { i < allNews.length - 1 && <HorizontalRule /> }
                                 </Fragment>
                             ))
                         }
@@ -150,6 +147,24 @@ export const personQuery = graphql`
                 }
             }
             news {
+                id
+                fields {
+                    path
+                }
+                frontmatter {
+                    title
+                    publish_date(formatString: "MMMM DD, YYYY")
+                    featuredImage {
+                        childImageSharp {
+                            previewSize: fixed(width: 300, height: 300) {
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
+                    }
+                }
+                excerpt(pruneLength: 500)
+            }
+            authoredNews {
                 id
                 fields {
                     path
