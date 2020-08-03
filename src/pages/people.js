@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { SEO } from '../components/seo'
 import { usePeople } from '../hooks'
 import { Container, Section } from '../components/layout'
@@ -7,6 +7,18 @@ import { StaffList } from '../components/people'
 
 const PeoplePage = () => {
     const { staff, ood, management, chiefScientists } = usePeople()
+
+    useEffect(() => {
+        const handleKeyDown = event => {
+            // only if the pressed key is that of a letter, a to z
+            if (65 <= event.keyCode && event.keyCode <= 90) {
+                const [basePath, ] = window.location.href.split('#')
+                window.location = `${ basePath }#${ event.key }`
+            }
+        }
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [])
 
     return (
         <Container>
