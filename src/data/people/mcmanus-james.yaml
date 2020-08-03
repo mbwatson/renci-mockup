@@ -1,5 +1,7 @@
 id: jmcmanus
-name: James McManus
+name:
+  first: James
+  last: McManus
 email: jmcmanus@renci.org
 title: Research Software Developer
 office: 

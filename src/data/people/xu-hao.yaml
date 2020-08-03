@@ -1,5 +1,7 @@
 id: hxu
-name: Hao Xu
+name:
+  first: Hao
+  last: Xu
 email: hxu@renci.org
 title: Research Scientist
 office: 

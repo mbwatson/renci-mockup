@@ -1,5 +1,7 @@
 id: jreilly
-name: Jason Reilly
+name:
+  first: Jason
+  last: Reilly
 email: jreilly@renci.org
 title: Senior Research Software Developer
 office: 

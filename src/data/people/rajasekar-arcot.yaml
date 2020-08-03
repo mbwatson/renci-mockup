@@ -1,5 +1,7 @@
 id: arajasekar
-name: Arcot Rajasekar
+name:
+  first: Arcot
+  last: Rajasekar
 email: arajasekar@renci.org
 title: Chief Domain Scientist, Data Grid Technologies
 office: 

@@ -1,5 +1,7 @@
 id: mwatson
-name: Matt Watson
+name:
+  first: Matt
+  last: Watson
 email: mwatson@renci.org
 title: Web Architect
 office: 

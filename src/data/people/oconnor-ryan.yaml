@@ -1,5 +1,7 @@
 id: roconnor
-name: Ryan O’Connor
+name:
+  first: Ryan
+  last: O’Connor
 email: roconnor@renci.org
 title: Web Application Developer
 office: 

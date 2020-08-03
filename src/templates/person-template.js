@@ -20,7 +20,7 @@ export default ({ data, pageContext }) => {
         <Container>
 
             <Profile
-                name={ name }
+                name={ `${ name.first } ${ name.last }` }
                 title={ title }
                 email={ email }
                 online_presence={ online_presence }
@@ -102,7 +102,10 @@ export const personQuery = graphql`
     query($id: String!) {
         peopleYaml( id: { eq: $id }) {
             id
-            name
+            name {
+                first
+                last
+            }
             email
             title
             office {

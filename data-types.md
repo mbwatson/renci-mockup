@@ -8,7 +8,9 @@
 ### Person
 
 - id: String
-- name: String
+- name:
+  + first:  String
+  + last: String
 - photo: String, relative path to image file
 - email: String, normal-email@address-form.at
 - title: String

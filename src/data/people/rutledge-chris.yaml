@@ -1,5 +1,7 @@
 id: crutledge
-name: Chris Rutledge
+name:
+  first: Chris
+  last: Rutledge
 email: crutledge@renci.org
 title: Linux Administrator
 office: 

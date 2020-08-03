@@ -1,5 +1,7 @@
 id: tgr
-name: Terrell Russell
+name:
+  first: Terrell
+  last: Russell
 email: trussell@renci.org
 title: Chief Technologist, iRODS Consortium
 office: 

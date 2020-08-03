@@ -1,5 +1,7 @@
 id: msliwowski
-name: Marcin Sliwowski
+name:
+  first: Marcin
+  last: Sliwowski
 email: msliwowski@renci.org
 title: Cyberinfrastructure Manager/Lead Administrator
 office: 

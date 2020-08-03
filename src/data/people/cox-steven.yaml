@@ -1,5 +1,7 @@
 id: scox
-name: Steven Cox
+name: 
+  first: Steven
+  last: Cox
 email: scox@renci.org
 title: Data Science Architect
 office: 

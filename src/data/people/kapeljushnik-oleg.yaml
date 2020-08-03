@@ -1,5 +1,7 @@
 id: okapeljushnik
-name: Oleg Kapeljushnik
+name:
+  first: Oleg
+  last: Kapeljushnik
 email: okapeljushnik@renci.org
 title: Software Developer
 office: 

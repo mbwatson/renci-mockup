@@ -1,5 +1,7 @@
 id: jcoposky
-name: Jason Coposky
+name: 
+  first: Jason
+  last: Coposky
 email: jcop@renci.org
 title: iRODS Leader
 office: 

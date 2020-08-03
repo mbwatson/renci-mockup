@@ -153,7 +153,10 @@ exports.createPages = ({ actions, graphql }) => {
                 edges {
                     node {
                         id
-                        name
+                        name {
+                            first
+                            last
+                        }
                     }
                 }
             }
@@ -232,7 +235,7 @@ exports.createPages = ({ actions, graphql }) => {
         console.log(`\nCreating staff pages...`)
         people.forEach(({ node }) => {
             const path = `/people/${ node.id }`
-            console.log(` - ${ node.name } (${ path })`)
+            console.log(` - ${ node.name.first } ${ node.name.last } (${ path })`)
             createPage({
                 id: node.id,
                 path: path,

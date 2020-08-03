@@ -1,5 +1,7 @@
 id: subers
-name: Stephanie Suber
+name:
+  first: Stephanie
+  last: Suber
 email: subers@renci.org
 title: Interim Communications Lead
 office: 

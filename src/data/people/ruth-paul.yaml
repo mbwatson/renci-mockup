@@ -1,5 +1,7 @@
 id: pruth
-name: Paul Ruth
+name:
+  first: Paul
+  last: Ruth
 email: pruth@renci.org
 title: lorem ipsum what
 office: 

@@ -1,5 +1,7 @@
 id: escott
-name: Erik Scott
+name:
+  first: Erik
+  last: Scott
 email: escott@renci.org
 title: Senior Research Software Developer
 office: 

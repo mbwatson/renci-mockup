@@ -1,5 +1,7 @@
 id: cbizon
-name: Chris Bizon
+name: 
+  first: Chris
+  last: Bizon
 email: cbizon@renci.org
 title: Director of Analytics and Data Science
 office: 

@@ -1,5 +1,7 @@
 id: mtavares
-name: Mauricio Tavares
+name:
+  first: Mauricio
+  last: Tavares
 email: mtavares@renci.org
 title: System and Network Administrator
 office: 

@@ -60,11 +60,17 @@ export const groupQuery = graphql`
             description
             lead {
                 id
-                name
+                name {
+                    first
+                    last
+                }
             }
             members {
                 id
-                name
+                name {
+                    first
+                    last
+                }
                 title
                 fields {
                     path

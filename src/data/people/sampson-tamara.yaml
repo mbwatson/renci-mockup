@@ -1,5 +1,7 @@
 id: tsampson
-name: Tamara Sampson
+name:
+  first: Tamara
+  last: Sampson
 email: tsampson@renci.org
 title: Accounting Technician
 office: 

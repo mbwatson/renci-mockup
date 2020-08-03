@@ -1,5 +1,7 @@
 id: ttuttle
-name: Tripp Tuttle
+name:
+  first: Tripp
+  last: Tuttle
 email: ttuttle@renci.org
 title: Graduate Research Assistant
 office: 

@@ -1,5 +1,7 @@
 id: powen
-name: Phil Owen
+name:
+  first: Phil
+  last: Owen
 email: powen@renci.org
 title: Research Software Architect
 office: 

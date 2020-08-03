@@ -123,11 +123,17 @@ export const groupQuery = graphql`
             }
             lead {
                 id
-                name
+                name {
+                    first
+                    last
+                }
             }
             members {
                 id
-                name
+                name {
+                    first
+                    last
+                }
             }
             online_presence {
                 url

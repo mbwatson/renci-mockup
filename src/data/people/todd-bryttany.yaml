@@ -1,5 +1,7 @@
 id: btodd
-name: Bryttany Todd
+name:
+  first: Bryttany
+  last: Todd
 email: btodd@renci.org
 title: Research Project Manager
 office: 

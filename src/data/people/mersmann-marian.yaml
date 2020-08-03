@@ -1,5 +1,7 @@
 id: mmersmann
-name: Marian Mersmann
+name:
+  first: Marian
+  last: Mersmann
 email: mmersmann@renci.org
 title: Research Project Coordinator
 office: 

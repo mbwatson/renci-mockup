@@ -1,5 +1,7 @@
 id: jtodd
-name: Jordan Todd
+name:
+  first: Jordan
+  last: Todd
 email: jtodd@renci.org
 title: Human Resources Consultant
 office: 

@@ -1,5 +1,7 @@
 id: smckeen
-name: Shannon McKeen
+name:
+  first: Shannon
+  last: McKeen
 email: smckeen@renci.org
 title: Deputy Director of the South Big Data Hub
 office: 

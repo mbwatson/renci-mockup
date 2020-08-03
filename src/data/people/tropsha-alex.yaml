@@ -1,5 +1,7 @@
 id: atropsha
-name: Alex Tropsha
+name:
+  first: Alex
+  last: Tropsha
 email: atropsha@renci.org
 title: Chief Domain Scientist for Molecular Informatics
 office: 

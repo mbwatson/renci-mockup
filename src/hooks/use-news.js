@@ -26,7 +26,10 @@ const newsQuery = graphql`{
                     publish_date(formatString: "dddd, MMMM Do, YYYY")
                     author {
                         id
-                        name
+                        name {
+                            first
+                            last
+                        }
                     }
                 }
                 html
@@ -46,4 +49,9 @@ export const useNews = () => {
         }
     })
     return news.edges.map(({ node }) => node)
+}
+
+export const useNewsSpotlight = () => {
+    const spotlightArticles = useNews().filter(article => article.frontmatter.spotlight === true)
+    return spotlightArticles
 }

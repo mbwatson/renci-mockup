@@ -1,5 +1,7 @@
 id: amandal
-name: Anirban Mandal
+name:
+  first: Anirban
+  last: Mandal
 email: amandal@renci.org
 title: Assistant Director of Network Research &amp; Infrastructure Group
 office: 

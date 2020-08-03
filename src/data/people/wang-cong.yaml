@@ -1,5 +1,7 @@
 id: cwang
-name: Cong Wang
+name:
+  first: Cong
+  last: Wang
 email: cwang@renci.org
 title: Senior Computational and Network Researcher
 office: 

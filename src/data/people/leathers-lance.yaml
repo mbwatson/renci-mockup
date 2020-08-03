@@ -1,5 +1,7 @@
 id: lleathers
-name: Lance Leathers
+name:
+  first: Lance
+  last: Leathers
 email: lleathers@renci.org
 title: Systems Specialist
 office: 

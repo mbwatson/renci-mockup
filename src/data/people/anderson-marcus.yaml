@@ -1,5 +1,7 @@
 id: marcussamie86
-name: Marcus Anderson
+name:
+  first: Marcus
+  last: Anderson
 photo: anderson-marcus.jpg
 email: marcussamie86@renci.org
 title: Graphic Arts Specialist

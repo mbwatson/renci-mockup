@@ -26,7 +26,7 @@ export default ({ data, pageContext }) => {
                 <Title>{ title }</Title>
 
                 <Meta>
-                    Published on { publish_date } by <Link to={ `/people/${ author.id }` }>{ author.name }</Link> <br/>
+                    Published on { publish_date } by <Link to={ `/people/${ author.id }` }>`${ author.name.first } ${ author.name.last }`</Link> <br/>
                 </Meta>
 
                 <HorizontalRule />
@@ -36,7 +36,7 @@ export default ({ data, pageContext }) => {
                 <HorizontalRule />
 
                 <Meta>
-                    People: { people.map(person => <TagLink key={ person.id } to={ person.fields.path }>{ person.name }</TagLink>) } <br/><br/>
+                    People: { people.map(person => <TagLink key={ person.id } to={ person.fields.path }>`${ person.name.first } ${ person.name.last }`</TagLink>) } <br/><br/>
                     Groups: { groups.map(group => <TagLink key={ group.id } to={ group.fields.path }>{ group.name }</TagLink>) } <br/><br/>
                     Teams: { teams.map(team => <TagLink key={ team.id } to={ team.fields.path }>{ team.name }</TagLink>) } <br/><br/>
                     Projects: { projects.map(project => <TagLink key={ project.id } to={ project.fields.path }>{ project.name }</TagLink>) } <br/><br/>
@@ -97,14 +97,20 @@ export const newsQuery = graphql`
                 publish_date(formatString: "dddd, MMMM Do, YYYY")
                 author {
                     id
-                    name
+                    name {
+                        first
+                        last
+                    }
                     fields {
                         path
                     }
                 }
                 people {
                     id
-                    name
+                    name {
+                        first
+                        last
+                    }
                     fields {
                         path
                     }

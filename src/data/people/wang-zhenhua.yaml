@@ -1,5 +1,7 @@
 id: zwang
-name: Zhenhua Wang
+name:
+  first: Zhenhua
+  last: Wang
 email: zwang@renci.org
 title: Research Intern
 office: 

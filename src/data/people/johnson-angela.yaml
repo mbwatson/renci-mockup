@@ -1,5 +1,7 @@
 id: ajohnson
-name: Angela Johnson
+name:
+  first: Angela
+  last: Johnson
 email: ajohnson@renci.org
 title: Finance, Business Services Coordinator
 office: 

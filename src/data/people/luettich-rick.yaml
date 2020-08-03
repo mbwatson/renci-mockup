@@ -1,5 +1,7 @@
 id: rluettich
-name: Rick Luettich
+name:
+  first: Rick
+  last: Luettich
 email: rluettich@renci.org
 title: Chief Domain Scientist, Coastal Models
 office: 

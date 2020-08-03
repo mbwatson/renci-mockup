@@ -1,5 +1,7 @@
 id: aking
-name: Alan King
+name:
+  first: Alan
+  last: King
 email: aking@renci.org
 title: Software Developer
 office: 

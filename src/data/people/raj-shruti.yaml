@@ -1,5 +1,7 @@
 id: sraj
-name: Shruti Raj
+name:
+  first: Shruti
+  last: Raj
 email: shruti@renci.org
 title: lorem ipsum
 office: 

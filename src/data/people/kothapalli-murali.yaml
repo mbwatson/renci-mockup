@@ -1,5 +1,7 @@
 id: mkothapalli
-name: Murali Kothapalli
+name:
+  first: Murali
+  last: Kothapalli
 email: mkothapalli@renci.org
 title: Software Engineer
 office: 

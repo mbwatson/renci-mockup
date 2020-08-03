@@ -1,5 +1,7 @@
 id: mwesley
-name: Margie Wesley
+name:
+  first: Margie
+  last: Wesley
 email: mwesley@renci.org
 title: Accountant
 office: 

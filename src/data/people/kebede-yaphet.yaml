@@ -1,5 +1,7 @@
 id: ykebede
-name: Yaphet Kebede
+name:
+  first: Yaphet
+  last: Kebede
 email: ykebede@renci.org
 title: Bioinformatics Python Developer
 office: 

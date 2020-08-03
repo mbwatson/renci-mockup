@@ -1,5 +1,7 @@
 id: mshoffner
-name: Michael Shoffner
+name:
+  first: Michael
+  last: Shoffner
 email: mshoffner@renci.org
 title: Senior Research Software Architect
 office: 

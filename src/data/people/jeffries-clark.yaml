@@ -1,5 +1,7 @@
 id: cjeffries
-name: Clark Jeffries
+name:
+  first: Clark
+  last: Jeffries
 email: cjeffries@renci.org
 title: Grid Developer - Bioinformatics
 office: 

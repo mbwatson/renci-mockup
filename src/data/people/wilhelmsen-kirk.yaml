@@ -1,5 +1,7 @@
 id: kwilhelmsen
-name: Kirk Wilhelmsen
+name:
+  first: Kirk
+  last: Wilhelmsen
 email: kwilhelmsen@renci.org
 title: Chief Domain Scientists, Genomics, and Director, Biomedical Research Initiatives
 office: 

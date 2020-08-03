@@ -1,5 +1,7 @@
 id: hlander
-name: Howard Lander
+name:
+  first: Howard
+  last: Lander
 email: hlander@renci.org
 title: Senior Research Software Developer
 office: 

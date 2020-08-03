@@ -1,5 +1,7 @@
 id: sdavis
-name: Sarah Davis
+name: 
+  first: Sarah
+  last: Davis
 email: sdavis@renci.org
 title: Project Manager
 office: 

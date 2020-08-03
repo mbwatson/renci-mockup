@@ -1,5 +1,7 @@
 id: bzhou
-name: Bo Zhou
+name:
+  first: Bo
+  last: Zhou
 email: bzhou@renci.org
 title: Web Intern
 office: 

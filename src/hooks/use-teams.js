@@ -9,7 +9,10 @@ const teamsQuery = graphql`{
                 description
                 members {
                     id
-                    name
+                    name {
+                        first
+                        last
+                    }
                     email
                     title
                 }

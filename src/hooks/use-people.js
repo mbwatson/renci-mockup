@@ -3,7 +3,10 @@ import { graphql, useStaticQuery } from 'gatsby'
 export const personFragment = graphql`
     fragment PersonDetails on PeopleYaml {
         id
-        name
+        name {
+            first
+            last
+        }
         email
         title
         photo {
@@ -21,28 +24,28 @@ export const personFragment = graphql`
 `
 
 const peopleQuery = graphql`{
-    staff: allPeopleYaml(sort: {fields: id, order: ASC}) {
+    staff: allPeopleYaml(sort: {fields: name___last, order: ASC}) {
         edges {
             node {
                 ...PersonDetails
             }
         }
     }
-    ood: allPeopleYaml(filter: {teams: {elemMatch: {id: {eq: "ood"}}}}, sort: {fields: id, order: ASC}) {
+    ood: allPeopleYaml(filter: {teams: {elemMatch: {id: {eq: "ood"}}}}, sort: {fields: name___last, order: ASC}) {
         edges {
             node {
                 ...PersonDetails
             }
         }
     }
-    management: allPeopleYaml(filter: {teams: {elemMatch: {id: {eq: "management"}}}}, sort: {fields: id, order: ASC}) {
+    management: allPeopleYaml(filter: {teams: {elemMatch: {id: {eq: "management"}}}}, sort: {fields: name___last, order: ASC}) {
         edges {
             node {
                 ...PersonDetails
             }
         }
     }
-    chiefscientists: allPeopleYaml(filter: {teams: {elemMatch: {id: {eq: "chief-scientists"}}}}, sort: {fields: id, order: ASC}) {
+    chiefscientists: allPeopleYaml(filter: {teams: {elemMatch: {id: {eq: "chief-scientists"}}}}, sort: {fields: name___last, order: ASC}) {
         edges {
             node {
                 ...PersonDetails

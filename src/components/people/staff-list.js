@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { MiniProfile } from './mini-profile'
 import { useAvatar } from '../../hooks'
@@ -8,14 +8,13 @@ const Wrapper = styled.div`
     flex-direction: row;
 `
 
-const LetterLink = styled.a(({ theme }) => `
-    text-decoration: none;
-    padding: 0.25rem 0;
-`)
+const Sticker = styled.div`
+    position: relative;
+`
 
 const LettersMenu = styled.nav(({ theme }) => `
     position: sticky;
-    top: 0;
+    top: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -23,10 +22,10 @@ const LettersMenu = styled.nav(({ theme }) => `
     padding: ${ theme.spacing.small };
 `)
 
-const buckets = {
-    'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': [], 'H': [], 'I': [], 'J': [], 'K': [], 'L': [], 'M': [],
-    'N': [], 'O': [], 'P': [], 'Q': [], 'R': [], 'S': [], 'T': [], 'U': [], 'V': [], 'W': [], 'X': [], 'Y': [], 'Z': [],
-}
+const LetterLink = styled.a(({ theme }) => `
+    text-decoration: none;
+    padding: 0.25rem 0;
+`)
 
 const Profiles = styled.div`
     flex: 1;
@@ -37,15 +36,24 @@ const Profiles = styled.div`
 
 export const StaffList = ({ staff = [], nav }) => {
     const avatar = useAvatar()
+    const [letters, setLetters] = useState([])
     let previousLetter = '?'
     let currentLetter
+    
+    useEffect(() => {
+        const requiredLetters = new Set(staff.map(person => person.name.last[0]))
+        setLetters([...requiredLetters])
+    }, [])
+
     return (
         <Wrapper>
             {
                 nav && (
-                   <LettersMenu>
-                       { Object.keys(buckets).map(letter => <LetterLink key={ letter } href={ `#${ letter.toLowerCase() }` }>{ letter }</LetterLink>) }
-                   </LettersMenu>
+                    <Sticker>
+                       <LettersMenu>
+                           { letters.map(letter => <LetterLink key={ letter } href={ `#${ letter.toLowerCase() }` }>{ letter }</LetterLink>) }
+                       </LettersMenu>
+                    </Sticker>
                 )
             }
             <Profiles>
@@ -53,12 +61,13 @@ export const StaffList = ({ staff = [], nav }) => {
                     staff.map(person => {
                         const photo = person.photo ? person.photo.childImageSharp.fixed : avatar.childImageSharp.fixed
                         previousLetter = currentLetter
-                        currentLetter = person.name[0].toLowerCase()
+                        currentLetter = person.name.last[0].toLowerCase()
+                        const anchorId = nav && currentLetter !== previousLetter ? currentLetter : null
                         return (
                             <MiniProfile
-                                id={ currentLetter !== previousLetter ? currentLetter : null }
+                                anchorId={ anchorId }
                                 key={ person.id }
-                                name={ person.name }
+                                name={ `${ person.name.first } ${ person.name.last }` }
                                 title={ person.title }
                                 photo={ photo }
                                 path={ person.fields.path }

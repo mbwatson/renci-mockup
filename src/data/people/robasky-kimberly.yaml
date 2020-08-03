@@ -1,5 +1,7 @@
 id: krobasky
-name: Kimberly Robasky
+name:
+  first: Kimberly
+  last: Robasky
 email: krobasky@renci.org
 title: Head of Translational Science
 office: 

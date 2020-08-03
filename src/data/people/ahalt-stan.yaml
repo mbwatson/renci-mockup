@@ -1,5 +1,7 @@
 id: sahalt
-name: Stan Ahalt
+name: 
+  first: Stan
+  last: Ahalt
 photo: ahalt-stan.jpg
 email: ahalt@renci.org
 title: Director

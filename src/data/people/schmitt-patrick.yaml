@@ -1,5 +1,7 @@
 id: pschmitt
-name: Patrick Schmitt
+name:
+  first: Patrick
+  last: Schmitt
 email: pschmitt@renci.org
 title: Student Assistant
 office: 

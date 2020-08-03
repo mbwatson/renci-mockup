@@ -1,5 +1,7 @@
 id: fjiang
-name: Fan Jiang
+name:
+  first: Fan
+  last: Jiang
 email: fjiang@renci.org
 title: Graduate Student Intern, Networking Research
 office: 

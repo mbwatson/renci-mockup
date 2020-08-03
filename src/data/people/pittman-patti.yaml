@@ -1,5 +1,7 @@
 id: ppittman
-name: Patti Pittman
+name:
+  first: Patti
+  last: Pittman
 email: ppittman@renci.org
 title: Accounting Technician
 office: 

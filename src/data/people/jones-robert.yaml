@@ -1,5 +1,7 @@
 id: rjones
-name: Robert Jones
+name:
+  first: Robert
+  last: Jones
 email: rjones@renci.org
 title: Systems Specialist
 office: 

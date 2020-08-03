@@ -1,5 +1,7 @@
 id: mstealey
-name: Michael Stealey
+name:
+  first: Michael
+  last: Stealey
 email: mstealey@renci.org
 title: Senior Research Software Developer
 office: 

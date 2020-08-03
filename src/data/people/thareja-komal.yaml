@@ -1,5 +1,7 @@
 id: kthareja
-name: Komal Thareja
+name:
+  first: Komal
+  last: Thareja
 email: kthareja@renci.org
 title: Distributed Systems Software Engineer
 office: 

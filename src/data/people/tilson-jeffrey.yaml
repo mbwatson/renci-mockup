@@ -1,5 +1,7 @@
 id: jtilson
-name: Jeffrey Tilson
+name:
+  first: Jeffrey
+  last: Tilson
 email: jtilson@renci.org
 title: Senior Research Scientist
 office: 

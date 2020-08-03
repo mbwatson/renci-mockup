@@ -1,5 +1,7 @@
 id: plinebaugh
-name: Paul Linebaugh
+name:
+  first: Paul
+  last: Linebaugh
 email: plinebaugh@renci.org
 title: Cloud and Linux System Administrator
 office: 

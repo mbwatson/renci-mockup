@@ -1,5 +1,7 @@
 id: exin
-name: Eric Xin
+name:
+  first: Eric
+  last: Xin
 email: exin@renci.org
 title: Student Intern, Networking Research
 office: 

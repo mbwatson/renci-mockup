@@ -1,5 +1,7 @@
 id: lstillwell
-name: Lisa Stillwell
+name:
+  first: Lisa
+  last: Stillwell
 email: lstillwell@renci.org
 title: Research Software Developer
 office: 

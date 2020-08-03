@@ -1,5 +1,7 @@
 id: jzollars
-name: Jeremy Zollars
+name:
+  first: Jeremy
+  last: Zollars
 email: jzollars@renci.org
 title: Administrative Assistant, Director
 office: 

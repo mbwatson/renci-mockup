@@ -1,5 +1,7 @@
 id: dmoore
-name: Daniel Moore
+name:
+  first: Daniel
+  last: Moore
 email: dmoore@renci.org
 title: Applications Engineer
 office: 

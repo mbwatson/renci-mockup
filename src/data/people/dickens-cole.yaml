@@ -1,5 +1,7 @@
 id: cdickens
-name: Cole Dickens
+name: 
+  first: Cole
+  last: Dickens
 email: cdickens@renci.org
 title: Systems Specialist
 office: 

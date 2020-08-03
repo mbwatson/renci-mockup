@@ -1,5 +1,7 @@
 id: spetrie
-name: Samantha Petrie
+name:
+  first: Samantha
+  last: Petrie
 email: spetrie@renci.org
 title: Student Intern, Office of the Director
 office: 
