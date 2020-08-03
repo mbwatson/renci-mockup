@@ -7,7 +7,7 @@ import { StaffList } from '../components/people'
 
 export default ({ data, pageContext }) => {
     const { teamsYaml: {
-        fullName,
+        name,
         description,
         members,
         lead,
