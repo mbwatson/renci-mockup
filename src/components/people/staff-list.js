@@ -67,7 +67,7 @@ export const StaffList = ({ staff = [], nav }) => {
                             <MiniProfile
                                 anchorId={ anchorId }
                                 key={ person.id }
-                                name={ `${ person.name.first } ${ person.name.last }` }
+                                name={ person.fullName }
                                 title={ person.title }
                                 photo={ photo }
                                 path={ person.fields.path }

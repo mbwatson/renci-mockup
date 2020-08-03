@@ -7,6 +7,7 @@ export const personFragment = graphql`
             first
             last
         }
+        fullName
         email
         title
         photo {

@@ -11,7 +11,7 @@ import { useAvatar } from '../hooks'
 
 export default ({ data, pageContext }) => {
     const {
-        peopleYaml: { name, photo, title, email, office, online_presence, bio, groups, collaborations, teams, news, authoredNews }
+        peopleYaml: { fullName, photo, title, email, office, online_presence, bio, groups, collaborations, teams, news, authoredNews }
     } = data
     const avatar = useAvatar()
     const allNews = [].concat(news, authoredNews).filter(n => n !== null)
@@ -20,7 +20,7 @@ export default ({ data, pageContext }) => {
         <Container>
 
             <Profile
-                name={ `${ name.first } ${ name.last }` }
+                name={ fullName }
                 title={ title }
                 email={ email }
                 online_presence={ online_presence }
@@ -102,10 +102,7 @@ export const personQuery = graphql`
     query($id: String!) {
         peopleYaml( id: { eq: $id }) {
             id
-            name {
-                first
-                last
-            }
+            fullName
             email
             title
             office {

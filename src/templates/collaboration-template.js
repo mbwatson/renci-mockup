@@ -45,7 +45,7 @@ export default ({ data, pageContext }) => {
                 }
 
                 <Section title="Contributors">
-                    { members.map(person => <div key={ person.id }><ArrowLink to={ `/people/${ person.id }` } text={ `${ person.name.first } ${ person.name.last }` } /></div>) }
+                    { members.map(person => <div key={ person.id }><ArrowLink to={ `/people/${ person.id }` } text={ person.fullName } /></div>) }
                 </Section>
                 
             </Container>
@@ -59,10 +59,7 @@ export const collaborationQuery = graphql`
             name
             members {
                 id
-                name {
-                    first
-                    last
-                }
+                fullName
             }
             online_presence {
                 url

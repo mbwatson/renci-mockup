@@ -95,7 +95,7 @@ export default ({ data, pageContext }) => {
                             {
                                 members.map(person => (
                                     <Fragment key={ person.id }>
-                                        <ArrowLink to={ `/people/${ person.id }` } text={ `${ person.name } ${ person.id === lead.id ? '(lead)' : '' }` } /> <br/>
+                                        <ArrowLink to={ `/people/${ person.id }` } text={ `${ person.fullName } ${ person.id === lead.id ? '(lead)' : '' }` } /> <br/>
                                     </Fragment>
                                 ))
                             }
@@ -123,17 +123,11 @@ export const groupQuery = graphql`
             }
             lead {
                 id
-                name {
-                    first
-                    last
-                }
+                fullName
             }
             members {
                 id
-                name {
-                    first
-                    last
-                }
+                fullName
             }
             online_presence {
                 url

@@ -35,8 +35,15 @@ exports.createSchemaCustomization = ({ actions }) => {
 }
 
 exports.createResolvers = ({ createResolvers }) => {
+    const fullName = {
+        type: "String",
+        resolve(source, args, context, info) {
+            return `${ source.name.first } ${ source.name.last }`
+        }
+    }
     const resolvers = {
         PeopleYaml: {
+            fullName,
             teams: {
                 type: ["TeamsYaml"],
                 resolve(source, args, context, info) {
