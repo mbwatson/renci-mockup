@@ -7,7 +7,7 @@ import { StaffList } from '../components/people'
 
 export default ({ data, pageContext }) => {
     const { teamsYaml: {
-        name,
+        fullName,
         description,
         members,
         lead,
@@ -36,7 +36,7 @@ export default ({ data, pageContext }) => {
                                 <Fragment key={ person.id }>
                                     <ArrowLink
                                         to={ `/people/${ person.id }` }
-                                        text={ `${ person.name } ${ lead && person.id === lead.id ? '(lead)' : '' }` }
+                                        text={ `${ person.fullName } ${ lead && person.id === lead.id ? '(lead)' : '' }` }
                                     /> <br/>
                                 </Fragment>
                             ))
@@ -67,6 +67,7 @@ export const groupQuery = graphql`
             }
             members {
                 id
+                fullName
                 name {
                     first
                     last
