@@ -40,7 +40,7 @@ const PeoplePage = () => {
             </Section>
 
             <Section title="All Staff" fullWidth>
-                <StaffList staff={ staff } />
+                <StaffList staff={ staff } nav />
             </Section>
 
         </Container>
