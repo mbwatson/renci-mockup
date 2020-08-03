@@ -12,7 +12,9 @@ const PeoplePage = () => {
         const handleKeyDown = event => {
             // only if the pressed key is that of a letter, a to z
             if (65 <= event.keyCode && event.keyCode <= 90) {
+                // strip off the #anchor-id if there is one in the URL
                 const [basePath, ] = window.location.href.split('#')
+                // replace the window location with the current page, but a new #anchor-id
                 window.location = `${ basePath }#${ event.key }`
             }
         }
