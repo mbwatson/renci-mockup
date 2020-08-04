@@ -5,7 +5,7 @@ import { Title, Paragraph } from '../components/typography'
 
 const BrandingPage = () => {
     return (
-        <Container>
+        <Container>            
             <SEO title="RENCI Branding and Style Guide" />
             
             <Title>RENCI Branding & Style Guide</Title>
@@ -123,7 +123,6 @@ const BrandingPage = () => {
                     </Paragraph>
                 </Article>
             </Section>
-
         </Container>
     )
 }
