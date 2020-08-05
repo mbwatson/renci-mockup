@@ -2,6 +2,7 @@ import React from 'react'
 import { SEO } from '../components/seo'
 import { Container, Section, Article } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
+import { Select, Option } from '../components/form'
 
 const BrandingPage = () => {
     return (
@@ -15,6 +16,15 @@ const BrandingPage = () => {
                 Quas in, repellat fugit suscipit dolores possimus, eos nihil
                 praesentium unde cumque ea omnis veritatis quaerat id.
             </Paragraph>
+            
+            <Select name="sample" id="test" options={[
+                { value: 0, label: 'Select One' },
+                { value: 1, label: 'Lorem ipsum dolor' },
+                { value: 2, label: 'Blanditiis, rem, temporibus' },
+                { value: 3, label: 'Alias, quod blanditiis' },
+                { value: 4, label: 'Pariatur, doloribus, voluptatum' },
+                { value: 5, label: 'A, fuga, debitis' },
+            ]}/>
 
             <Section title="Personality">
                 <Article title="Bold">
