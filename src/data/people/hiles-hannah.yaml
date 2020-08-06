@@ -2,13 +2,10 @@ id: hhiles
 name: 
   first: Hannah
   last: Hiles
-email: hhiles@renci.org
+email: fake@email.com
 title: Research Project Manager
-office: 
-  location: 877
-  phone: 919-445-2816
+phone: 919-445-2816
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

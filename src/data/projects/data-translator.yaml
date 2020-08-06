@@ -1,5 +1,6 @@
 id: data-translator
 name: Data Translator
+email: fake@email.com
 description: this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator.
 online_presence:
   url: https://researchsoftwareinstitute.github.io/data-translator/

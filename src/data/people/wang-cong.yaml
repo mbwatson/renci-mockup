@@ -2,13 +2,10 @@ id: cwang
 name:
   first: Cong
   last: Wang
-email: cwang@renci.org
+email: fake@email.com
 title: Senior Computational and Network Researcher
-office: 
-  location: 580
-  phone: 919-445-1704
+phone: 919-445-1704
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

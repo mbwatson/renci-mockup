@@ -2,13 +2,10 @@ id: jmcmanus
 name:
   first: James
   last: McManus
-email: jmcmanus@renci.org
+email: fake@email.com
 title: Research Software Developer
-office: 
-  location: 885
-  phone: 919-445-4776
+phone: 919-445-4776
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: what
+  github: nope
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

@@ -2,13 +2,10 @@ id: ppittman
 name:
   first: Patti
   last: Pittman
-email: ppittman@renci.org
+email: fake@email.com
 title: Accounting Technician
-office: 
-  location: 766
-  phone: 919-445-4255
+phone: 919-445-4255
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: what
+  github: nope
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

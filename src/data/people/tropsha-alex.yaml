@@ -2,13 +2,10 @@ id: atropsha
 name:
   first: Alex
   last: Tropsha
-email: atropsha@renci.org
+email: fake@email.com
 title: Chief Domain Scientist for Molecular Informatics
-office: 
-  location: 687
-  phone: 919-445-2357
+phone: 919-445-2357
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

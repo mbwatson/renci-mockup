@@ -2,13 +2,10 @@ id: jhayes
 name: 
   first: Julie
   last: Hayes
-email: jhayes@renci.org
+email: fake@email.com
 title: Administrative Assistant
-office: 
-  location: 111
-  phone: 919-445-1111
+phone: 919-445-1111
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

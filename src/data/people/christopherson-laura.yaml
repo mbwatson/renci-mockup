@@ -2,13 +2,10 @@ id: lchristopherson
 name: 
   first: Laura
   last: Christopherson
-email: lchristopherson@renci.org
+email: fake@email.com
 title: Senior Data Scientist
-office: 
-  location: 300
-  phone: 919-445-0034
+phone: 919-445-0034
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

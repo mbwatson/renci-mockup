@@ -2,13 +2,10 @@ id: aking
 name:
   first: Alan
   last: King
-email: aking@renci.org
+email: fake@email.com
 title: Software Developer
-office: 
-  location: 335
-  phone: 919-445-3033
+phone: 919-445-3033
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

@@ -11,7 +11,7 @@ import { useAvatar } from '../hooks'
 
 export default ({ data, pageContext }) => {
     const {
-        peopleYaml: { fullName, photo, title, email, office, online_presence, bio, groups, collaborations, teams, news, authoredNews }
+        peopleYaml: { fullName, photo, title, email, phone, online_presence, bio, groups, collaborations, teams, news, authoredNews }
     } = data
     const avatar = useAvatar()
     const allNews = [].concat(news, authoredNews).filter(n => n !== null)
@@ -23,10 +23,10 @@ export default ({ data, pageContext }) => {
                 name={ fullName }
                 title={ title }
                 email={ email }
+                phone={ phone }
                 online_presence={ online_presence }
                 bio={ bio }
                 photo={ photo ? photo.childImageSharp.fixed : avatar.childImageSharp.fixed }
-                phone={ office.phone }
             />
 
             <Section title="About">
@@ -103,12 +103,9 @@ export const personQuery = graphql`
         peopleYaml( id: { eq: $id }) {
             id
             fullName
-            email
             title
-            office {
-                location
-                phone
-            }
+            email
+            phone
             photo {
                 childImageSharp {
                     fixed(width: 350, height: 350) {
@@ -117,9 +114,8 @@ export const personQuery = graphql`
                 }
             }
             online_presence {
-                twitter_username
-                github_username
-                url
+                twitter
+                github
                 instagram
                 linkedin
                 youtube

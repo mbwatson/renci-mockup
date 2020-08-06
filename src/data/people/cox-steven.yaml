@@ -2,13 +2,10 @@ id: scox
 name: 
   first: Steven
   last: Cox
-email: scox@renci.org
+email: fake@email.com
 title: Data Science Architect
-office: 
-  location: 327
-  phone: 919-445-0525
+phone: 919-445-0525
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

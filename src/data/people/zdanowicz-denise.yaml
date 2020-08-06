@@ -2,13 +2,10 @@ id: dzdanowicz
 name:
   first: Denise
   last: Zdanowicz
-email: dzdanowicz@renci.org
+email: fake@email.com
 title: Business Services Coordinator
-office: 
-  location: 467
-  phone: 919-445-4206
+phone: 919-445-4206
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

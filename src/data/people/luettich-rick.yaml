@@ -2,13 +2,10 @@ id: rluettich
 name:
   first: Rick
   last: Luettich
-email: rluettich@renci.org
+email: fake@email.com
 title: Chief Domain Scientist, Coastal Models
-office: 
-  location: 263
-  phone: 919-445-3402
+phone: 919-445-3402
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

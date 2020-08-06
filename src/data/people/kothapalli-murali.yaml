@@ -2,13 +2,10 @@ id: mkothapalli
 name:
   first: Murali
   last: Kothapalli
-email: mkothapalli@renci.org
+email: fake@email.com
 title: Software Engineer
-office: 
-  location: 604
-  phone: 919-445-8516
+phone: 919-445-8516
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

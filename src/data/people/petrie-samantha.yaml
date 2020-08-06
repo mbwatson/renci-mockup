@@ -2,13 +2,10 @@ id: spetrie
 name:
   first: Samantha
   last: Petrie
-email: spetrie@renci.org
+email: fake@email.com
 title: Student Intern, Office of the Director
-office: 
-  location: 648
-  phone: 919-445-6384
+phone: 919-445-6384
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: what
+  github: nope
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

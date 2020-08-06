@@ -2,13 +2,10 @@ id: jjames
 name: 
   first: Justin
   last: James
-email: jjames@renci.org
+email: fake@email.com
 title: Senior Application Engineer
-office: 
-  location: 543
-  phone: 919-445-1234
+phone: 919-445-1234
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

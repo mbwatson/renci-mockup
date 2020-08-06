@@ -2,13 +2,10 @@ id: kthareja
 name:
   first: Komal
   last: Thareja
-email: kthareja@renci.org
+email: fake@email.com
 title: Distributed Systems Software Engineer
-office: 
-  location: 812
-  phone: 919-445-0760
+phone: 919-445-0760
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

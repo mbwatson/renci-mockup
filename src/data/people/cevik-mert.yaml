@@ -2,13 +2,10 @@ id: mcevik
 name: 
   first: Mert
   last: Cevik
-email: mcevik@renci.org
+email: fake@email.com
 title: Sr Linux &amp; Network Sys Admin
-office: 
-  location: 100
-  phone: 919-445-0686
+phone: 919-445-0686
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

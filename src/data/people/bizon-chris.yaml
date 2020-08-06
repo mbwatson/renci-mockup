@@ -2,13 +2,10 @@ id: cbizon
 name: 
   first: Chris
   last: Bizon
-email: cbizon@renci.org
+email: fake@email.com
 title: Director of Analytics and Data Science
-office: 
-  location: 343
-  phone: 919-445-8745
+phone: 919-445-8745
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

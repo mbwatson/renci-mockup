@@ -2,13 +2,10 @@ id: ccalloway
 name: 
   first: Chris
   last: Calloway
-email: ccalloway@renci.org
+email: fake@email.com
 title: Applications Analyst
-office: 
-  location: 845
-  phone: 919-445-6253
+phone: 919-445-6253
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

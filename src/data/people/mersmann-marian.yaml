@@ -2,13 +2,10 @@ id: mmersmann
 name:
   first: Marian
   last: Mersmann
-email: mmersmann@renci.org
+email: fake@email.com
 title: Research Project Coordinator
-office: 
-  location: 862
-  phone: 919-445-1367
+phone: 919-445-1367
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: what
+  github: nope
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

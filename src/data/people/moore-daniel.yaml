@@ -2,13 +2,10 @@ id: dmoore
 name:
   first: Daniel
   last: Moore
-email: dmoore@renci.org
+email: fake@email.com
 title: Applications Engineer
-office: 
-  location: 331
-  phone: 919-445-1063
+phone: 919-445-1063
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: what
+  github: nope
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

@@ -2,13 +2,10 @@ id: arajasekar
 name:
   first: Arcot
   last: Rajasekar
-email: arajasekar@renci.org
+email: fake@email.com
 title: Chief Domain Scientist, Data Grid Technologies
-office: 
-  location: 150
-  phone: 919-445-2038
+phone: 919-445-2038
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: what
+  github: nope
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

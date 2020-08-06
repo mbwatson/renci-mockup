@@ -2,13 +2,10 @@ id: bzhou
 name:
   first: Bo
   last: Zhou
-email: bzhou@renci.org
+email: fake@email.com
 title: Web Intern
-office: 
-  location: 456
-  phone: 919-445-6257
+phone: 919-445-6257
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

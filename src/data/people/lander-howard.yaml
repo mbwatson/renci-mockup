@@ -2,13 +2,10 @@ id: hlander
 name:
   first: Howard
   last: Lander
-email: hlander@renci.org
+email: fake@email.com
 title: Senior Research Software Developer
-office: 
-  location: 447
-  phone: 919-445-5410
+phone: 919-445-5410
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

@@ -2,13 +2,10 @@ id: plinebaugh
 name:
   first: Paul
   last: Linebaugh
-email: plinebaugh@renci.org
+email: fake@email.com
 title: Cloud and Linux System Administrator
-office: 
-  location: 810
-  phone: 919-445-3572
+phone: 919-445-3572
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

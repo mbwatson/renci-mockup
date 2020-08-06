@@ -2,13 +2,10 @@ id: bhurst
 name: 
   first: Bonnie
   last: Hurst
-email: bhurst@renci.org
+email: fake@email.com
 title: Senior Research Project Manager
-office: 
-  location: 765
-  phone: 919-445-0861
+phone: 919-445-0861
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

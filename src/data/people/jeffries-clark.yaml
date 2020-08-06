@@ -2,13 +2,10 @@ id: cjeffries
 name:
   first: Clark
   last: Jeffries
-email: cjeffries@renci.org
+email: fake@email.com
 title: Grid Developer - Bioinformatics
-office: 
-  location: 750
-  phone: 919-445-4647
+phone: 919-445-4647
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

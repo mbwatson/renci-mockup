@@ -2,13 +2,10 @@ id: dfiler
 name: 
   first: Dayne
   last: Filer
-email: dfiler@renci.org
+email: fake@email.com
 title: Graduate Research Assistant
-office: 
-  location: 881
-  phone: 919-445-8485
+phone: 919-445-8485
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

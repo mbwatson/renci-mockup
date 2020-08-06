@@ -2,13 +2,10 @@ id: sfirrincieli
 name: 
   first: Stephen
   last: Firrincieli
-email: sfirrincieli@renci.org
+email: fake@email.com
 title: Student Intern, Informatics and Software Development
-office: 
-  location: 456
-  phone: 919-445-6637
+phone: 919-445-6637
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

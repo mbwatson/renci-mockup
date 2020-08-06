@@ -2,13 +2,10 @@ id: lstillwell
 name:
   first: Lisa
   last: Stillwell
-email: lstillwell@renci.org
+email: fake@email.com
 title: Research Software Developer
-office: 
-  location: 834
-  phone: 919-445-8504
+phone: 919-445-8504
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

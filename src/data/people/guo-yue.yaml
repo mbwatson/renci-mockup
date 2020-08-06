@@ -2,13 +2,10 @@ id: yguo
 name: 
   first: Yue
   last: Guo
-email: yguo@renci.org
+email: fake@email.com
 title: Graduate Student Research Assistant, Office of the Director
-office: 
-  location: 172
-  phone: 919-445-2824
+phone: 919-445-2824
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

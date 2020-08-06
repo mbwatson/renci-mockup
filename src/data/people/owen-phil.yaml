@@ -2,13 +2,10 @@ id: powen
 name:
   first: Phil
   last: Owen
-email: powen@renci.org
+email: fake@email.com
 title: Research Software Architect
-office: 
-  location: 182
-  phone: 919-445-8417
+phone: 919-445-8417
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: what
+  github: nope
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

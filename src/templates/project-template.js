@@ -8,6 +8,7 @@ import { ArticlePreview } from '../components/news'
 export default ({ data, pageContext }) => {
     const { projectsYaml: {
         name,
+        email,
         description,
         online_presence,
         news,
@@ -17,6 +18,7 @@ export default ({ data, pageContext }) => {
         <Fragment>
             <Hero>
                 <Title>{ name }</Title>
+                <div>{ email }</div>
                 <Paragraph>
                     { description }
                 </Paragraph>
@@ -57,6 +59,7 @@ export const projectQuery = graphql`
     query($id: String!) {
         projectsYaml( id: { eq: $id }) {
             name
+            email
             description
             online_presence {
                 url

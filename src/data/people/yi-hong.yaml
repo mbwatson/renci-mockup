@@ -2,13 +2,10 @@ id: hyi
 name:
   first: Hong
   last: Yi
-email: hyi@renci.org
+email: fake@email.com
 title: Senior Research Scientist
-office: 
-  location: 716
-  phone: 919-445-0800
+phone: 919-445-0800
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

@@ -2,13 +2,10 @@ id: efu
 name: 
   first: Erica
   last: Fu
-email: efu@renci.org
+email: fake@email.com
 title: Systems Software Engineer
-office: 
-  location: 188
-  phone: 919-445-2625
+phone: 919-445-2625
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

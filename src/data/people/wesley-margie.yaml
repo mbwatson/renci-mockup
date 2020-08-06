@@ -2,13 +2,10 @@ id: mwesley
 name:
   first: Margie
   last: Wesley
-email: mwesley@renci.org
+email: fake@email.com
 title: Accountant
-office: 
-  location: 515
-  phone: 919-445-2360
+phone: 919-445-2360
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

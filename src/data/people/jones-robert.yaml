@@ -2,13 +2,10 @@ id: rjones
 name:
   first: Robert
   last: Jones
-email: rjones@renci.org
+email: fake@email.com
 title: Systems Specialist
-office: 
-  location: 987
-  phone: 919-445-1683
+phone: 919-445-1683
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

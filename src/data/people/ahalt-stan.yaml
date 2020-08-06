@@ -3,15 +3,12 @@ name:
   first: Stan
   last: Ahalt
 photo: ahalt-stan.jpg
-email: ahalt@renci.org
+email: fake@email.com
 title: Director
-office: 
-  location: 583
-  phone: 919-445-8828
+phone: 919-445-8828
 online_presence:
-  twitter_username: tester
-  github_username: test
-  url: http://example.com
+  twitter: tester
+  github: test
   instagram: tester
   linkedin: what
   youtube: nope

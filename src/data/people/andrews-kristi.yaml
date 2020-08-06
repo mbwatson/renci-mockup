@@ -3,13 +3,10 @@ name:
   first: Kristi
   last: Andrews
 photo: andrews-kristi.jpg
-email: kandrews@renci.org
+email: fake@email.com
 title: Finance Manager
-office: 
-  location: 204
-  phone: 919-445-8775
+phone: 919-445-8775
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

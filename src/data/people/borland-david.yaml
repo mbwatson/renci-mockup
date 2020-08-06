@@ -2,13 +2,10 @@ id: dborland
 name: 
   first: David
   last: Borland
-email: dborland@renci.org
+email: fake@email.com
 title: Senior Visualization Researcher
-office: 
-  location: 111
-  phone: 919-445-1111
+phone: 919-445-1111
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

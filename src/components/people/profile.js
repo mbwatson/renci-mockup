@@ -69,8 +69,8 @@ export const Profile = ({ name, title, email, online_presence, photo, phone }) =
             <Footer>
                 <SocialLinks
                     url={ online_presence.url }
-                    twitter={ online_presence.twitter_username }
-                    github={ online_presence.github_username }
+                    twitter={ online_presence.twitter }
+                    github={ online_presence.github }
                     instagram={ online_presence.instagram }
                     linkedin={ online_presence.linkedin }
                     youtube={ online_presence.youtube }

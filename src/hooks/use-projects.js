@@ -6,6 +6,7 @@ const projectsQuery = graphql`{
             node {
                 id
                 name
+                email
                 description
                 online_presence {
                     url

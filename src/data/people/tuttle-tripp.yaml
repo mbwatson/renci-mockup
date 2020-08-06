@@ -2,13 +2,10 @@ id: ttuttle
 name:
   first: Tripp
   last: Tuttle
-email: ttuttle@renci.org
+email: fake@email.com
 title: Graduate Research Assistant
-office: 
-  location: 276
-  phone: 919-445-7805
+phone: 919-445-7805
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

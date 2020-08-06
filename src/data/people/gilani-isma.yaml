@@ -2,13 +2,10 @@ id: igilani
 name: 
   first: Isma
   last: Gilani
-email: igilani@renci.org
+email: fake@email.com
 title: Research Software Developer
-office: 
-  location: 814
-  phone: 919-445-4820
+phone: 919-445-4820
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: whoami
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

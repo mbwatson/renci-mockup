@@ -2,13 +2,10 @@ id: rhaggerty
 name: 
   first: Ray
   last: Haggerty
-email: rhaggerty@renci.org
+email: fake@email.com
 title: Graduate Research Assistant
-office: 
-  location: 812
-  phone: 919-445-7765
+phone: 919-445-7765
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter: 
+  github: not_real
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'

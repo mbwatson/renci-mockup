@@ -8,8 +8,9 @@ export const personFragment = graphql`
             last
         }
         fullName
-        email
         title
+        email
+        phone
         photo {
             childImageSharp {
                 fixed(width: 200, height: 200) {

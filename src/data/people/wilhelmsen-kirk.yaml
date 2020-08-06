@@ -2,13 +2,10 @@ id: kwilhelmsen
 name:
   first: Kirk
   last: Wilhelmsen
-email: kwilhelmsen@renci.org
+email: fake@email.com
 title: Chief Domain Scientists, Genomics, and Director, Biomedical Research Initiatives
-office: 
-  location: 654
-  phone: 919-445-1416
+phone: 919-445-1416
 online_presence:
-  twitter_username:
-  github_username: 
-  url: 
+  twitter:
+  github: 
 bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
