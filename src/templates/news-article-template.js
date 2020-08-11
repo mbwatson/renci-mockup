@@ -109,13 +109,6 @@ export const newsQuery = graphql`
                         path
                     }
                 }
-                groups {
-                    id
-                    name
-                    fields {
-                        path
-                    }
-                }
                 projects {
                     id
                     name
@@ -124,13 +117,6 @@ export const newsQuery = graphql`
                     }
                 }
                 teams {
-                    id
-                    name
-                    fields {
-                        path
-                    }
-                }
-                collaborations {
                     id
                     name
                     fields {

@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import { Container, Article, Section, Hero, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { SocialLinks } from '../components/social-links'
 import { ArticlePreview } from '../components/news'
+import { ArrowLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const { projectsYaml: {
@@ -11,9 +12,19 @@ export default ({ data, pageContext }) => {
         email,
         description,
         online_presence,
+        projects,
         news,
     }} = data
+    const [currentProjects, setCurrentProjects] = useState([])
+    const [pastProjects, setPastProjects] = useState([])
     
+    useEffect(() => {
+        if (projects) {
+            setCurrentProjects(projects.filter(project => !project.archived))
+            setPastProjects(projects.filter(project => project.archived))
+        }
+    }, [projects])
+
     return (
         <Fragment>
             <Hero>
@@ -50,6 +61,39 @@ export default ({ data, pageContext }) => {
                     )
                 }
 
+                {
+                    projects && (
+                        <Section title="Projects">
+                            {
+                                currentProjects.length > 0 && (
+                                    <Article title="Current">
+                                        {
+                                            currentProjects.map(project => (
+                                                <Fragment key={ project.id }>
+                                                    <ArrowLink to={ project.fields.path } text={ project.name } /> <br/>
+                                                </Fragment>
+                                            ))
+                                        }
+                                    </Article>
+                                )
+                            }
+                            {
+                                pastProjects.length > 0 && (
+                                    <Article title="Past">
+                                        {
+                                            pastProjects.map(project => (
+                                                <Fragment key={ project.id }>
+                                                    <ArrowLink to={ project.fields.path } text={ project.name } /> <br/>
+                                                </Fragment>
+                                            ))
+                                        }
+                                    </Article>
+                                )
+                            }
+                        </Section>
+                    )
+                }
+
             </Container>
         </Fragment>
     )
@@ -65,6 +109,13 @@ export const projectQuery = graphql`
                 url
                 twitter
                 github
+            }
+            projects {
+                id
+                name
+                fields {
+                    path
+                }
             }
             news {
                 id

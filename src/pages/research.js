@@ -3,11 +3,10 @@ import { SEO } from '../components/seo'
 import { Container, Section, Hero, Article } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { ArrowLink } from '../components/link'
-import { useCollaborations, useGroups } from '../hooks'
+import { useProjects } from '../hooks'
 
 const ResearchPage = () => {
-    const groups = useGroups()
-    const collaborations = useCollaborations()
+    const projects = useProjects()
 
     return (
         <Fragment>
@@ -52,26 +51,16 @@ const ResearchPage = () => {
                         </Paragraph>
                     </Article>
 
-                    <Article title="Research Groups">
+                    <Article title="Projects">
                         <Paragraph>
                             {
-                                groups.map(group => (
-                                    <Fragment key={ group.id }>
-                                        <ArrowLink to={ group.fields.path } text={ group.name } /> <br/>
+                                projects.map(project => (
+                                    <Fragment key={ project.id }>
+                                        <ArrowLink to={ project.fields.path } text={ project.name } /> <br/>
                                     </Fragment>
                                 ))
                             }
                         </Paragraph>
-                    </Article>
-
-                    <Article title="Collaborations & Team Science">
-                        {
-                            collaborations.map(collaboration => (
-                                <Fragment key={ collaboration.id }>
-                                    <ArrowLink to={ collaboration.fields.path } text={ collaboration.name } /> <br/>
-                                </Fragment>
-                            ))
-                        }
                     </Article>
 
                 </Section>

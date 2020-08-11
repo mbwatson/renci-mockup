@@ -16,9 +16,7 @@ exports.onCreateNode = ({ node, actions }) => {
         }
     }
     if (node.internal.type === 'PeopleYaml') { createNodeField({ node, name: 'path', value: `/people/${ node.id }` }) }
-    if (node.internal.type === 'GroupsYaml') { createNodeField({ node, name: 'path', value: `/research/${ node.id }` }) }
     if (node.internal.type === 'TeamsYaml') { createNodeField({ node, name: 'path', value: `/teams/${ node.id }` }) }
-    if (node.internal.type === 'CollaborationsYaml') { createNodeField({ node, name: 'path', value: `/collaborations/${ node.id }` }) }
     if (node.internal.type === 'ProjectsYaml') { createNodeField({ node, name: 'path', value: `/projects/${ node.id }` }) }
 }
 
@@ -27,8 +25,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     const typeDefs = `
         type PeopleYaml implements Node {
             teams: [TeamsYaml] @link(by: "members.id", from: "id")
-            groups: [GroupsYaml] @link(by: "members.id", from: "id")
-            collaborations: [CollaborationsYaml] @link(by: "members.id", from: "id")
+            projects: [ProjectsYaml] @link(by: "members.id", from: "id")
         }
     `
     createTypes(typeDefs)
@@ -54,25 +51,15 @@ exports.createResolvers = ({ createResolvers }) => {
                     })
                 }
             },
-            groups: {
-                type: ["GroupsYaml"],
+            projects: {
+                type: ["ProjectsYaml"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
                         query: { filter: { members: { elemMatch: { id: { eq: source.id } } } } },
-                        type: "GroupsYaml",
+                        type: "ProjectsYaml",
                         firstOnly: false,
                     })
                 }
-            },
-            collaborations: {
-                type: ["CollaborationsYaml"],
-                resolve(source, args, context, info) {
-                    return context.nodeModel.runQuery({
-                        query: { filter: { members: { elemMatch: { id: { eq: source.id } } } } },
-                        type: "CollaborationsYaml",
-                        firstOnly: false,
-                    })
-                },
             },
             news: {
                 type: ["MarkdownRemark"],
@@ -89,38 +76,6 @@ exports.createResolvers = ({ createResolvers }) => {
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
                         query: { filter: { frontmatter: { author: { elemMatch: { id: { eq: source.id } } } } } },
-                        type: "MarkdownRemark",
-                        firstOnly: false,
-                    })
-                }
-            },
-        },
-        GroupsYaml: {
-            news: {
-                type: ["MarkdownRemark"],
-                resolve(source, args, context, info) {
-                    return context.nodeModel.runQuery({
-                        query: {
-                            sort: { fields: ['frontmatter.publish_date'], order: ['DESC'] },
-                            filter: {
-                                frontmatter: {
-                                    publish_date: {  lte: dateString },
-                                    groups: { elemMatch: { id: { eq: source.id } } }
-                                }
-                            }
-                        },
-                        type: "MarkdownRemark",
-                        firstOnly: false,
-                    })
-                }
-            },
-        },
-        CollaborationsYaml: {
-            news: {
-                type: ["MarkdownRemark"],
-                resolve(source, args, context, info) {
-                    return context.nodeModel.runQuery({
-                        query: { filter: { frontmatter: { collaborations: { elemMatch: { id: { eq: source.id } } } } } },
                         type: "MarkdownRemark",
                         firstOnly: false,
                     })
@@ -145,10 +100,8 @@ exports.createResolvers = ({ createResolvers }) => {
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
     const personTemplate = path.resolve(`src/templates/person-template.js`)
-    const groupTemplate = path.resolve(`src/templates/group-template.js`)
     const teamTemplate = path.resolve(`src/templates/team-template.js`)
     const projectTemplate = path.resolve(`src/templates/project-template.js`)
-    const collaborationTemplate = path.resolve(`src/templates/collaboration-template.js`)
     const newsArticleTemplate = path.resolve(`src/templates/news-article-template.js`)
     const eventTemplate = path.resolve(`src/templates/event-template.js`)
     const eventsFutureTemplate = path.resolve(`src/templates/events-future-template.js`)
@@ -167,14 +120,6 @@ exports.createPages = ({ actions, graphql }) => {
                     }
                 }
             }
-            groups: allGroupsYaml(sort: {fields: name, order: ASC}) {
-                edges {
-                    node {
-                        id
-                        name
-                    }
-                }
-            }
             teams: allTeamsYaml(sort: {fields: name, order: ASC}) {
                 edges {
                     node {
@@ -184,14 +129,6 @@ exports.createPages = ({ actions, graphql }) => {
                 }
             }
             projects: allProjectsYaml(sort: {fields: name, order: DESC}) {
-                edges {
-                    node {
-                        id
-                        name
-                    }
-                }
-            }
-            collaborations: allCollaborationsYaml(sort: {fields: name, order: ASC}) {
                 edges {
                     node {
                         id
@@ -254,25 +191,6 @@ exports.createPages = ({ actions, graphql }) => {
         })
 
         /**
-         * Create group pages
-         */
-
-        const groups = result.data.groups.edges
-        console.log(`\nCreating group pages...`)
-        groups.forEach(({ node }) => {
-            const path = `/research/${ node.id }`
-            console.log(` - ${ node.name } (${ path })`)
-            createPage({
-                id: node.id,
-                path: path,
-                component: groupTemplate,
-                context: { // additional data passed via context
-                    id: node.id,
-                },
-            })
-        })
-
-        /**
          * Create project pages
          */
 
@@ -304,25 +222,6 @@ exports.createPages = ({ actions, graphql }) => {
                 id: node.id,
                 path: path,
                 component: teamTemplate,
-                context: { // additional data passed via context
-                    id: node.id,
-                },
-            })
-        })
-
-        /**
-         * Create collaboration pages
-         */
-
-        const collaborations = result.data.collaborations.edges
-        console.log(`\nCreating collaboration pages...`)
-        collaborations.forEach(({ node }) => {
-            const path = `/collaborations/${ node.id }`
-            console.log(` - ${ node.name } (${ path })`)
-            createPage({
-                id: node.id,
-                path: path,
-                component: collaborationTemplate,
                 context: { // additional data passed via context
                     id: node.id,
                 },
@@ -404,10 +303,8 @@ exports.createPages = ({ actions, graphql }) => {
 
         return [
             ...people,
-            ...groups,
             ...projects,
             ...teams,
-            ...collaborations,
             ...articles,
             ...events,
         ]

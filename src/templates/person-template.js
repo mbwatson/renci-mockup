@@ -128,20 +128,6 @@ export const personQuery = graphql`
                     path
                 }
             }
-            groups {
-                id
-                name
-                fields {
-                    path
-                }
-            }
-            collaborations {
-                id
-                name
-                fields {
-                    path
-                }
-            }
             news {
                 id
                 fields {

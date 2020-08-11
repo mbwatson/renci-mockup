@@ -11,9 +11,7 @@ module.exports = {
         { resolve: `gatsby-source-filesystem`, options: { name: `images`, path: `${ __dirname }/src/images` }, },
         { resolve: `gatsby-source-filesystem`, options: { name: `people`, path: `${ __dirname }/src/data/people` } },
         { resolve: `gatsby-source-filesystem`, options: { name: `teams`, path: `${ __dirname }/src/data/teams` } },
-        { resolve: `gatsby-source-filesystem`, options: { name: `groups`, path: `${ __dirname }/src/data/groups` } },
         { resolve: `gatsby-source-filesystem`, options: { name: `projects`, path: `${ __dirname }/src/data/projects` } },
-        { resolve: `gatsby-source-filesystem`, options: { name: `collaborations`, path: `${ __dirname }/src/data/collaborations` } },
         { resolve: `gatsby-source-filesystem`, options: { name: `news`, path: `${ __dirname }/src/data/news` } },
         { resolve: `gatsby-source-filesystem`, options: { name: `events`, path: `${ __dirname }/src/data/events` } },
         { resolve: `gatsby-source-filesystem`, options: { name: `careers`, path: `${ __dirname }/src/data/careers` } },
@@ -56,19 +54,14 @@ module.exports = {
         // Show members as people objects in full for team, group, and collaboration queries--not just the corresponding id
         "TeamsYaml.members": `PeopleYaml`, // Link team members to people // defaults to PeopleYaml.id unless specified otherwise
         "TeamsYaml.lead": `PeopleYaml`, // Link team leads to person
-        // GROUPS
-        "GroupsYaml.members": `PeopleYaml`, // Link group members to people
-        "GroupsYaml.lead": `PeopleYaml`, // Link group leads to person
-        "GroupsYaml.projects": `ProjectsYaml`, // Show projects in full for group queries
-        // COLLABORATIONS
-        "CollaborationsYaml.members": `PeopleYaml`, // Link collaborationmembers to people
-        "CollaborationsYaml.lead": `PeopleYaml`, // Link collaborationmembers to people
+        // PROJECTS
+        "ProjectsYaml.members": `PeopleYaml`, // Link group members to people
+        "ProjectsYaml.lead": `PeopleYaml`, // Link group leads to person
+        "ProjectsYaml.projects": `ProjectsYaml`, // Show projects in full for group queries
         // NEWS
         "MarkdownRemark.frontmatter.author": "PeopleYaml",
         "MarkdownRemark.frontmatter.people": "PeopleYaml",
-        "MarkdownRemark.frontmatter.groups": "GroupsYaml",
         "MarkdownRemark.frontmatter.projects": "ProjectsYaml",
         "MarkdownRemark.frontmatter.teams": "TeamsYaml",
-        "MarkdownRemark.frontmatter.collaborations": "CollaborationsYaml",
     },
 }
