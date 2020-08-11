@@ -7,22 +7,16 @@ module.exports = {
     plugins: [
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-styled-components`,
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `images`,
-                path: `${ __dirname }/src/images`,
-            },
-        },
         `gatsby-transformer-yaml`,
-        { resolve: `gatsby-source-filesystem`, options: { name: `people`, path: `${ __dirname }/src/data/people`, }, },
-        { resolve: `gatsby-source-filesystem`, options: { name: `teams`, path: `${ __dirname }/src/data/teams`, }, },
-        { resolve: `gatsby-source-filesystem`, options: { name: `groups`, path: `${ __dirname }/src/data/groups`, }, },
-        { resolve: `gatsby-source-filesystem`, options: { name: `projects`, path: `${ __dirname }/src/data/projects`, }, },
-        { resolve: `gatsby-source-filesystem`, options: { name: `collaborations`, path: `${ __dirname }/src/data/collaborations`, }, },
-        { resolve: `gatsby-source-filesystem`, options: { name: `news`, path: `${ __dirname }/src/data/news`, }, },
-        { resolve: `gatsby-source-filesystem`, options: { name: `events`, path: `${ __dirname }/src/data/events`, }, },
-        { resolve: `gatsby-source-filesystem`, options: { name: `careers`, path: `${ __dirname }/src/data/careers`, }, },
+        { resolve: `gatsby-source-filesystem`, options: { name: `images`, path: `${ __dirname }/src/images` }, },
+        { resolve: `gatsby-source-filesystem`, options: { name: `people`, path: `${ __dirname }/src/data/people` } },
+        { resolve: `gatsby-source-filesystem`, options: { name: `teams`, path: `${ __dirname }/src/data/teams` } },
+        { resolve: `gatsby-source-filesystem`, options: { name: `groups`, path: `${ __dirname }/src/data/groups` } },
+        { resolve: `gatsby-source-filesystem`, options: { name: `projects`, path: `${ __dirname }/src/data/projects` } },
+        { resolve: `gatsby-source-filesystem`, options: { name: `collaborations`, path: `${ __dirname }/src/data/collaborations` } },
+        { resolve: `gatsby-source-filesystem`, options: { name: `news`, path: `${ __dirname }/src/data/news` } },
+        { resolve: `gatsby-source-filesystem`, options: { name: `events`, path: `${ __dirname }/src/data/events` } },
+        { resolve: `gatsby-source-filesystem`, options: { name: `careers`, path: `${ __dirname }/src/data/careers` } },
         {
             resolve: `gatsby-transformer-remark`,
             options: {
