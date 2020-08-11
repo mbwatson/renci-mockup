@@ -11,7 +11,7 @@ const Wrapper = styled.div(({ theme }) => `
     justify-content: flex-start;
     & > * { margin: 0 0.25rem; }
     svg {
-        fill: ${ theme.color.primary.main };
+        fill: ${ theme.color.darkgrey };
     }
     a {
         transition: filter 250ms;
