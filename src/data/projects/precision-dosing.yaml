@@ -3,6 +3,8 @@ name: Precision Dosing
 email: fake@email.com
 description: this is a brief description of precision dosing. this is a brief description of precision dosing. this is a brief description of precision dosing. this is a brief description of precision dosing. this is a brief description of precision dosing. this is a brief description of precision dosing. this is a brief description of precision dosing. this is a brief description of precision dosing.  
 featuredImage: precision-dosing.jpg
+lead: 
+members: 
 online_presence:
   url: 
   github: https://github.com/renci/pds

@@ -2,6 +2,13 @@ id: ctmd
 name: DukeTIC Clinical Trial Management Dashboard
 email: fake@email.com
 description: this is a brief description of ctmd. this is a brief description of ctmd. this is a brief description of ctmd. this is a brief description of ctmd. this is a brief description of ctmd. this is a brief description of ctmd. this is a brief description of ctmd. this is a brief description of ctmd. this is a brief description of ctmd. 
+people:
+  lead: krobasky
+  contributors:
+    - dcarsey
+    - dborland
+    - mwatson
+    - hxu
 online_presence:
   url: 
   github: https://github.com/renci/ctmd

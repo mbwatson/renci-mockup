@@ -2,15 +2,15 @@ id: irods
 name: iRODS
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 featuredImage: irods.png
-lead: jcoposky
-members:
-  - jcoposky
-  - tgr
-  - aking
-  - dmoore
-  - jgill
-  - kdraughn
-  - jjames
+people:
+  lead: jcoposky
+  contributors:
+    - tgr
+    - aking
+    - dmoore
+    - jgill
+    - kdraughn
+    - jjames
 projects:
 online_presence:
   url: https://www.irods.org

@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { SEO } from '../components/seo'
 import { graphql } from 'gatsby'
 import { Container, Article, Section, Hero, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
@@ -13,6 +14,7 @@ export default ({ data, pageContext }) => {
         featuredImage,
         description,
         online_presence,
+        people,
         projects,
         news,
     }} = data
@@ -28,6 +30,7 @@ export default ({ data, pageContext }) => {
 
     return (
         <Fragment>
+            <SEO title={ name } />
             <Hero backgroundImage={ featuredImage && featuredImage.childImageSharp.fluid }>
                 <Title>{ name }</Title>
                 <div>{ email }</div>
@@ -39,7 +42,7 @@ export default ({ data, pageContext }) => {
             <Container>
                 <SocialLinks url={ online_presence.url } twitter={ online_presence.twitter } github={ online_presence.github } />
                 
-                <Section title="Project Details">
+                <Section title="Details">
                     <Article title="Description">
                         <Paragraph>{ description }</Paragraph>
                     </Article>
@@ -57,6 +60,28 @@ export default ({ data, pageContext }) => {
                                         </Fragment>
                                     )
                                 })
+                            }
+                        </Section>
+                    )
+                }
+
+
+                {
+                    people && (
+                        <Section title="Contributors">
+                            {
+                                people.lead && (
+                                    <Fragment>
+                                        <ArrowLink to={ `/people/${ people.lead.id }` } text={ `${ people.lead.fullName } (lead)` } /><br/>
+                                    </Fragment>
+                                )
+                            }
+                            {
+                                people.contributors.map(person => (
+                                    <Fragment key={ person.id }>
+                                        <ArrowLink to={ person.fields.path } text={ person.fullName } /> <br/>
+                                    </Fragment>
+                                ))
                             }
                         </Section>
                     )
@@ -102,7 +127,7 @@ export default ({ data, pageContext }) => {
 
 export const projectQuery = graphql`
     query($id: String!) {
-        projectsYaml( id: { eq: $id }) {
+        projectsYaml(id: { eq: $id }) {
             name
             email
             description
@@ -110,6 +135,22 @@ export const projectQuery = graphql`
                 childImageSharp {
                     fluid {
                         ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            people {
+                lead {
+                    id
+                    fullName
+                    fields {
+                        path
+                    }
+                }
+                contributors {
+                    id
+                    fullName
+                    fields {
+                        path
                     }
                 }
             }

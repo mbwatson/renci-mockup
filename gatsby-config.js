@@ -51,12 +51,11 @@ module.exports = {
         // `gatsby-plugin-offline`,
     ],
     mapping: {
-        // Show members as people objects in full for team, group, and collaboration queries--not just the corresponding id
         "TeamsYaml.members": `PeopleYaml`, // Link team members to people // defaults to PeopleYaml.id unless specified otherwise
         "TeamsYaml.lead": `PeopleYaml`, // Link team leads to person
         // PROJECTS
-        "ProjectsYaml.members": `PeopleYaml`, // Link group members to people
-        "ProjectsYaml.lead": `PeopleYaml`, // Link group leads to person
+        "ProjectsYaml.people.lead": `PeopleYaml`, // Link project lead to person
+        "ProjectsYaml.people.contributors": `PeopleYaml`, // Link project members to people
         "ProjectsYaml.projects": `ProjectsYaml`, // Show projects in full for group queries
         // NEWS
         "MarkdownRemark.frontmatter.author": "PeopleYaml",

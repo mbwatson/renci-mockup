@@ -2,7 +2,10 @@ id: cellfie
 name: Cellfie
 description: this is a brief description of cellfie. this is a brief description of cellfie. this is a brief description of cellfie. this is a brief description of cellfie. this is a brief description of cellfie. this is a brief description of cellfie. this is a brief description of cellfie. 
 email: fake@email.com
-parentProject: tx-science
+people:
+  lead: krobasky
+  contributors:
+    - mwatson
 online_presence:
   url: https://cellfie.renci.org
   github: https://github.com/RENCI/cellfie
