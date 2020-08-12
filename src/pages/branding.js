@@ -3,6 +3,7 @@ import { SEO } from '../components/seo'
 import { Container, Section, Article } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { Select, Option } from '../components/form'
+import { Button } from '../components/buttons'
 
 const BrandingPage = () => {
     return (
@@ -25,6 +26,8 @@ const BrandingPage = () => {
                 { value: 4, label: 'Pariatur, doloribus, voluptatum' },
                 { value: 5, label: 'A, fuga, debitis' },
             ]}/>
+
+            <Button>Whatever</Button>
 
             <Section title="Personality">
                 <Article title="Bold">

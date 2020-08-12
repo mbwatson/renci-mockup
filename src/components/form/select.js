@@ -24,11 +24,7 @@ export const Option = styled.option``
 export const Select = ({ name, id, options, ...props }) => {
     return (
         <Wrapper name={ name } id={ id } { ...props }>
-            {
-                options.map(({ value, label }) => (
-                    <Option key={ value } value={ value }>{ label }</Option>
-                ))
-            }
+            { options.map(({ value, label }) => <Option key={ value } value={ value }>{ label }</Option>) }
         </Wrapper>
     )
 }
