@@ -9,8 +9,8 @@ export default ({ data, pageContext }) => {
     const { teamsYaml: {
         name,
         description,
+        featuredImage,
         people,
-        featuredImage
     }} = data
     
     return (
@@ -49,11 +49,18 @@ export default ({ data, pageContext }) => {
     )
 }
 
-export const groupQuery = graphql`
+export const teamQuery = graphql`
     query($id: String!) {
         teamsYaml( id: { eq: $id }) {
             name
             description
+            featuredImage {
+                childImageSharp {
+                    fluid {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
             people {
                 id
                 fullName
