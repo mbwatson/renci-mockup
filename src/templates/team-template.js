@@ -9,8 +9,7 @@ export default ({ data, pageContext }) => {
     const { teamsYaml: {
         name,
         description,
-        members,
-        lead,
+        people,
         featuredImage
     }} = data
     
@@ -32,11 +31,11 @@ export default ({ data, pageContext }) => {
                     
                     <Article title="Members">
                         {
-                            members.map(person => (
+                            people.map(person => (
                                 <Fragment key={ person.id }>
                                     <ArrowLink
                                         to={ `/people/${ person.id }` }
-                                        text={ `${ person.fullName } ${ lead && person.id === lead.id ? '(lead)' : '' }` }
+                                        text={ person.fullName }
                                     /> <br/>
                                 </Fragment>
                             ))
@@ -45,7 +44,7 @@ export default ({ data, pageContext }) => {
                 </Section>
 
                 <Section title="Team Members">
-                    <StaffList staff={ members } />    
+                    <StaffList staff={ people } />    
                 </Section>
 
             </Container>
@@ -58,14 +57,7 @@ export const groupQuery = graphql`
         teamsYaml( id: { eq: $id }) {
             name
             description
-            lead {
-                id
-                name {
-                    first
-                    last
-                }
-            }
-            members {
+            people {
                 id
                 fullName
                 name {

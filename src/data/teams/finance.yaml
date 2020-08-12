@@ -1,8 +1,7 @@
 id: finance
 name: Finance
 description: Finance lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsum!
-lead: mwesley
-members:
+people:
   - mwesley
   - kandrews
   - tsampson

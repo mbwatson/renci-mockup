@@ -7,7 +7,7 @@ const teamsQuery = graphql`{
                 id
                 name
                 description
-                members {
+                people {
                     id
                     name {
                         first

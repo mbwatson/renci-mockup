@@ -52,11 +52,10 @@ module.exports = {
     ],
     mapping: {
         // PROJECTS
-        "ProjectsYaml.people": `PeopleYaml`, // Link project contributors to people
+        "ProjectsYaml.people": `PeopleYaml`, // Link project contributors to people // defaults to PeopleYaml.id unless specified otherwise
         "ProjectsYaml.projects": `ProjectsYaml`, // Show projects in full for group queries
         // Teams
-        "TeamsYaml.members": `PeopleYaml`, // Link team members to people // defaults to PeopleYaml.id unless specified otherwise
-        "TeamsYaml.lead": `PeopleYaml`, // Link team leads to person
+        "TeamsYaml.people": `PeopleYaml`, // Link team members to people
         // NEWS
         "MarkdownRemark.frontmatter.author": `PeopleYaml`,
         "MarkdownRemark.frontmatter.people": `PeopleYaml`,

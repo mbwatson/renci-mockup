@@ -24,8 +24,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions
     const typeDefs = `
         type PeopleYaml implements Node {
-            teams: [TeamsYaml] @link(by: "members.id", from: "id")
-            projects: [ProjectsYaml] @link(by: "members.id", from: "id")
+            teams: [TeamsYaml] @link(by: "people.id", from: "id")
+            projects: [ProjectsYaml] @link(by: "people.id", from: "id")
         }
     `
     createTypes(typeDefs)
@@ -45,7 +45,7 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ["TeamsYaml"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
-                        query: { filter: { members: { elemMatch: { id: { eq: source.id } } } } },
+                        query: { filter: { people: { elemMatch: { id: { eq: source.id } } } } },
                         type: "TeamsYaml",
                         firstOnly: false,
                     })
