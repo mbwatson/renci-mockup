@@ -11,7 +11,7 @@ import { useAvatar } from '../hooks'
 
 export default ({ data, pageContext }) => {
     const {
-        peopleYaml: { fullName, photo, title, email, phone, online_presence, bio, groups, collaborations, teams, news, authoredNews }
+        peopleYaml: { fullName, photo, title, email, phone, online_presence, bio, projects, teams, news, authoredNews }
     } = data
     const avatar = useAvatar()
     const allNews = [].concat(news, authoredNews).filter(n => n !== null)
@@ -37,40 +37,26 @@ export default ({ data, pageContext }) => {
 
             <Section title="Contributions">
                 {
-                    groups && (
-                        <Article title="Research Groups">
-                            {
-                                groups.map(group => (
-                                    <Fragment key={ group.id }>
-                                        <ArrowLink to={ group.fields.path } text={ group.name } /> <br/>
-                                    </Fragment>
-                                ))
-                            }
-                        </Article>
-                    )
-                }
-
-                {
-                    collaborations && (
-                        <Article title="Collaborations">
-                            {
-                                collaborations.map(collaboration => (
-                                    <Fragment key={ collaboration.id }>
-                                        <ArrowLink to={ collaboration.fields.path } text={ collaboration.name } /> <br/>
-                                    </Fragment>
-                                ))
-                            }
-                        </Article>
-                    )
-                }
-
-                {
                     teams && (
                         <Article title="Teams">
                             {
                                 teams.map(team => (
                                     <Fragment key={ team.id }>
                                         <ArrowLink to={ team.fields.path } text={ team.name } /> <br/>
+                                    </Fragment>
+                                ))
+                            }
+                        </Article>
+                    )
+                }
+                
+                {
+                    projects && (
+                        <Article title="Projects">
+                            {
+                                projects.map(project => (
+                                    <Fragment key={ project.id }>
+                                        <ArrowLink to={ project.fields.path } text={ project.name } /> <br/>
                                     </Fragment>
                                 ))
                             }
@@ -122,6 +108,13 @@ export const personQuery = graphql`
             }
             bio
             teams {
+                id
+                name
+                fields {
+                    path
+                }
+            }
+            projects {
                 id
                 name
                 fields {

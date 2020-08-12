@@ -33,10 +33,7 @@ export default ({ data, pageContext }) => {
                         {
                             people.map(person => (
                                 <Fragment key={ person.id }>
-                                    <ArrowLink
-                                        to={ `/people/${ person.id }` }
-                                        text={ person.fullName }
-                                    /> <br/>
+                                    <ArrowLink to={ person.fields.path } text={ person.fullName } /> <br/>
                                 </Fragment>
                             ))
                         }
