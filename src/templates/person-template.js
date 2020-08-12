@@ -11,10 +11,13 @@ import { useAvatar } from '../hooks'
 
 export default ({ data, pageContext }) => {
     const {
-        peopleYaml: { fullName, photo, title, email, phone, online_presence, bio, projects, teams, news, authoredNews }
+        peopleYaml: {
+            fullName, photo, title, email, phone, online_presence, bio,
+            projects, teams, news, authoredNews
+        }
     } = data
     const avatar = useAvatar()
-    const allNews = [].concat(news, authoredNews).filter(n => n !== null)
+    const allNews = [].concat(news, authoredNews).filter(item => item !== null)
 
     return (
         <Container>
@@ -49,7 +52,7 @@ export default ({ data, pageContext }) => {
                         </Article>
                     )
                 }
-                
+
                 {
                     projects && (
                         <Article title="Projects">
@@ -66,7 +69,7 @@ export default ({ data, pageContext }) => {
             </Section>
 
             {
-                allNews && (
+                allNews.length > 0 && (
                     <Section title="Recent News">
                         {
                             allNews.slice(0, 2).map((article, i) => (
