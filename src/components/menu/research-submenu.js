@@ -14,6 +14,7 @@ const NavHeading = styled(Heading)`
 `
 
 const NavList = styled.ul`
+    display: block;
     list-style-type: none;
     margin: 0;
 `
@@ -28,9 +29,9 @@ export const ResearchSubmenu = () => {
     return (
         <Grid fluid component="nav" style={{ width: '100%' }}>
             <Row>
-                <Col xs={ 12 } md={ 6 } component={ NavColumn }>
-                    <NavHeading>Research Groups</NavHeading>
-                    <NavList style={{ listStyleType: 'none' }}>
+                <Col xs={ 12 } component={ NavColumn }>
+                    <NavHeading>Research at RENCI</NavHeading>
+                    <NavList style={{ listStyleType: 'none', columnCount: 3 }}>
                         { projects.map((project, i) => <NavListItem key={ project.id }><ArrowLink to={ project.fields.path } text={ project.name } /></NavListItem>) }
                     </NavList>
                 </Col>

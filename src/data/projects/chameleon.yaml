@@ -2,6 +2,7 @@ id: chameleon
 name: Chameleon
 description: this is a brief description of chameleon. this is a brief description of chameleon. this is a brief description of chameleon. this is a brief description of chameleon. this is a brief description of chameleon. this is a brief description of chameleon. this is a brief description of chameleon. this is a brief description of chameleon. this is a brief description of chameleon. 
 email: fake@email.com
+featuredImage: chameleon.jpg
 online_presence:
   url: https://www.chameleoncloud.org
   github: chameleoncloud
