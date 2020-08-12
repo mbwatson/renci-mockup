@@ -1,6 +1,7 @@
 id: admin
 name: Administrative
-description: Lorem adminipsum dolor sit amet!
+description: >
+  Administrum lorem adminipsum dolor sit amet!
 people:
   - amieczkowska
   - amieczkowska

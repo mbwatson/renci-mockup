@@ -1,6 +1,7 @@
 id: irods
 name: iRODS
-description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+description: >
+  iRODS is whaat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 featuredImage: irods.png
 people:
   - jcoposky

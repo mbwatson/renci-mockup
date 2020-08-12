@@ -2,7 +2,8 @@ id: data-translator
 name: Data Translator
 email: fake@email.com
 featuredImage: data-translator.jpg
-description: this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator.
+description: >
+  this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator.
 people:
   - cbizon
   - scox

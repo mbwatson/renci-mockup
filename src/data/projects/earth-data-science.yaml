@@ -2,7 +2,8 @@ id: earth-data-science
 name: Earth Data Science
 email: fake@email.com
 featuredImage: earth-data-science.jpg
-description: this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science.  
+description: >
+  this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science. this is a brief description of earth data science.  
 people:
   - clenhardt
   - bblanton

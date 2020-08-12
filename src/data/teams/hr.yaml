@@ -1,6 +1,7 @@
 id: hr
 name: Human Resources
-description: lorem  
+description: >
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem voluptas, nemo vel aspernatur facere magnam neque sequi quod cum, aliquam non labore architecto, quisquam ea tempore quis, quas dicta fugiat! Blanditiis possimus, quia odio praesentium veritatis accusamus? Perspiciatis, magni laboriosam voluptatibus! Nostrum cumque esse, assumenda error iure aperiam natus nam nihil! Obcaecati repudiandae nesciunt, quisquam cum voluptatem ullam dolore rem blanditiis ea consectetur molestias laudantium accusamus, quam aliquid ipsum libero magnam dicta deserunt commodi veritatis! Voluptatibus fugit officia expedita iure, velit quo architecto veniam deleniti rem dolor, illum itaque quasi aspernatur earum molestiae molestias labore consequuntur? Quisquam sapiente, laboriosam temporibus.
 people:
   - jtodd
   - abradfield

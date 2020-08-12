@@ -1,6 +1,7 @@
 id: management
 name: Management Team
-description: Lorem ipsum dolor!!
+description: >
+  Lorem ipsum dolor!! Lorem ipsum dolor!! Lorem ipsum dolor!! Lorem ipsum dolor!! Lorem ipsum dolor!! Lorem ipsum dolor!!
 people:
   - kandrews
   - ibaldin

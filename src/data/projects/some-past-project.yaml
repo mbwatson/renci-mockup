@@ -2,7 +2,8 @@ id: some-past-project
 name: Some Past Project
 email: fake@email.com
 archived: true
-description: this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. 
+description: >
+  this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. this is a brief description of some past project. 
 people:
   - krobasky
 online_presence:
