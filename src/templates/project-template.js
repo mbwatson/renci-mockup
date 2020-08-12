@@ -18,6 +18,7 @@ export default ({ data, pageContext }) => {
         projects,
         news,
     }} = data
+    
     const [currentProjects, setCurrentProjects] = useState([])
     const [pastProjects, setPastProjects] = useState([])
     
@@ -27,6 +28,8 @@ export default ({ data, pageContext }) => {
             setPastProjects(projects.filter(project => project.archived))
         }
     }, [projects])
+
+    console.log(currentProjects, pastProjects)
 
     return (
         <Fragment>
@@ -146,6 +149,7 @@ export const projectQuery = graphql`
             projects {
                 id
                 name
+                archived
                 fields {
                     path
                 }
