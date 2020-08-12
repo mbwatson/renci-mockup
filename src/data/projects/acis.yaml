@@ -3,12 +3,11 @@ name: Advanced Cyberinfrastructure Support
 description: Advanced Cyberinfrastructure Support
 featuredImage: null
 people:
-  lead: msliwowski
-  contributors:
-    - rjones
-    - cdickens
-    - lleathers
-    - crutledge
+  - msliwowski
+  - rjones
+  - cdickens
+  - lleathers
+  - crutledge
 projects:
 online_presence:
   url: https://wiki.renci.org/

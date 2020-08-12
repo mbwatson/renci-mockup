@@ -3,19 +3,17 @@ name: Networking Research Infrastructure Group
 featuredImage: nrig.jpg
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 people:
-  lead: ibaldin
-  contributors:
-    - ibaldin
-    - pruth
-    - amandal
-    - mcevik
-    - yxin
-    - exin
-    - szeng
-    - cwong
-    - escott
-    - kthareja
-    - mstealey
+  - ibaldin
+  - pruth
+  - amandal
+  - mcevik
+  - yxin
+  - exin
+  - szeng
+  - cwong
+  - escott
+  - kthareja
+  - mstealey
 projects:
   - chameleon
   - fabric

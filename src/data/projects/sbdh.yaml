@@ -2,11 +2,9 @@ id: sbdh
 name: South Big Data Hub
 description: south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details south big data hub details 
 people:
-  lead: ssuber
-  contributors:
-    - ssuber
-    - dcarsey
-    - ssuber
+  - ssuber
+  - dcarsey
+  - ssuber
 online_presence:
   url: https://southbigdatahub.org/
   github: 

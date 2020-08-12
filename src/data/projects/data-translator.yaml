@@ -3,8 +3,9 @@ name: Data Translator
 email: fake@email.com
 featuredImage: data-translator.jpg
 description: this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator. this is a brief description of data translator.
-lead: 
-members: 
+people:
+  - cbizon
+  - scox
 online_presence:
   url: https://researchsoftwareinstitute.github.io/data-translator/
   github: researchsoftwareinstitute/greendatatranslator

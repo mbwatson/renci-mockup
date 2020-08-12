@@ -4,9 +4,8 @@ description: this is a brief description of chameleon. this is a brief descripti
 email: fake@email.com
 featuredImage: chameleon.jpg
 people:
-  lead: ibaldin
-  contributors:
-    - pruth
+  - ibaldin
+  - pruth
 online_presence:
   url: https://www.chameleoncloud.org
   github: chameleoncloud

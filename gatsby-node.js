@@ -55,7 +55,11 @@ exports.createResolvers = ({ createResolvers }) => {
                 type: ["ProjectsYaml"],
                 resolve(source, args, context, info) {
                     return context.nodeModel.runQuery({
-                        query: { filter: { members: { elemMatch: { id: { eq: source.id } } } } },
+                        query: {
+                            filter: {
+                                people: { contributors: { elemMatch: { id: { eq: source.id } } } },
+                            }
+                        },
                         type: "ProjectsYaml",
                         firstOnly: false,
                     })

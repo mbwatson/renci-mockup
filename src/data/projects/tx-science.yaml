@@ -3,12 +3,10 @@ name: Translational Science
 description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 featuredImage: ./tx-science.jpg
 people:
-  lead: krobasky
-  contributors:
-    - krobasky
-    - hxu
-    - mwatson
-    - sraj
+  - krobasky
+  - hxu
+  - mwatson
+  - sraj
 projects:
   - ctmd
   - precision-dosing

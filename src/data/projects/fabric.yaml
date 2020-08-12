@@ -4,11 +4,10 @@ email: fake@email.com
 description: FABRIC is a unique national research infrastructure to enable cutting-edge and exploratory research at-scale in networking, cybersecurity, distributed computing and storage systems, machine learning, and science applications.
 featuredImage: fabric.jpg
 people:
-  lead: ibaldin
-  contributors:
-    - pruth
-    - btodd
-    - mwatson
+  - ibaldin
+  - pruth
+  - btodd
+  - mwatson
 online_presence:
   url: https://www.fabric-testbed.net/
   github: https://github.com/fabric-testbed

@@ -3,17 +3,16 @@ name: Analytics
 description: lorem ipsum data sciencum
 featuredImage: analytics.jpg
 people:
-  lead: cbizon
-  contributors:
-    - clenhardt
-    - bblanton
-    - lstillwell
-    - kbradford
-    - lchristopherson
-    - sshrivastava
-    - hlander
-    - dborland
-    - jbalhoff
+  - cbizon
+  - clenhardt
+  - bblanton
+  - lstillwell
+  - kbradford
+  - lchristopherson
+  - sshrivastava
+  - hlander
+  - dborland
+  - jbalhoff
 projects:
   - data-translator
   - earth-data-science

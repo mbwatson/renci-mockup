@@ -3,14 +3,12 @@ name: Health Informatics
 description: healthy information
 featuredImage: null
 people:
-  lead: kwilhelmsen
-  contributors:
-    - kwilhelmsen
-    - jtilson
-    - jreilly
-    - xyin
-    - powen
-    - ylin
+  - kwilhelmsen
+  - jtilson
+  - jreilly
+  - xyin
+  - powen
+  - ylin
 projects:
 online_presence:
   url: null

@@ -3,19 +3,18 @@ name: Systems
 description: systems systems systems systems systems 
 featuredImage: systems.jpg
 people:
-  lead: scox
-  contributors:
-    - hxu
-    - mwatson
-    - mshoffner
-    - mkothapalli
-    - amukherjee
-    - igilano
-    - mrajarikam
-    - dsikes
-    - fjiang
-    - okapeljushnik
-    - ccalloway
+  - scox
+  - hxu
+  - mwatson
+  - mshoffner
+  - mkothapalli
+  - amukherjee
+  - igilano
+  - mrajarikam
+  - dsikes
+  - fjiang
+  - okapeljushnik
+  - ccalloway
 projects: 
 online_presence:
   url: null

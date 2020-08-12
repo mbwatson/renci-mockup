@@ -26,7 +26,7 @@ module.exports = {
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            maxWidth: 800,
+                            maxWidth: 1000,
                         },
                     },
                 ], // Plugins configs
@@ -51,16 +51,16 @@ module.exports = {
         // `gatsby-plugin-offline`,
     ],
     mapping: {
+        // PROJECTS
+        "ProjectsYaml.people": `PeopleYaml`, // Link project contributors to people
+        "ProjectsYaml.projects": `ProjectsYaml`, // Show projects in full for group queries
+        // Teams
         "TeamsYaml.members": `PeopleYaml`, // Link team members to people // defaults to PeopleYaml.id unless specified otherwise
         "TeamsYaml.lead": `PeopleYaml`, // Link team leads to person
-        // PROJECTS
-        "ProjectsYaml.people.lead": `PeopleYaml`, // Link project lead to person
-        "ProjectsYaml.people.contributors": `PeopleYaml`, // Link project members to people
-        "ProjectsYaml.projects": `ProjectsYaml`, // Show projects in full for group queries
         // NEWS
-        "MarkdownRemark.frontmatter.author": "PeopleYaml",
-        "MarkdownRemark.frontmatter.people": "PeopleYaml",
-        "MarkdownRemark.frontmatter.projects": "ProjectsYaml",
-        "MarkdownRemark.frontmatter.teams": "TeamsYaml",
+        "MarkdownRemark.frontmatter.author": `PeopleYaml`,
+        "MarkdownRemark.frontmatter.people": `PeopleYaml`,
+        "MarkdownRemark.frontmatter.projects": `ProjectsYaml`,
+        "MarkdownRemark.frontmatter.teams": `TeamsYaml`,
     },
 }

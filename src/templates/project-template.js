@@ -70,16 +70,9 @@ export default ({ data, pageContext }) => {
                     people && (
                         <Section title="Contributors">
                             {
-                                people.lead && (
-                                    <Fragment>
-                                        <ArrowLink to={ `/people/${ people.lead.id }` } text={ `${ people.lead.fullName } (lead)` } /><br/>
-                                    </Fragment>
-                                )
-                            }
-                            {
-                                people.contributors.map(person => (
+                                people.map(person => (
                                     <Fragment key={ person.id }>
-                                        <ArrowLink to={ person.fields.path } text={ person.fullName } /> <br/>
+                                        <ArrowLink to={ person.fields.path } text={ person.fullName } /><br/>
                                     </Fragment>
                                 ))
                             }
@@ -139,19 +132,10 @@ export const projectQuery = graphql`
                 }
             }
             people {
-                lead {
-                    id
-                    fullName
-                    fields {
-                        path
-                    }
-                }
-                contributors {
-                    id
-                    fullName
-                    fields {
-                        path
-                    }
+                id
+                fullName
+                fields {
+                    path
                 }
             }
             online_presence {
