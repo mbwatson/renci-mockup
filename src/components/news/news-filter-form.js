@@ -8,27 +8,13 @@ const Wrapper = styled.div(({ theme }) => `
     padding: ${ theme.spacing.large } 0;
     display: flex;
     flex-direction: column;
-    & > * { 
-        margin: ${ theme.spacing.medium };
-    }
-    & > *:first-child { 
-        margin-top: 0;
-    }
-    & > *:last-child { 
-        margin-bottom: 0;
-    }
+    & > * { flex: 1; }
+    & > *:first-child { margin: 0 0 ${ theme.spacing.medium } 0; }
+    & > *:last-child { margin: ${ theme.spacing.medium } 0 0 0; }
     @media (min-width: 768px) {
         flex-direction: row;
-        & > * { 
-            flex: 1;
-            margin: ${ theme.spacing.medium };
-        }
-        & > *:first-child { 
-            margin: 0 ${ theme.spacing.medium } 0 0;
-        }
-        & > *:last-child { 
-            margin: 0 0 0 ${ theme.spacing.medium };
-        }
+        & > *:first-child { margin: 0 ${ theme.spacing.medium } 0 0; }
+        & > *:last-child { margin: 0 0 0 ${ theme.spacing.medium }; }
     }
 `)
 
