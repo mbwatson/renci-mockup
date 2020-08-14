@@ -15,6 +15,8 @@ const NewsPage = () => {
             
             <Title>News at RENCI</Title>
             
+            <HorizontalRule />
+            
             <NewsFilterForm />
             
             <Section fullWidth>

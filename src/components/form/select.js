@@ -15,15 +15,19 @@ const Wrapper = styled.select(({ theme }) => `
     -moz-appearance: none;
     appearance: none;
     border: 0;
-    border-bottom: 1px solid ${ theme.color.black };
     background: url('${ chevronSvg }') 100% / 24px no-repeat transparent;
+    border-bottom: 1px solid ${ theme.color.grey };
+    &:focus, &:hover {
+        border-color: ${ theme.color.black };
+        filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.1));
+    }
 `)
 
 export const Option = styled.option``
 
-export const Select = ({ name, id, options, ...props }) => {
+export const Select = ({ name, options, ...props }) => {
     return (
-        <Wrapper name={ name } id={ id } { ...props }>
+        <Wrapper name={ name } { ...props }>
             { options.map(({ value, label }) => <Option key={ value } value={ value }>{ label }</Option>) }
         </Wrapper>
     )
@@ -31,7 +35,6 @@ export const Select = ({ name, id, options, ...props }) => {
 
 Select.propTypes = {
     name: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(PropTypes.shape({
         value: PropTypes.number.isRequired,
         label: PropTypes.string.isRequired,
