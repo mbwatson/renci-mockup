@@ -4,6 +4,7 @@ import { Container, Section, HorizontalRule } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { useNews } from '../hooks'
 import { ArticlePreview } from '../components/news'
+import { NewsFilterForm } from '../components/news'
 
 const NewsPage = () => {
     const articles = useNews()
@@ -14,15 +15,8 @@ const NewsPage = () => {
             
             <Title>News at RENCI</Title>
             
-            <Paragraph>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Officia odio, reiciendis adipisci aliquid officiis libero quos alias,
-                distinctio laboriosam aliquam hic, nisi minus obcaecati recusandae esse dolor sequi dolore dolores!
-                Libero aperiam, adipisci cum natus eaque officiis consequatur, laboriosam?
-                Alias fugiat similique officiis eaque minima, vitae atque! Iure nemo,
-                nesciunt cum possimus nulla aut tenetur!
-            </Paragraph>
-
+            <NewsFilterForm />
+            
             <Section fullWidth>
                 {
                     articles.map((article, i) => {
